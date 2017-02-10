@@ -12,6 +12,7 @@
 
 		<!-- Style -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/smartmenus/jquery.smartmenus.bootstrap.css" />
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" QtFileCssIsInMainCss="false" IncludeColorBox="true" />
 
@@ -37,7 +38,7 @@
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
-					<nav class="navbar navbar-default navbar-static-top">
+					<nav class="navbar navbar-default navbar-static-top navbar-site">
 						<div class="container">
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-menu" aria-expanded="false">
@@ -112,6 +113,8 @@
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.min.js" RenderInPlace="true" />
 		<!-- Change Bootstrap plugin names to fix name collision with jQueryUI -->
 		<script>var bstt = $.fn.tooltip.noConflict(); $.fn.bsTooltip = bstt;</script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.bootstrap.min.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/main.min.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/administration.min.js" RenderInPlace="true" VisibleRoles="Authenticated Users" />
 	</body>
