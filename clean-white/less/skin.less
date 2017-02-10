@@ -59,18 +59,26 @@
 		}
 	}
 
+	.navbar-header {
+		align-items: center;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+
+		&::before,
+		&::after {
+			content: none;
+		}
+	}
+
 	.navbar-toggle {
-		margin-top: 40px;
+		order: 2;
 	}
 
 	@media screen and (min-width: @screen-sm) {
 		.nav.navbar-nav > li {
-			> a {
-				font-size: 15px;
-				padding: 0 18px;
-			}
-
 			> a:hover,
+			&.open > a,
 			&.active > a {
 				background-color: transparent;
 				color: @brand-primary;
@@ -93,21 +101,8 @@
 		}
 
 		.navbar-collapse {
+			align-items: center;
 			display: flex !important;
-			flex-flow: row-reverse wrap;
-			flex: 1 1 auto;
-		}
-
-		.navbar-nav {
-			&,
-			li {
-				display: flex;
-			}
-
-			a {
-				align-items: center;
-				display: flex;
-			}
 		}
 	}
 }
