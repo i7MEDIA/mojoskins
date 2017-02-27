@@ -391,7 +391,7 @@ http://foundation.zurb.com/docs/ui.php
 	LiChildSelectedCssClass="active"
 	LiCssClass=""
 	LiSelectedCssClass="active"
-	MaxDataRenderDepth="1"
+	MaxDataRenderDepth="-1"
 	ParentLiCssClass="dropdown-toggle"
 	RenderCustomClassOnAnchor=""
 	RenderCustomClassOnLi=""
