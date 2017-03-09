@@ -758,6 +758,49 @@ body.pagenotfound {
 }
 
 
+// Text Editor Image Classes
+@media (max-width: @screen-xs-max) {
+	.image-left,
+	.image-right {
+		display: block;
+		margin: 0 0 (@line-height-computed / 2);
+		text-align: center;
+
+		img& {
+			display: table;
+			margin: 0 auto (@line-height-computed / 2);
+			vertical-align: top;
+		}
+	}
+}
+
+.image-center {
+	display: block;
+	margin: 0 0 (@line-height-computed / 2);
+	text-align: center;
+}
+
+@media (min-width: @screen-sm) {
+	.image-left {
+		float: left;
+		margin-right: (@line-height-computed / 2);
+	}
+
+	.image-right {
+		float: right;
+		margin-left: (@line-height-computed / 2);
+	}
+}
+
+.image-captioned {
+	figcaption {
+		font-size: small;
+		margin: (@line-height-computed / 2) 0;
+		opacity: 0.7;
+	}
+}
+
+
 
 // Insert and Delete elements
 ins {
