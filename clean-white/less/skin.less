@@ -89,10 +89,11 @@
 	@media (min-width: @grid-float-breakpoint) {
 		.container {
 			display: flex;
+			justify-content: space-between;
 
 			&::before,
 			&::after {
-				flex: none;
+				content: none;
 			}
 		}
 		
