@@ -320,7 +320,6 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 	UseModuleHeadingOnSideColumns="false"
 	DetectSideColumn="true"
 	Element="h2"
-	SideColumnElement="h3"
 	LiteralExtraTopContent=""
 	LiteralExtraBottomContent=""
 	ExtraCssClasses="page-header"
