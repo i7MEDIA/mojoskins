@@ -30,6 +30,32 @@
 	}
 }
 
+// Fix headings inside wells in site settings
+.setting-well {
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 0;
+	}
+
+}
+
+// Add some margins for the host mapping options in site settings
+.hostslist,
+.foldernamelist {
+	margin-top: 20px;
+}
+
+.add-mapping {
+	margin-bottom: 20px;
+}
+
+
+
 
 // Img auto scale
 img {
@@ -513,6 +539,41 @@ body.pagenotfound {
 			}
 		}
 	}
+}
+
+
+// Admin Setting Styles
+.setting-section-title {
+	background-color: @gray-lighter;
+	padding: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.setting-section-body {
+	padding: 10px 15px 0;
+}
+
+// Override Features Styles From Search - For Feature List In Sub-Sites
+.manage-site-features {
+
+	[id*="_upFeatures"] {
+		display: block;
+
+		h3 {
+			font-size: 18px;
+			margin-top: 20px;
+		}
+	}
+
+	.row {
+		margin-bottom: 20px;
+	}
+
+	select {
+		width: 100%;
+	}
+	
 }
 
 
