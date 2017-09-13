@@ -14,6 +14,7 @@
 }
 
 #cboxWrapper {
+	background-color: #fff;
 	max-width: none;
 }
 
@@ -89,7 +90,7 @@
 */
 
 #cboxOverlay {
-	background: #FFF;
+	background: @gray-darker;
 }
 
 #colorbox {
@@ -97,13 +98,21 @@
 }
 
 #cboxContent {
-	background: #000;
+	background: #fff;
 	margin-top: 32px;
 	overflow: visible;
+	padding: 0;
 }
 
 .cboxIframe {
-	background: #FFF;
+	background: #fff;
+
+	// Pull filemanager against edge of modal for stylistic reasons
+	&[src*="/FileManager"] {
+		height: ~"calc(100% + 15px)";
+		margin: 0 -15px -15px;
+		width: ~"calc(100% + 30px)";
+	}
 }
 
 #cboxError {
@@ -112,21 +121,63 @@
 }
 
 #cboxLoadedContent {
-	background: #000;
-	padding: 1px;
+	background: #fff;
+	padding: 15px;
 }
 
 #cboxLoadingGraphic {
-	background: url(img/colorbox/loading.gif) no-repeat scroll 50% 50% transparent;
+	min-height: 120px;
+	position: relative;
+
+	&::before {
+		animation: spin 1s linear infinite;
+		border-radius: 50%;
+		border-top: 16px solid @brand-primary;
+		border: 16px solid #f3f3f3;
+		content: "";
+		display: block;
+		height: 120px;
+		left: 50%;
+		opacity: 1;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 120px;
+	}
+
+
+	&::after {
+		content: "Loading, please wait";
+		display: inline-block;
+		font-size: 18px;
+		left: 50%;
+		margin-top: 90px;
+		opacity: 1;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		white-space: nowrap;
+	}
+
+
+	@keyframes spin {
+		0% {
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+		100% {
+			transform: translate(-50%, -50%) rotate(360deg);
+		}
+	}
 }
 
 #cboxLoadingOverlay {
-	background: #000;
+	background: #fff;
 }
 
 #cboxTitle {
 	color: #000;
-	left: 0;
+	left: 15px;
 	position: absolute;
 	top: -22px;
 }
@@ -140,12 +191,11 @@
 
 
 /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
-
 #cboxPrevious,
 #cboxNext,
 #cboxSlideshow,
 #cboxClose {
-	background: url(img/colorbox/controls.png) no-repeat scroll 0 0 transparent;
+	background: url(img/colorbox/controls.png) no-repeat 0 0;
 	border: 0;
 	height: 20px;
 	margin: 0;
@@ -169,7 +219,7 @@
 
 #cboxPrevious {
 	background-position: 0px 0px;
-	right: 44px;
+	right: 70px;
 }
 
 #cboxPrevious:hover {
@@ -178,7 +228,7 @@
 
 #cboxNext {
 	background-position: -25px 0px;
-	right: 22px;
+	right: 45px;
 }
 
 #cboxNext:hover {
@@ -187,21 +237,16 @@
 
 #cboxClose {
 	background-position: -50px 0px;
-	right: 0;
+	right: 15px;
 }
 
 #cboxClose:hover {
 	background-position: -50px -25px;
 }
 
-.cboxSlideshow_on #cboxPrevious,
-.cboxSlideshow_off #cboxPrevious {
-	right: 66px;
-}
-
 .cboxSlideshow_on #cboxSlideshow {
 	background-position: -75px -25px;
-	right: 44px;
+	right: 95px;
 }
 
 .cboxSlideshow_on #cboxSlideshow:hover {
@@ -210,7 +255,7 @@
 
 .cboxSlideshow_off #cboxSlideshow {
 	background-position: -100px 0px;
-	right: 44px;
+	right: 95px;
 }
 
 .cboxSlideshow_off #cboxSlideshow:hover {
