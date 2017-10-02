@@ -1,0 +1,236 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/App_MasterPages/layout.Master.cs" Inherits="mojoPortal.Web.layout" %>
+<%@ Register TagPrefix="i7MEDIA" TagName="SuperWrapper" Src="~/SuperFlexi/SuperWrapper.ascx" %>
+<!DOCTYPE html>
+<html class="htmlclass"> 
+	<head id="Head1" runat="server">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+		<!--#include file="includes/favicons.html"-->
+		<portal:MetaContent id="MetaContent" runat="server" DisableContentType="true" PreZoomForIPhone="false" />
+
+		<!-- Style -->
+		<link href="//fonts.googleapis.com/css?family=Cormorant+SC:400,700|Noto+Sans:400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/smartmenus/jquery.smartmenus.bootstrap.css" />
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" QtFileCssIsInMainCss="false" IncludeColorBox="true" />
+
+		<!-- Scripts -->
+		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludeSimpleFaq="true" IncludejQueryAccordion="true" />
+		<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
+		<script>$.widget.bridge('uiTooltip', $.ui.tooltip);$.widget.bridge('uiButton', $.ui.button);</script>
+	</head> 
+	<body class="pagebody" id="Body" runat="server">
+		<portal:FacebookSdk id="fbsdk" runat="server" />
+		<portal:AnalyticsAsyncTopScript id="analyticsTop" runat="server" />
+		<portal:LayoutDisplaySettings id="LayoutDisplaySettings1" runat="server" />
+		<form id="frmMain" runat="server" class="main-form">
+			<asp:SiteMapDataSource id="SiteMapData" runat="server" ShowStartingNode="false" />
+			<asp:SiteMapDataSource id="PageMapDataSource" runat="server" ShowStartingNode="false" />
+			<asp:SiteMapDataSource id="ChildPageSiteMapData" runat="server" ShowStartingNode="false" />
+			<asp:ScriptManager id="ScriptManager1" EnablePageMethods="true" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+
+			<!--#include file="includes/browsehappy.html"-->
+			<!--#include file="includes/administration-drawer.html"-->
+			
+			<div class="userbar">
+				<div class="left">
+					<a class="btn btn-red btn-square" href="#"><i class="fa fa-heart"></i> &nbsp; Donate</a>
+					<portal:LoginLink ID="LoginLink" runat="server" RenderAsListItem="false" CssClass=" " />
+					<portal:RegisterLink id="RegisterLink" runat="server" RenderAsListItem="false" CssClass=" bar-left" />
+				</div> 
+				<div class="right">
+					<portal:SearchInput id="SearchInputBar" runat="server" 
+						LinkOnly="false"
+						RenderAsListItem="false"
+						ButtonCssClass="btn btn-link"
+						TextboxCssClass="form-control"
+						OverrideWatermark=" "
+						OverrideButtonText="&#xf002;"
+						UseHeading="false"
+						HideOnLoginPage="false"
+						HideOnPasswordRecoveryPage="false"
+						HideOnRegistrationPage="false"
+						HideOnSearchResultsPage="false" 
+						HideOnSiteSettingsPage="false"
+					/>
+				</div>
+			</div> 
+			<div class="sitewrap">
+				<header class="head" role="banner">
+					<div class="container">
+						<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="site-logo">
+							<portal:SkinFolderImage runat="server" ImageFileName="img/logo.png" AlternateText=" " />
+						</asp:HyperLink>
+						<div class="sitemenu hidden-xs hidden-sm" id="site-menu">
+							<portal:SiteMenu id="SiteMenu1" runat="server" MenuSkinId="MainMenu" UseFlexMenu="true" />
+						</div>
+						<button type="button" class="menu-btn visible-xs visible-sm">
+							<span class="menu-btn-text">Menu</span>
+							<span class="menu-btn-bar first"></span>
+							<span class="menu-btn-bar middle"></span>
+							<span class="menu-btn-bar last"></span>
+						</button> 
+					</div>
+				</header>
+
+
+				<main class="main-content">
+					<% if (Page is CmsPage && currentPage.ShowPageHeading) { %>
+					<div class="pageintro clearfix">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<h2 class="page-title"><portal:PageTitle runat="server" ID="pageTitle1" /></h2>
+								</div>
+								<div class="col-md-6 text-md-right">
+									<portal:Breadcrumbs ID="Breadcrumbs" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<% } %>
+					<portal:LayoutPanel id="divAlt1" runat="server" SkinID="TopPane">
+						<asp:ContentPlaceHolder id="altContent1" runat="server"></asp:ContentPlaceHolder>
+					</portal:LayoutPanel>
+
+					<div class="of-x-hidden">
+						<div class="container">
+							<% if (currentPage != null && !currentPage.ShowPageHeading) { %>
+								<portal:Breadcrumbs ID="Breadcrumbs2" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
+							<% } %>
+
+							<div class="row" id="start-content">
+								<portal:LayoutPanel id="divLeft" runat="server" SkinID="LeftPane">
+									<asp:contentplaceholder id="leftContent" runat="server"></asp:contentplaceholder>
+								</portal:LayoutPanel>
+
+								<portal:LayoutPanel id="divCenter" runat="server" SkinID="CenterPane">
+									<portal:ChildPageMenu id="ChildPageMenu1" runat="server" />
+									<asp:ContentPlaceHolder id="mainContent" runat="server"></asp:ContentPlaceHolder>
+								</portal:LayoutPanel>
+
+								<portal:LayoutPanel id="divRight" runat="server" SkinID="RightPane">
+									<asp:contentplaceholder id="rightContent" runat="server"></asp:contentplaceholder>
+								</portal:LayoutPanel>
+
+								<portal:LayoutPanel id="divAltContent2" runat="server" SkinID="BottomPane">
+									<asp:ContentPlaceHolder id="altContent2" runat="server"></asp:ContentPlaceHolder>
+								</portal:LayoutPanel>
+							</div>
+						</div>
+					</div>
+
+				</main>
+			</div>
+
+			<footer class="foot text-xs-center text-md-left" role="contentinfo">
+				<div class="container">
+					<div class="foot-menu-top">
+						<div class='fb-parent fb-row fb-wrap fb-j-between'>
+							<nav class='foot-menus fb-child fb-shrink fb-grow fb-sm-100 fb-xl-75 fb-parent fb-row fb-wrap fb-j-between'>
+								<i7MEDIA:SuperWrapper ID="FooterCustomMenu" runat="server"
+								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+								ModuleGuidToUse="32758cd4-ac40-410f-9b90-a809f8812289" 
+					            DefaultModuleSettings="{'MarkupDefinitionFile': '~/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25', 'DescendingSortOrder': false}"
+					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 1','ShowTitle': true}" />
+					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu2" runat="server"
+								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+								ModuleGuidToUse="a4337ba5-a9ab-4464-9190-fd4335a35afb" 
+					            DefaultModuleSettings="{'MarkupDefinitionFile': '~/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
+					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 2','ShowTitle': true}" />
+					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu3" runat="server"
+								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+								ModuleGuidToUse="6e8cf289-2e1c-4708-a003-8b23648956d4" 
+					            DefaultModuleSettings="{'MarkupDefinitionFile': '~/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
+					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 3','ShowTitle': true}" />
+					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu4" runat="server"
+								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+								ModuleGuidToUse="a2d3845d-9326-4927-afef-87818be05155" 
+					            DefaultModuleSettings="{'MarkupDefinitionFile': '~/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
+					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 4','ShowTitle': true}" />
+							</nav>
+							<div class="fb-child fb-shrink fb-grow fb-sm-100 fb-xl-25">
+								<i7MEDIA:SuperWrapper ID="SuperWrapperSocialLinks" runat="server"
+									FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+									ModuleGuidToUse="82b44e9f-bf06-41c4-b174-b6c2e50c1f54" 
+						            DefaultModuleSettings="{'MarkupDefinitionFile': '~/Data/SuperFlexi/Solutions/Social Media/social-links.sfMarkup', 'DescendingSortOrder': false}"  
+						            DefaultGeneralSettings="{'ModuleTitle': 'Follow Us','ShowTitle': true}" />
+						    </div>
+					    </div>
+					</div>
+					<div class="foot-menu-bottom">
+						<div class="row">
+							<div class="col-md-5">
+								<p class="copyright">
+									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="true" BeginYear="2017" />
+								</p>
+							</div>
+							<div class="col-md-7 text-md-right">
+								<a href="https://www.mojoportal.com?utm_source=usersite&amp;utm_medium=referral&amp;utm_campaign=poweredbymojo" title="Visit mojoPortal" target="_blank" class="powered-by">
+									<span class='image'>
+										<portal:SkinFolderImage runat="server" ImageFileName="img/mojo-icon.svg" AlternateText="mojoPortal CMS" />
+									</span>
+									<span class="text">
+										Powered by mojoPortal
+									</span>
+								</a>
+								<a href="https://i7media.net/?utm_source=usersite&utm_medium=referral&utm_campaign=DesignByi7" title="Visit i7MEDIA" target="_blank" class="theme-by">
+									<span class='image'>
+										<portal:SkinFolderImage runat="server" ImageFileName="img/i7-icon.svg" AlternateText="i7MEDIA" />
+									</span>
+									<span class="text">
+										Theme by i7MEDIA
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<nav class="menu-drawer">
+				<div class="menu-drawer-inner">
+					<portal:SearchInput id="SearchInputBoxMobile" runat="server" 
+						LinkOnly="false"
+						RenderAsListItem="false"
+						ButtonCssClass="btn btn-link"
+						TextboxCssClass="form-control"
+						OverrideWatermark="enter search terms"
+						OverrideButtonText="&#xf002;"
+						UseHeading="false"
+						HideOnLoginPage="false"
+						HideOnPasswordRecoveryPage="false"
+						HideOnRegistrationPage="false"
+						HideOnSearchResultsPage="false"
+						HideOnSiteSettingsPage="false"
+					/>
+					<portal:SiteMenu id="SiteMenu2" runat="server" MenuSkinId="MobileMenu" UseFlexMenu="true" />
+					<div class="menu-btns">
+						<a class="btn btn-red" href="#"><i class="fa fa-heart"></i> &nbsp; Donate</a>
+						<portal:LoginLink ID="LoginLinkMobile" runat="server" RenderAsListItem="false" CssClass="btn btn-blue fa fa-sign-in" OverrideText="Sign In" />
+						<portal:LogoutLink id="LogoutLinkMobile" runat="server" RenderAsListItem="false" CssClass="btn btn-warning fa fa-sign-out" OverrideText="Sign Out" />
+					</div>
+				</div>
+			</nav>
+
+		</form>
+
+		<portal:AnalyticsAsyncBottomScript id="analyticsBottom" runat="server" />
+
+		<!-- Main Script -->
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.min.js" RenderInPlace="true" />
+		<!-- Change Bootstrap plugin names to fix name collision with jQueryUI -->
+		<script>var bstt = $.fn.tooltip.noConflict(); $.fn.bsTooltip = bstt;</script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.bootstrap.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.tabcollapse.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/main.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/administration.min.js" RenderInPlace="true" VisibleRoles="Authenticated Users" />
+	</body>
+</html>

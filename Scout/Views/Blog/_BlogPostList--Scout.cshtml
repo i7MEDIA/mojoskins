@@ -1,0 +1,59 @@
+﻿@using mojoPortal.Web.Helpers;
+@using mojoPortal.Business;
+
+@model PostListModel
+
+<div class="blog-postlist--heading scout-postlist--heading">
+	<div class="row flex-children flex-center">
+		<div class="col-md-9 text-xs-center text-md-left">
+			<h3 class="moduletitle"><span class="logo-icon white"></span> @Model.ModuleTitle</h3>
+		</div>
+		<div class="col-md-3 text-xs-center text-md-right visible-md visible-lg visible-xl">
+			<a class="btn btn-red" href="@Model.ModulePageUrl">See all posts</a>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-10 col-sm-push-1 col-lg-8 col-lg-push-2">
+		<div class="blog-postlist scout-postlist row fb-parent fb-row fb-ai-stretch fb-ac-stretch fb-wrap">
+			
+			@foreach (var item in Model.Posts)
+			{
+				<div class="col-sm-6 fb-child fb-grow fb-shrink fb-parent fb-row fb-wrap fb-ai-stretch fb-ac-stretch">
+					<article class="blog-postlist__item fb-child fb-grow fb-shrink">
+						@if (!string.IsNullOrWhiteSpace(item.HeadlineImageUrl))
+						{
+							<figure class="blog-postlist__item-featured-image">
+								<img src="@item.HeadlineImageUrl" alt="@item.Title" />
+							</figure>
+						}
+						<header>
+							<h3 class="blog-postlist__title">
+								<a class="blog-postlist__item-link" href="@item.ItemUrl">@item.Title</a>
+							</h3>
+						</header>
+						<p class="blog-postlist__metadata text-italic">
+							@if (item.ShowAuthorName)
+							{
+								<span class="blog-postlist__author-name"> by @item.AuthorDisplayName</span><text>, on</text>
+							}
+							<span class="blog-postlist__date">@item.PostDate.ToString("MMMM dd, yyyy")</span>
+						</p>
+						<div class="blog-postlist__item-body">
+							@if (String.IsNullOrWhiteSpace(item.Excerpt))
+							{
+								@Html.Raw(item.Body)
+							} else {
+								@Html.Raw(item.Excerpt)
+							}
+						</div>
+						<footer>
+							<a class="btn btn-red btn-square" href="@item.ItemUrl">Read More <span class="fa fa-long-arrow-right"></span></a>
+						</footer>
+					</article>
+				</div>
+			}
+		</div>
+	</div>
+</div>
