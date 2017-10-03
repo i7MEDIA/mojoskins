@@ -104,10 +104,6 @@
 
 }
 
-.subtitle + .blogtext > .blog-post__featured-image-figure {
-	margin-top: 0;
-}
-
 
 // Clean category/archive view page headings
 .blogmodule > .moduletitle:first-child {
@@ -464,6 +460,16 @@ div.blogdate {
 
 
 // Comments
+.bcommentpanel .postlistwrap .postcontainer {
+	border: 1px solid @gray-lighter;
+
+	& + .postcontainer {
+		border: 1px solid @gray-lighter;
+		margin-left: 0;
+	}
+
+}
+
 .bcommentpanel {
 	
 	.moduletitle {
@@ -491,7 +497,42 @@ div.blogdate {
 }
 
 .blogcommentservice {
+	padding-top: 70px;
 	position: relative;
+
+	&::before {
+		color: @text-color;
+		content: "Comments";
+		font-size: 24px;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+	}
+
+	&::after {
+		background-color: @brand-success;
+		content: "";
+		display: block;
+		height: 3px;
+		left: 50%;
+		position: absolute;
+		top: @grid-gutter-width;
+		transform: translateX(-50%);	
+		width: 60px;
+	}
+
+}
+
+.comment-manage-approve,
+.comment-manage-delete {
+
+	input {
+		padding: 2px 7px;
+		font-size: 12px;
+
+	}
+
 }
 
 
