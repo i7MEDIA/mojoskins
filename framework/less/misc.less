@@ -1,3 +1,44 @@
+// Ensures aspect ratio on default Site Logos
+.navbar-logo {
+	height: auto;
+	max-height: 300px;
+}
+
+.navbar-brand {
+	height: auto;
+}
+
+// Ensure sitelogo never interrupts positioning of navbar toggle
+@media (max-width: @screen-sm) {
+	.navbar-header {
+	    padding-right: 75px;
+	    position: relative;
+
+		.navbar-toggle {
+			top: 50%;
+		    position: absolute;
+		    right: 0;
+		    transform: translateY(-50%);
+		    margin: 0 15px;
+		}
+
+	}
+}
+
+// Fix the navbar with flexbox enabled on it
+@media (min-width: @screen-sm) {
+	#site-menu.flex-children,
+	#site-menu.fb-parent {
+		display: flex !important;
+
+		.navbar-nav {
+			flex: 0 1 auto;
+		}
+
+	}
+}
+
+
 // Adds a small margin between the system log and the buttons below
 .serverlog textarea {
 	margin-bottom: @form-group-margin-bottom;
@@ -53,8 +94,6 @@
 .add-mapping {
 	margin-bottom: 20px;
 }
-
-
 
 
 // Img auto scale
@@ -225,7 +264,7 @@ img {
 
 
 // Ensure logolist is visible and the img next to it isn't huge
-.logolist {
+.logolist { 
 	select {
 		max-height: auto !important;
 		height: auto !important;
@@ -627,6 +666,13 @@ body.pagenotfound {
 	height: initial;
 	max-height: none;
 }
+
+
+// Prevent negative margin on inputs that are given list-inline by SuperFlexi
+input.list-inline {
+	margin-left: 0;
+}
+
 
 // Pretty Checkbox, Radio, and Toggles
 .formwizard,
