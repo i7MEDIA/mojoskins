@@ -11,13 +11,13 @@
 <%--
     These are for Pro Modules
     ========================= --%>
+<%-- Delete this comment to enable
     <%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
     <%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
     <%@ Register TagPrefix="fundr"  Namespace="sts.FundRaiser.Web.UI" Assembly="sts.FundRaiser.Web.UI" %>
 
     <%@ Register Assembly="sts.FormWizard.Web.UI" Namespace="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
-    <stsfw:ModernButton runat="server" SkinID="InfoButton" CssClass="btn btn-info"/>
-
+--%>
 
 <%--
     IMPORTANT
@@ -35,7 +35,7 @@
     ==================
     To enable, remove comments from the @Register statement for the sts.Web.UI Namespace and the sts:CalendarGrid control below.
     Only enable if Event Calendar Pro is installed. --%>
-
+<%-- Delete this comment to enable
     <sts:CalendarGrid runat="server"
         BackColor=""
         BorderColor=""
@@ -63,11 +63,13 @@
         TodayDayStyle-CssClass="ec-day ec-today"
         WeekendDayStyle-CssClass="ec-day ec-weekend-day"
     />
+--%>
 
 <%--
     Form Wizard Pro
     ===============
 --%>
+<%-- Delete this comment to enable
     <stsfw:FormWizardDisplaySettings runat="server"
         UseHtml5SliderControl="true"
         SaveQuestionProgressHtml="<span class='fa fa-spinner fa-spin'></span>"
@@ -90,12 +92,13 @@
     <portal:BasePanel runat="server" SkinID="FWPOptionControls"
         CssClass="btn-group-vertical"
     />
-
+--%>
 
 <%--
     Fund Raiser Pro
     ===============
 --%>
+<%-- Delete this comment to enable
     <fundr:MainNavigation runat="server"
       CommentCountMarkupFormat="<span class='badge'>{0}</span>"
       ContributorCountMarkupFormat="<span class='badge'>{0}</span>"
@@ -189,6 +192,7 @@
         AmountRaisedFormat="<div class='progress-info'><span class='fr-raised'>{0}</span> raised, by <span class='fr-contribcount'>{1}</span> contributors</div>"
         AmountRaisedFormatWithGoal="<div class='progress-info'><span class='fr-raised'>{0}</span> raised of <span class='fr-goal'> {1}</span>, by <span class='fr-contribcount'>{2}</span> contributors</div>"
     />
+--%>
 
 <portal:LayoutDisplaySettings runat="server"
     LeftSideNoRightSideCss="left-center"
