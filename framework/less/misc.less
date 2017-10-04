@@ -262,9 +262,19 @@ img {
 	max-width: 110px;
 }
 
+.cke_panel_listItem pre {
+	margin: 0;
+	overflow: initial;
+	white-space: normal;
+}
+
+.cke_panel_listItem address {
+	margin: 0;
+}
+
 
 // Ensure logolist is visible and the img next to it isn't huge
-.logolist { 
+.logolist:extend(.settingrow all) { 
 	select {
 		max-height: auto !important;
 		height: auto !important;
@@ -272,7 +282,9 @@ img {
 		& + img,
 		& + svg {
 			max-width: 200px;
+			margin-left: 20px;
 		}
+		
 	}
 }
 
