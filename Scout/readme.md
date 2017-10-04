@@ -1,1 +1,0 @@
-# Scout Theme for mojoPortal
