@@ -63,10 +63,14 @@
 			</div> 
 			<div class="sitewrap">
 				<header class="head" role="banner">
-					<div class="container">
-						<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="site-logo">
-							<portal:SkinFolderImage runat="server" ImageFileName="img/logo.png" AlternateText=" " />
+					<div class="container flex-xs-children flex-xs-center fb-xs-j-between">
+						<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
+						<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="site-logo" />
+						<% } else { %>
+						<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="site-title">
+							<portal:SiteTitle runat="server" SkinId="navbar-brand" />
 						</asp:HyperLink>
+						<% } %>
 						<div class="sitemenu hidden-xs hidden-sm" id="site-menu">
 							<portal:SiteMenu id="SiteMenu1" runat="server" MenuSkinId="MainMenu" UseFlexMenu="true" />
 						</div>
@@ -84,7 +88,7 @@
 					<portal:LayoutPanel id="divAlt1" runat="server" SkinID="TopPane">
 						<asp:ContentPlaceHolder id="altContent1" runat="server"></asp:ContentPlaceHolder>
 					</portal:LayoutPanel>
-					<% if (Page is CmsPage && currentPage.ShowPageHeading) { %>
+					<% if (currentPage != null && currentPage.ShowPageHeading) { %>
 					<div class="pageintro clearfix">
 						<div class="container">
 							<div class="row">

@@ -213,7 +213,7 @@ img {
 
 
 // Ensure logolist is visible and the img next to it isn't huge
-.logolist {
+.logolist:extend(.settingrow all) { 
 	select {
 		max-height: auto !important;
 		height: auto !important;
@@ -221,7 +221,9 @@ img {
 		& + img,
 		& + svg {
 			max-width: 200px;
+			margin-left: 20px;
 		}
+		
 	}
 }
 

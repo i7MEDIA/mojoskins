@@ -3172,6 +3172,7 @@ input[type="search"] {
 .uploadcontainer,
 [id*="pnlNewFolder"],
 [id*="_pnlLookup"],
+.logolist,
 .memberlist .modulesubtitle {
   margin-bottom: 15px;
 }
@@ -10548,6 +10549,7 @@ input[type="file"] {
   .settingrow .form-control,
   .settingrow select.forminput,
   .settingrow input[type="text"].forminput,
+  .logolist .form-control,
   .memberlist .modulesubtitle .form-control {
     display: inline-block;
     width: 260px;
@@ -10556,12 +10558,14 @@ input[type="file"] {
   textarea.settingrow .form-control,
   textarea.settingrow select.forminput,
   textarea.settingrow input[type="text"].forminput,
+  textarea.logolist .form-control,
   textarea.memberlist .modulesubtitle .form-control {
     width: 100%;
   }
   .widetextbox textarea.settingrow .form-control,
   .widetextbox textarea.settingrow select.forminput,
   .widetextbox textarea.settingrow input[type="text"].forminput,
+  .widetextbox textarea.logolist .form-control,
   .widetextbox textarea.memberlist .modulesubtitle .form-control {
     width: 50%;
   }
@@ -10719,6 +10723,7 @@ div.forminput {
   width: 34px;
 }
 .settingrow [type="text"].smalltextbox,
+.logolist [type="text"].smalltextbox,
 .memberlist .modulesubtitle [type="text"].smalltextbox {
   width: 6em;
 }
@@ -10826,6 +10831,8 @@ div.forminput {
 }
 .settingrow > input[type="checkbox"],
 .settingrow > span.forminput > input[type="checkbox"],
+.logolist > input[type="checkbox"],
+.logolist > span.forminput > input[type="checkbox"],
 .memberlist .modulesubtitle > input[type="checkbox"],
 .memberlist .modulesubtitle > span.forminput > input[type="checkbox"] {
   margin-top: 10px;
@@ -10999,7 +11006,6 @@ a.mhelp img {
 .text-indent-3 {
   text-indent: 80px;
 }
-.logolist,
 .pageicons,
 .fsubcribe1,
 .moduleIconsList {
@@ -12424,6 +12430,13 @@ div.blogdate .tagslabel::before {
     text-align: center;
   }
 }
+.bcommentpanel .postlistwrap .postcontainer {
+  border: 1px solid #dbe9f2;
+}
+.bcommentpanel .postlistwrap .postcontainer + .postcontainer {
+  border: 1px solid #dbe9f2;
+  margin-left: 0;
+}
 .bcommentpanel .moduletitle {
   font-family: "Noto Sans", Helvetica, Arial, sans-serif;
   color: #73797d;
@@ -12445,7 +12458,35 @@ div.blogdate .tagslabel::before {
   width: 60px;
 }
 .blogcommentservice {
+  padding-top: 70px;
   position: relative;
+}
+.blogcommentservice::before {
+  color: #73797d;
+  content: "Comments";
+  font-size: 24px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.blogcommentservice::after {
+  background-color: #5cb85c;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  top: 50px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 60px;
+}
+.comment-manage-approve input,
+.comment-manage-delete input {
+  padding: 2px 7px;
+  font-size: 12px;
 }
 @media (min-width: 992px) {
   .blogmodule .blogwrapper {
@@ -12504,6 +12545,7 @@ div.blogdate .tagslabel::before {
   margin: 0;
 }
 .commenteditpanel .settingrow:last-child,
+.commenteditpanel .logolist:last-child,
 .commenteditpanel .memberlist .modulesubtitle:last-child {
   margin-bottom: 0;
 }
@@ -13868,6 +13910,7 @@ a.jp-shuffle-off:hover {
   list-style: none;
 }
 .formwizlist fieldset.formwizard .settingrow:last-child,
+.formwizlist fieldset.formwizard .logolist:last-child,
 .formwizlist fieldset.formwizard .memberlist .modulesubtitle:last-child {
   margin-bottom: 0;
 }
@@ -13876,10 +13919,12 @@ a.jp-shuffle-off:hover {
   margin-right: 10px;
 }
 .questioncontainer .settingrow,
+.questioncontainer .logolist,
 .questioncontainer .memberlist .modulesubtitle {
   clear: both;
 }
 .questioncontainer .settingrow:last-child,
+.questioncontainer .logolist:last-child,
 .questioncontainer .memberlist .modulesubtitle:last-child {
   margin-bottom: 0;
 }
@@ -14371,11 +14416,13 @@ a.jp-shuffle-off:hover {
   font-size: 16px !important;
 }
 .pagebody.loginpage .settingrow[id$="_divCaptcha"] + .buttonrow,
+.pagebody.loginpage .logolist[id$="_divCaptcha"] + .buttonrow,
 .pagebody.loginpage .memberlist .modulesubtitle[id$="_divCaptcha"] + .buttonrow {
   width: 100%;
   text-align: center;
 }
 .pagebody.loginpage .settingrow[id$="_divCaptcha"] + .buttonrow + .registerrow,
+.pagebody.loginpage .logolist[id$="_divCaptcha"] + .buttonrow + .registerrow,
 .pagebody.loginpage .memberlist .modulesubtitle[id$="_divCaptcha"] + .buttonrow + .registerrow {
   widows: 100%;
   text-align: center;
@@ -14608,6 +14655,7 @@ a.jp-shuffle-off:hover {
   margin-bottom: 10px;
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow,
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14627,6 +14675,7 @@ a.jp-shuffle-off:hover {
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .operationheading,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .addcontent > strong,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .settinglabel,
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey .operationheading,
@@ -14648,6 +14697,7 @@ a.jp-shuffle-off:hover {
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .operationheading::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .addcontent > strong::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .settinglabel::before,
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey .operationheading::before,
@@ -14665,6 +14715,7 @@ a.jp-shuffle-off:hover {
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .operationheading::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .addcontent > strong::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .settinglabel::before,
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey label::before,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow .survey .operationheading::before,
@@ -14672,6 +14723,7 @@ a.jp-shuffle-off:hover {
   font-size: 16px;
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow br,
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist br,
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle br {
   display: none;
   -webkit-box-flex: 0;
@@ -14679,6 +14731,7 @@ a.jp-shuffle-off:hover {
   flex: 0 1 0%;
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .settingrow input[type="text"],
+.pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .logolist input[type="text"],
 .pagebody.passwordrecovery .login [id$="_pnlRecover"] h2 + .memberlist .modulesubtitle input[type="text"] {
   border-radius: 0 4px 4px 0;
   border: 1px solid #b1c4d0;
@@ -14696,6 +14749,7 @@ a.jp-shuffle-off:hover {
   margin: 0;
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow,
+.pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .logolist,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .memberlist .modulesubtitle {
   font-size: 20px;
 }
@@ -14703,6 +14757,7 @@ a.jp-shuffle-off:hover {
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .operationheading,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .addcontent > strong,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .settinglabel,
+.pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .logolist label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .memberlist .modulesubtitle label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .survey label,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .survey .operationheading,
@@ -14714,6 +14769,7 @@ a.jp-shuffle-off:hover {
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .operationheading::after,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .addcontent > strong::after,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .settinglabel::after,
+.pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .logolist label::after,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .memberlist .modulesubtitle label::after,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .survey label::after,
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow .survey .operationheading::after,
@@ -14721,10 +14777,12 @@ a.jp-shuffle-off:hover {
   content: ":";
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow input[type="text"],
+.pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .logolist input[type="text"],
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .memberlist .modulesubtitle input[type="text"] {
   margin-top: 4px;
 }
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .settingrow input[type="submit"],
+.pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .logolist input[type="submit"],
 .pagebody.passwordrecovery .login [id$="_pnlRecover2"] h2 + .memberlist .modulesubtitle input[type="submit"] {
   margin-top: 20px;
 }
@@ -14762,6 +14820,7 @@ a.jp-shuffle-off:hover {
   vertical-align: middle;
 }
 .pagebody.changepassword .login .settingrow [id$="_CancelPushButton"],
+.pagebody.changepassword .login .logolist [id$="_CancelPushButton"],
 .pagebody.changepassword .login .memberlist .modulesubtitle [id$="_CancelPushButton"] {
   display: inline-block;
   margin-top: 10px;
@@ -15375,6 +15434,7 @@ img {
   margin-left: -4px;
 }
 .settingrow.InstanceFeaturedImage .image-selector,
+.logolist.InstanceFeaturedImage .image-selector,
 .memberlist .modulesubtitle.InstanceFeaturedImage .image-selector {
   font-size: 16px;
   margin-left: -4px;
@@ -15473,6 +15533,7 @@ img {
 .logolist select + img,
 .logolist select + svg {
   max-width: 200px;
+  margin-left: 20px;
 }
 .ie9 img[src*=".svg"] {
   width: 100%;
@@ -16120,9 +16181,9 @@ body {
 }
 .head {
   background-color: #fff;
+  height: 93px;
   border-bottom: 1px solid #dbe9f2;
   color: white;
-  height: 93px;
   margin-bottom: 50px;
   padding: 25px;
 }
@@ -16159,10 +16220,11 @@ body {
 }
 .head .sitemenu > ul > li:hover > a,
 .head .sitemenu > ul > li.open > a,
+.head .sitemenu > ul > li.active > a,
 .head .sitemenu > ul > li > a:hover,
 .head .sitemenu > ul > li > a:active {
   background: transparent;
-  color: #1b3545;
+  color: #ee4939;
 }
 .head .sitemenu > ul > li > a {
   font-size: 16px;
@@ -16230,6 +16292,25 @@ body {
   vertical-align: middle;
   line-height: 40px;
 }
+.site-title {
+  float: left;
+  color: #1b3545;
+  font-size: 30px;
+  font-family: "Cormorant SC", "Times New Roman", Georgia, Times, serif;
+  min-height: 40px;
+  vertical-align: middle;
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 1 auto !important;
+  flex: 0 1 auto !important;
+  justify-self: flex-start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.site-title:hover {
+  color: #ee4939;
+  text-decoration: none;
+}
 .userbar {
   display: none;
 }
@@ -16244,6 +16325,10 @@ body {
   height: 41px;
   padding: 0 8px;
   position: relative;
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 1 auto !important;
+  flex: 0 1 auto !important;
+  justify-self: flex-end;
 }
 .menu-btn:focus {
   outline: none;
@@ -16584,6 +16669,9 @@ body {
 }
 .top-pane .content-slider-module:first-child {
   margin-top: -50px;
+}
+.content-slider {
+  min-width: 360px;
 }
 .content-slider__item {
   position: relative;
@@ -17386,6 +17474,7 @@ address .address-element .address-label {
   }
 }
 .grid-form [id$="_pnlQuestions"] .settingrow:not([class*="col-"]),
+.grid-form [id$="_pnlQuestions"] .logolist:not([class*="col-"]),
 .grid-form [id$="_pnlQuestions"] .memberlist .modulesubtitle:not([class*="col-"]) {
   position: relative;
   min-height: 1px;
@@ -17394,18 +17483,23 @@ address .address-element .address-label {
 }
 @media (min-width: 992px) {
   .grid-form [id$="_pnlQuestions"] .settingrow:not([class*="col-"]),
+  .grid-form [id$="_pnlQuestions"] .logolist:not([class*="col-"]),
   .grid-form [id$="_pnlQuestions"] .memberlist .modulesubtitle:not([class*="col-"]) {
     float: left;
     width: 100%;
   }
 }
 .grid-form [id$="_pnlQuestions"] .settingrow:last-child,
+.grid-form [id$="_pnlQuestions"] .logolist:last-child,
 .grid-form [id$="_pnlQuestions"] .memberlist .modulesubtitle:last-child {
   margin-bottom: 25px;
 }
 .grid-form .settingrow input[type="text"],
 .grid-form .settingrow select,
 .grid-form .settingrow textarea,
+.grid-form .logolist input[type="text"],
+.grid-form .logolist select,
+.grid-form .logolist textarea,
 .grid-form .memberlist .modulesubtitle input[type="text"],
 .grid-form .memberlist .modulesubtitle select,
 .grid-form .memberlist .modulesubtitle textarea {
@@ -17499,6 +17593,7 @@ address .address-element .address-label {
   margin-bottom: 60px;
 }
 .pages-to-columns .settingrow.btn-row,
+.pages-to-columns .logolist.btn-row,
 .pages-to-columns .memberlist .modulesubtitle.btn-row {
   text-align: center;
 }
@@ -17555,20 +17650,25 @@ address .address-element .address-label {
   margin-top: 0;
 }
 .icon-inputs .settingrow[class*="fa-"]::before,
+.icon-inputs .logolist[class*="fa-"]::before,
 .icon-inputs .memberlist .modulesubtitle[class*="fa-"]::before {
   display: none;
 }
 .icon-inputs.js-icon-enabled .settingrow,
+.icon-inputs.js-icon-enabled .logolist,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle {
   padding-top: 15px;
   position: relative;
 }
 .icon-inputs.js-icon-enabled .settingrow:not(.instructions),
+.icon-inputs.js-icon-enabled .logolist:not(.instructions),
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle:not(.instructions) {
   margin-bottom: 30px;
 }
 .icon-inputs.js-icon-enabled .settingrow input[type="text"],
 .icon-inputs.js-icon-enabled .settingrow textarea,
+.icon-inputs.js-icon-enabled .logolist input[type="text"],
+.icon-inputs.js-icon-enabled .logolist textarea,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle input[type="text"],
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle textarea {
   height: 33px;
@@ -17593,6 +17693,8 @@ address .address-element .address-label {
 .icon-inputs.js-icon-enabled .settingrow textarea + .settinglabel,
 .icon-inputs.js-icon-enabled .settingrow input[type="text"] + .survey label,
 .icon-inputs.js-icon-enabled .settingrow textarea + .survey label,
+.icon-inputs.js-icon-enabled .logolist input[type="text"] + .settinglabel,
+.icon-inputs.js-icon-enabled .logolist textarea + .settinglabel,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle input[type="text"] + .settinglabel,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle textarea + .settinglabel,
 .icon-inputs.js-icon-enabled .settingrow input[type="text"] + .survey .operationheading,
@@ -17614,6 +17716,8 @@ address .address-element .address-label {
 .icon-inputs.js-icon-enabled .settingrow textarea + .settinglabel::after,
 .icon-inputs.js-icon-enabled .settingrow input[type="text"] + .survey label::after,
 .icon-inputs.js-icon-enabled .settingrow textarea + .survey label::after,
+.icon-inputs.js-icon-enabled .logolist input[type="text"] + .settinglabel::after,
+.icon-inputs.js-icon-enabled .logolist textarea + .settinglabel::after,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle input[type="text"] + .settinglabel::after,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle textarea + .settinglabel::after,
 .icon-inputs.js-icon-enabled .settingrow input[type="text"] + .survey .operationheading::after,
@@ -17627,10 +17731,12 @@ address .address-element .address-label {
   vertical-align: super;
 }
 .icon-inputs.js-icon-enabled .settingrow textarea,
+.icon-inputs.js-icon-enabled .logolist textarea,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle textarea {
   height: 130px;
 }
 .icon-inputs.js-icon-enabled .settingrow .txterror,
+.icon-inputs.js-icon-enabled .logolist .txterror,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle .txterror {
   display: none !important;
 }
@@ -17642,6 +17748,10 @@ address .address-element .address-label {
 .icon-inputs.js-icon-enabled .settingrow.hastext textarea + .survey label,
 .icon-inputs.js-icon-enabled .settingrow input[type="text"]:focus + .survey label,
 .icon-inputs.js-icon-enabled .settingrow textarea:focus + .survey label,
+.icon-inputs.js-icon-enabled .logolist.hastext input[type="text"] + .settinglabel,
+.icon-inputs.js-icon-enabled .logolist.hastext textarea + .settinglabel,
+.icon-inputs.js-icon-enabled .logolist input[type="text"]:focus + .settinglabel,
+.icon-inputs.js-icon-enabled .logolist textarea:focus + .settinglabel,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle.hastext input[type="text"] + .settinglabel,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle.hastext textarea + .settinglabel,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle input[type="text"]:focus + .settinglabel,
@@ -17666,16 +17776,20 @@ address .address-element .address-label {
 }
 .icon-inputs.js-icon-enabled .settingrow.require.invalid input[type="text"],
 .icon-inputs.js-icon-enabled .settingrow.require.invalid textarea,
+.icon-inputs.js-icon-enabled .logolist.require.invalid input[type="text"],
+.icon-inputs.js-icon-enabled .logolist.require.invalid textarea,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle.require.invalid input[type="text"],
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle.require.invalid textarea {
   border: 0 none;
   border-bottom: 1px solid #d9534f;
 }
 .icon-inputs.js-icon-enabled .settingrow[class*="fa-"],
+.icon-inputs.js-icon-enabled .logolist[class*="fa-"],
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle[class*="fa-"] {
   position: relative;
 }
 .icon-inputs.js-icon-enabled .settingrow[class*="fa-"]::before,
+.icon-inputs.js-icon-enabled .logolist[class*="fa-"]::before,
 .icon-inputs.js-icon-enabled .memberlist .modulesubtitle[class*="fa-"]::before {
   color: #3288b0;
   font-family: FontAwesome;
@@ -17714,6 +17828,7 @@ address .address-element .address-label {
 .formwizard .settingrow .operationheading,
 .formwizard .settingrow .addcontent > strong,
 .formwizard .settingrow .settinglabel,
+.formwizard .logolist label,
 .formwizard .memberlist .modulesubtitle label,
 .formwizard .settingrow .survey label,
 .formwizard .settingrow .survey .operationheading,
@@ -17725,6 +17840,7 @@ address .address-element .address-label {
 .formwizard .settingrow.require > .operationheading::after,
 .formwizard .settingrow.require > .addcontent > strong::after,
 .formwizard .settingrow.require > .settinglabel::after,
+.formwizard .logolist.require > label::after,
 .formwizard .memberlist .modulesubtitle.require > label::after,
 .formwizard .settingrow.require > .survey label::after,
 .formwizard .settingrow.require > .survey .operationheading::after,
@@ -17736,6 +17852,9 @@ address .address-element .address-label {
 .formwizard .settingrow.require.invalid input[type="text"],
 .formwizard .settingrow.require.invalid select,
 .formwizard .settingrow.require.invalid textarea,
+.formwizard .logolist.require.invalid input[type="text"],
+.formwizard .logolist.require.invalid select,
+.formwizard .logolist.require.invalid textarea,
 .formwizard .memberlist .modulesubtitle.require.invalid input[type="text"],
 .formwizard .memberlist .modulesubtitle.require.invalid select,
 .formwizard .memberlist .modulesubtitle.require.invalid textarea {
@@ -20141,9 +20260,11 @@ object {
 .foot .foot-menus .quick-links__items li a.flexi-item-edit:hover {
   color: #367a36;
 }
-.foot h4 {
+.foot .moduletitle {
   font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 24px;
   margin-bottom: 20px;
+  margin-top: 0;
 }
 .sm-clean {
   background: #fff;
@@ -20158,7 +20279,7 @@ object {
   text-decoration: none;
 }
 .sm-clean a.current {
-  color: #1b3545;
+  color: #ee4939;
 }
 .sm-clean a.disabled {
   color: #cccccc;
@@ -20283,10 +20404,10 @@ object {
   .sm-clean a:focus,
   .sm-clean a:active,
   .sm-clean a.highlighted {
-    color: #1b3545;
+    color: #ee4939;
   }
   .sm-clean a.current {
-    color: #1b3545;
+    color: #ee4939;
   }
   .sm-clean a.disabled {
     color: #cccccc;
@@ -20356,17 +20477,17 @@ object {
   .sm-clean ul a:active,
   .sm-clean ul a.highlighted {
     background: #dbe9f2;
-    color: #1b3545;
+    color: #ee4939;
   }
   .sm-clean ul li.active a:hover,
   .sm-clean ul li.active a:focus,
   .sm-clean ul li.active a:active,
   .sm-clean ul li.active a.highlighted {
-    background: #224357;
+    background: #f05f50;
     color: #fff;
   }
   .sm-clean ul a.current {
-    color: #1b3545;
+    color: #ee4939;
   }
   .sm-clean ul a.disabled {
     background: #fff;
@@ -20496,6 +20617,311 @@ object {
     background: #fff;
   }
 }
+.flex-xs-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: flex-xs-end;
+  -ms-flex-align: flex-xs-end;
+  align-items: flex-xs-end;
+}
+.flex-xs-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.flex-xs-children {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex-xs-children > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.flex-xs-row {
+  flex-xs-flow: row wrap;
+}
+.flex-xs-column {
+  flex-xs-flow: column wrap;
+}
+.flex-xs-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.flex-xs-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.fb-xs-parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.fb-xs-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.fb-xs-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.fb-xs-wrap {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.fb-xs-nowrap {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.fb-xs-ai-start {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.fb-xs-ai-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+.fb-xs-ai-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.fb-xs-ai-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.fb-xs-ai-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.fb-xs-ac-start {
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+.fb-xs-ac-baseline {
+  -ms-flex-line-pack: baseline;
+  align-content: baseline;
+}
+.fb-xs-ac-center {
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+.fb-xs-ac-end {
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+}
+.fb-xs-ac-stretch {
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+.fb-xs-j-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.fb-xs-j-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.fb-xs-j-around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+.fb-xs-j-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.fb-xs-j-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.fb-xs-as-start {
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+.fb-xs-as-baseline {
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+}
+.fb-xs-as-center {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+.fb-xs-as-end {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+.fb-xs-as-stretch {
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+.fb-xs-child {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+.fb-xs-grow {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.fb-xs-shrink {
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+.nav.nav-pills.flex-xs-children li + li,
+.nav.nav-pills.fb-xs-parent li + li {
+  margin-left: 0;
+}
+.row.flex-xs-children::before,
+.row.fb-xs-parent::before,
+.row.flex-xs-children::after,
+.row.fb-xs-parent::after,
+.fileoperations.flex-xs-children::before,
+.fileoperations.fb-xs-parent::before,
+.fileoperations.flex-xs-children::after,
+.fileoperations.fb-xs-parent::after,
+.fileselection.flex-xs-children::before,
+.fileselection.fb-xs-parent::before,
+.fileselection.flex-xs-children::after,
+.fileselection.fb-xs-parent::after {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+.fb-xs-25:not(.flex-children),
+.fb-xs-25.flex-children > * {
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
+}
+.fb-xs-33:not(.flex-children),
+.fb-xs-33.flex-children > * {
+  -ms-flex-preferred-size: 33%;
+  flex-basis: 33%;
+}
+.fb-xs-40:not(.flex-children),
+.fb-xs-40.flex-children > * {
+  -ms-flex-preferred-size: 40%;
+  flex-basis: 40%;
+}
+.fb-xs-50:not(.flex-children),
+.fb-xs-50.flex-children > * {
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+.fb-xs-60:not(.flex-children),
+.fb-xs-60.flex-children > * {
+  -ms-flex-preferred-size: 60%;
+  flex-basis: 60%;
+}
+.fb-xs-66:not(.flex-children),
+.fb-xs-66.flex-children > * {
+  -ms-flex-preferred-size: 66%;
+  flex-basis: 66%;
+}
+.fb-xs-75:not(.flex-children),
+.fb-xs-75.flex-children > * {
+  -ms-flex-preferred-size: 75%;
+  flex-basis: 75%;
+}
+.fb-xs-100:not(.flex-children),
+.fb-xs-100.flex-children > * {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+.order-xs-1 {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+.order-xs-2 {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+.order-xs-3 {
+  -webkit-box-ordinal-group: 4;
+  -ms-flex-order: 3;
+  order: 3;
+}
+.order-xs-4 {
+  -webkit-box-ordinal-group: 5;
+  -ms-flex-order: 4;
+  order: 4;
+}
+.order-xs-5 {
+  -webkit-box-ordinal-group: 6;
+  -ms-flex-order: 5;
+  order: 5;
+}
+.order-xs-6 {
+  -webkit-box-ordinal-group: 7;
+  -ms-flex-order: 6;
+  order: 6;
+}
+.order-xs-7 {
+  -webkit-box-ordinal-group: 8;
+  -ms-flex-order: 7;
+  order: 7;
+}
+.order-xs-8 {
+  -webkit-box-ordinal-group: 9;
+  -ms-flex-order: 8;
+  order: 8;
+}
+.order-xs-9 {
+  -webkit-box-ordinal-group: 10;
+  -ms-flex-order: 9;
+  order: 9;
+}
+.order-xs-10 {
+  -webkit-box-ordinal-group: 11;
+  -ms-flex-order: 10;
+  order: 10;
+}
+.order-xs-11 {
+  -webkit-box-ordinal-group: 12;
+  -ms-flex-order: 11;
+  order: 11;
+}
+.order-xs-12 {
+  -webkit-box-ordinal-group: 13;
+  -ms-flex-order: 12;
+  order: 12;
+}
+.order-xs-13 {
+  -webkit-box-ordinal-group: 14;
+  -ms-flex-order: 13;
+  order: 13;
+}
+.order-xs-14 {
+  -webkit-box-ordinal-group: 15;
+  -ms-flex-order: 14;
+  order: 14;
+}
+.order-xs-15 {
+  -webkit-box-ordinal-group: 16;
+  -ms-flex-order: 15;
+  order: 15;
+}
 @media (min-width: 768px) {
   .head .container {
     padding-left: 25px;
@@ -20560,6 +20986,7 @@ object {
     clear: left;
   }
   .formwizard .captchadiv + .settingrow,
+  .formwizard .captchadiv + .logolist,
   .formwizard .captchadiv + .memberlist .modulesubtitle {
     width: 50%;
     float: left;
@@ -20836,9 +21263,9 @@ object {
   .fileselection.fb-parent::before,
   .fileselection.flex-children::after,
   .fileselection.fb-parent::after {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
   }
   .fb-sm-25:not(.flex-children),
   .fb-sm-25.flex-children > * {
@@ -21692,6 +22119,7 @@ object {
     border-left: 1px solid #e9eff3;
   }
   .pages-to-columns .settingrow.btn-row,
+  .pages-to-columns .logolist.btn-row,
   .pages-to-columns .memberlist .modulesubtitle.btn-row {
     text-align: left;
   }

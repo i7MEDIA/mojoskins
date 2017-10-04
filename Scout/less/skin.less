@@ -68,9 +68,9 @@ body {
 .head {
 	background-color: #fff;
 	.clearfix();
+	height: 93px;
 	border-bottom: 1px solid @gray-lighter;
 	color: white;
-	height: 93px;
 	margin-bottom: @grid-gutter-width;
 	padding: (@grid-gutter-width / 2);
 
@@ -94,10 +94,11 @@ body {
 
 				&:hover > a,
 				&.open > a,
+				&.active > a,
 				> a:hover,
 				> a:active {
 					background: transparent;
-					color: @brand-primary;
+					color: @red;
 				}
 
 				> a {
@@ -199,6 +200,26 @@ body {
 	line-height: 40px;
 }
 
+.site-title {
+	float: left;
+	color: @brand-primary;
+	font-size: 30px;
+	font-family: @font-family-serif;
+	min-height: 40px;
+	vertical-align: middle;
+    flex: 0 1 auto !important;
+    justify-self: flex-start;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+	&:hover {
+		color: @red;
+		text-decoration: none;
+	}
+
+}
+
 
 // Hide userbar on mobile
 .userbar {
@@ -218,6 +239,8 @@ body {
 	height: 41px;
 	padding: 0 8px;
 	position: relative;
+	flex: 0 1 auto !important;
+	justify-self: flex-end;
  
 	&:focus {
 		outline: none;
@@ -564,6 +587,10 @@ body {
 // Banner slider
 .top-pane .content-slider-module:first-child {
 	margin-top: -50px;
+}
+
+.content-slider {
+	min-width: 360px;
 }
 
 .content-slider__item {
@@ -3060,7 +3087,9 @@ object {
 
 	.moduletitle {
 		font-family: @font-family-base;
+		font-size: 24px;
 		margin-bottom: 20px;
+		margin-top: 0;
 	}
 
 }
@@ -3079,7 +3108,7 @@ object {
 	text-decoration: none;
 }
 .sm-clean a.current {
-	color: @brand-primary;
+	color: @red;
 }
 .sm-clean a.disabled {
 	color: #cccccc;
@@ -3198,10 +3227,10 @@ object {
 	}
 
 	.sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active, .sm-clean a.highlighted {
-		color: @brand-primary;
+		color: @red;
 	}
 	.sm-clean a.current {
-		color: @brand-primary;
+		color: @red;
 	}
 	.sm-clean a.disabled {
 		color: #cccccc;
@@ -3265,14 +3294,14 @@ object {
 	}
 	.sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:active, .sm-clean ul a.highlighted {
 		background: @nav-link-hover-bg;
-		color: @brand-primary;
+		color: @red;
 	}
 	.sm-clean ul li.active a:hover, .sm-clean ul li.active a:focus, .sm-clean ul li.active a:active, .sm-clean ul li.active a.highlighted {
-		background: lighten(@brand-primary, 5%);
+		background: lighten(@red, 5%);
 		color: #fff;
 	}
 	.sm-clean ul a.current {
-		color: @brand-primary;
+		color: @red;
 	}
 	.sm-clean ul a.disabled {
 		background: #fff;
@@ -3394,6 +3423,227 @@ object {
 		background: #fff;
 	}
 
+}
+
+
+// Specific classes to enable flexbox at mobile+ sizes
+// Grouped Syntax
+.flex-xs-end {
+  display: flex;
+  align-items: flex-xs-end;
+}
+
+.flex-xs-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-xs-children {
+  display: flex;
+
+  > * {
+    flex: 1 1 auto;
+  }
+
+}
+
+.flex-xs-row {
+  flex-xs-flow: row wrap;
+}
+
+.flex-xs-column {
+  flex-xs-flow: column wrap;
+}
+
+.flex-xs-stretch {
+  align-items: stretch;
+}
+
+.flex-xs-center {
+  justify-content: center;
+}
+
+// Individual Syntax
+.fb-xs-parent {display: flex;}
+.fb-xs-row    {flex-direction: row;}
+.fb-xs-column {flex-direction: column;}
+.fb-xs-wrap   {flex-wrap: wrap;}
+.fb-xs-nowrap {flex-wrap: nowrap;}
+
+
+// Align Items
+.fb-xs-ai-start    {align-items: flex-start;}
+.fb-xs-ai-baseline {align-items: baseline;}
+.fb-xs-ai-center   {align-items: center;}
+.fb-xs-ai-end      {align-items: flex-end;}
+.fb-xs-ai-stretch  {align-items: stretch;}
+
+
+// Align Content
+
+.fb-xs-ac-start    {align-content: flex-start;}
+.fb-xs-ac-baseline {align-content: baseline;}
+.fb-xs-ac-center   {align-content: center;}
+.fb-xs-ac-end      {align-content: flex-end;}
+.fb-xs-ac-stretch  {align-content: stretch;}
+
+
+// Justify Content
+.fb-xs-j-start   {justify-content: flex-start;}
+.fb-xs-j-center  {justify-content: center;}
+.fb-xs-j-around  {justify-content: space-around;}
+.fb-xs-j-between {justify-content: space-between;}
+.fb-xs-j-end     {justify-content: flex-end;}
+
+
+// Align Self
+.fb-xs-as-start    {align-self: flex-start;}
+.fb-xs-as-baseline {align-self: baseline;}
+.fb-xs-as-center   {align-self: center;}
+.fb-xs-as-end      {align-self: flex-end;}
+.fb-xs-as-stretch  {align-self: stretch;}
+
+
+// Child Flex
+.fb-xs-child    {flex: 0 0 auto;}
+.fb-xs-grow   {flex-grow: 1;}
+.fb-xs-shrink {flex-shrink: 1;}
+
+
+// Fix bootstrap nav with flexbox styles applied
+.nav.nav-pills.flex-xs-children,
+.nav.nav-pills.fb-xs-parent {
+  li+li {
+    margin-left: 0;
+  }
+}
+
+// Fix bootstrap row with flexbox styles applied
+.row.flex-xs-children,
+.row.fb-xs-parent {
+  &::before,
+  &::after {
+    flex: 0 0 auto;
+  }
+}
+
+
+// Flexbox Grid Classes
+.fb-xs-25 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 25%;
+  }
+}
+
+.fb-xs-33 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 33%;
+  }
+}
+
+.fb-xs-40 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 40%;
+  }
+}
+
+.fb-xs-50 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 50%;
+  }
+}
+
+.fb-xs-60 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 60%;
+  }
+}
+
+.fb-xs-66 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 66%;
+  }
+}
+
+.fb-xs-75 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 75%;
+  }
+}
+
+.fb-xs-100 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 100%;
+  }
+}
+
+// Flex based re-order
+.order-xs-1 {
+  order: 1;
+}
+
+.order-xs-2 {
+  order: 2;
+}
+
+.order-xs-3 {
+  order: 3;
+}
+
+.order-xs-4 {
+  order: 4;
+}
+
+.order-xs-5 {
+  order: 5;
+}
+
+.order-xs-6 {
+  order: 6;
+}
+
+.order-xs-7 {
+  order: 7;
+}
+
+.order-xs-8 {
+  order: 8;
+}
+
+.order-xs-9 {
+  order: 9;
+}
+
+.order-xs-10 {
+  order: 10;
+}
+
+.order-xs-11 {
+  order: 11;
+}
+
+.order-xs-12 {
+  order: 12;
+}
+
+.order-xs-13 {
+  order: 13;
+}
+
+.order-xs-14 {
+  order: 14;
+}
+
+.order-xs-15 {
+  order: 15;
 }
 
 
@@ -3681,7 +3931,7 @@ object {
 	.row.fb-parent {
 		&::before,
 		&::after {
-			flex: 1 1 auto;
+			flex: 0 0 auto;
 		}
 	}
 

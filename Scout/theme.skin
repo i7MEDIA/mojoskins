@@ -563,6 +563,11 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
     UseElement="false"
 />
 
+<portal:SiteTitle runat="server" SkinId="site-title"
+    UseLink="true"
+    UseElement="false"
+/>
+
 <portal:SiteTitle runat="server" SkinId="HiddenTitle"
     Element="h1"
     IncludeStandardClasses="false"
