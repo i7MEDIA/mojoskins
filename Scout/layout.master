@@ -65,7 +65,7 @@
 				<header class="head" role="banner">
 					<div class="container flex-xs-children flex-xs-center fb-xs-j-between">
 						<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
-						<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="site-logo" />
+						<portal:SiteLogo runat="server" ImageCssClass="site-logo-img" LinkCssClass="site-logo" />
 						<% } else { %>
 						<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="site-title">
 							<portal:SiteTitle runat="server" SkinId="navbar-brand" />
