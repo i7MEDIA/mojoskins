@@ -68,7 +68,7 @@ body {
 .head {
 	background-color: #fff;
 	.clearfix();
-	height: 93px;
+	height: 93px; // You will need to change this based on your site logo height
 	border-bottom: 1px solid @gray-lighter;
 	color: white;
 	margin-bottom: @grid-gutter-width;
@@ -194,11 +194,17 @@ body {
 .site-logo { 
 	float: left;
 	max-width: 50%;
-	min-height: 40px;
+	max-height: 50px; // You will need to change this based on your logo - but remember to change the height on .head and the top position on .menu-drawer as well!
 	vertical-align: middle;
-	line-height: 40px;
 	flex: 0 1 auto !important;
 	justify-self: flex-start;
+
+	img {
+		max-height: 100% !important;
+		width: auto !important;
+		max-width: 100% !important;
+	}
+
 }
 
 .site-title {
@@ -316,7 +322,7 @@ body {
 	font-weight: 300;
 	left: 0;
 	position: absolute;
-	top: 93px;
+	top: 93px; // You will need to change this based on your logo - but remember to change the height on .head as well!
 	transform: translateX(-100%);
 	transform-style: preserve-3d;
 	transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4057,6 +4063,7 @@ object {
 
 		.site-logo {
 			margin: 5px 0;
+			max-height: 100px; // You will need to change this based on your logo
 		}
 
 		.container {
@@ -4074,7 +4081,6 @@ object {
 
 			.site-logo {
 				flex: 0 1 auto;
-				max-width: 200px;
 			}
 
 			.sitemenu {
@@ -4655,10 +4661,6 @@ object {
 	// Header
 	.head {
 
-		.site-logo {
-			width: 200px;
-		}
-
 		// Desktop Menu
 		.sitemenu {
 			
@@ -4992,7 +4994,6 @@ object {
 	.head {
 
 		.site-logo {
-			width: 200px;
 			margin: 0;
 		}
 
