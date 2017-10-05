@@ -553,6 +553,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <portal:mojoButton runat="server" SkinID="InfoButtonSmall" CssClass="btn btn-xs btn-info" />
 <portal:mojoButton runat="server" SkinID="ModalCloseButton" CssClass="btn btn-default" />
 <portal:mojoButton runat="server" SkinID="ModalXButton" CssClass="close" />
+<portal:mojoButton runat="server" SkinID="ExportButton" CssClass="btn btn-xs btn-default" />
 
 <asp:HyperLink runat="server" SkinID="TextButton" CssClass="btn btn-link"/>
 <asp:HyperLink runat="server" SkinID="TextButtonSmall" CssClass="btn btn-link btn-xs" />
