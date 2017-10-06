@@ -35,12 +35,13 @@
 
 			<!--#include file="includes/browsehappy.html"-->
 			<!--#include file="includes/administration-drawer.html"-->
+			<!--#include file="../../../../skin-changer/skin-changer.html"-->
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
 					<nav class="navbar navbar-default navbar-static-top navbar-site">
-						<div class="container">
-							<div class="navbar-header">
+						<div class="container flex-children flex-stretch">
+							<div class="navbar-header fb-parent fb-row fb-ai-center fb-j-start fb-sm-33">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-menu" aria-expanded="false">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
@@ -48,12 +49,16 @@
 									<span class="icon-bar"></span>
 								</button>
 
+								<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
+								<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="navbar-brand navbar-logo" />
+								<% } else { %>
 								<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="navbar-brand">
 									<portal:SiteTitle runat="server" SkinId="navbar-brand" />
 								</asp:HyperLink>
+								<% } %>
 							</div>
 
-							<div class="collapse navbar-collapse" id="site-menu">
+							<div class="collapse navbar-collapse fb-parent fb-row fb-j-end fb-ai-center fb-sm-66" id="site-menu">
 								<portal:SiteMenu id="SiteMenu1" runat="server" MenuSkinId="MainMenu" UseFlexMenu="true" />
 							</div>
 						</div>
@@ -100,6 +105,7 @@
 						</div>
 						<div class="col-sm-6 text-xs-center text-sm-right">
 							<portal:LoginLink id="LoginLink" runat="server" RenderAsListItem="false" />
+							<portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" />
 						</div>
 					</div>
 					<br>

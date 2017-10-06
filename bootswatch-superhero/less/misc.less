@@ -1,3 +1,44 @@
+// Ensures aspect ratio on default Site Logos
+.navbar-logo {
+	height: auto;
+	max-height: 300px;
+}
+
+.navbar-brand {
+	height: auto;
+}
+
+// Ensure sitelogo never interrupts positioning of navbar toggle
+@media (max-width: @screen-sm) {
+	.navbar-header {
+	    padding-right: 75px;
+	    position: relative;
+
+		.navbar-toggle {
+			top: 50%;
+		    position: absolute;
+		    right: 0;
+		    transform: translateY(-50%);
+		    margin: 0 15px;
+		}
+
+	}
+}
+
+// Fix the navbar with flexbox enabled on it
+@media (min-width: @screen-sm) {
+	#site-menu.flex-children,
+	#site-menu.fb-parent {
+		display: flex !important;
+
+		.navbar-nav {
+			flex: 0 1 auto;
+		}
+
+	}
+}
+
+
 // Adds a small margin between the system log and the buttons below
 .serverlog textarea {
 	margin-bottom: @form-group-margin-bottom;
@@ -28,6 +69,30 @@
 		display: block;
 		margin: 0 0 10px;
 	}
+}
+
+// Fix headings inside wells in site settings
+.setting-well {
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 0;
+	}
+
+}
+
+// Add some margins for the host mapping options in site settings
+.hostslist,
+.foldernamelist {
+	margin-top: 20px;
+}
+
+.add-mapping {
+	margin-bottom: 20px;
 }
 
 
@@ -197,9 +262,19 @@ img {
 	max-width: 110px;
 }
 
+.cke_panel_listItem pre {
+	margin: 0;
+	overflow: initial;
+	white-space: normal;
+}
+
+.cke_panel_listItem address {
+	margin: 0;
+}
+
 
 // Ensure logolist is visible and the img next to it isn't huge
-.logolist {
+.logolist:extend(.settingrow all) { 
 	select {
 		max-height: auto !important;
 		height: auto !important;
@@ -207,7 +282,9 @@ img {
 		& + img,
 		& + svg {
 			max-width: 200px;
+			margin-left: 20px;
 		}
+		
 	}
 }
 
@@ -516,6 +593,41 @@ body.pagenotfound {
 }
 
 
+// Admin Setting Styles
+.setting-section-title {
+	background-color: @gray-lighter;
+	padding: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.setting-section-body {
+	padding: 10px 15px 0;
+}
+
+// Override Features Styles From Search - For Feature List In Sub-Sites
+.manage-site-features {
+
+	[id*="_upFeatures"] {
+		display: block;
+
+		h3 {
+			font-size: 18px;
+			margin-top: 20px;
+		}
+	}
+
+	.row {
+		margin-bottom: 20px;
+	}
+
+	select {
+		width: 100%;
+	}
+	
+}
+
+
 // jQuery Component containers Overrides
 .ui-widget {
 	font-family: @font-family-base;
@@ -566,6 +678,13 @@ body.pagenotfound {
 	height: initial;
 	max-height: none;
 }
+
+
+// Prevent negative margin on inputs that are given list-inline by SuperFlexi
+input.list-inline {
+	margin-left: 0;
+}
+
 
 // Pretty Checkbox, Radio, and Toggles
 .formwizard,
