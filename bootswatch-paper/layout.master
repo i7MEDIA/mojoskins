@@ -35,7 +35,6 @@
 
 			<!--#include file="includes/browsehappy.html"-->
 			<!--#include file="includes/administration-drawer.html"-->
-			<!--#include file="../../../../skin-changer/skin-changer.html"-->
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
