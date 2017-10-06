@@ -103,7 +103,11 @@
 			var _this = this;
 
 			if (this.getCookie === null || this.getCookie == 'open') {
-				this.open(['active', 'refresh'], 'open');
+				if ($(window).width() >= 768) {
+					this.open(['active', 'refresh'], 'open');
+				} else {
+					_this.close('active', 'close');
+				}
 
 				setTimeout(function() {
 					_this.drawer().classList.remove('refresh');

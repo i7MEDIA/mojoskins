@@ -1,3 +1,10 @@
+.blog-post__featured-image-figure {
+	border: 1px solid @gray-lighter;
+	padding: 15px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
 .blogitem {
 	margin-bottom: 60px;
 }
@@ -31,7 +38,7 @@ h3.subtitle {
 }
 
 .blogtitle {
-	font-size: @font-size-h2;
+    font-size: @font-size-h2;
 }
 
 .blogitem {
@@ -49,6 +56,10 @@ h3.subtitle {
 		margin-top: 0;
 	}
 }
+
+.blogtext:extend(.clearfix all),
+.blogitem .authorinfo(.clearfix all),
+.blogdate(.clearfix all) {}
 
 .blogcommentlink {
 	display: none;
@@ -84,16 +95,4 @@ div.blogdate {
 
 .paddiv {
 	display: none;
-}
-
-.blogtext {
-	img[style="float: right;"] {
-		margin-left: (@grid-gutter-width / 2);
-		margin-bottom: (@line-height-computed / 2);
-	}
-
-	img[style="float: left;"] {
-		margin-right: (@grid-gutter-width / 2);
-		margin-bottom: (@line-height-computed / 2);
-	}
 }

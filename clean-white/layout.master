@@ -39,6 +39,7 @@
 
 			<!--#include file="includes/browsehappy.html"-->
 			<!--#include file="includes/administration-drawer.html"-->
+			<!--#include file="../../../../skin-changer/skin-changer.html"-->
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
@@ -57,47 +58,13 @@
 									<span class="icon-bar"></span>
 								</button>
 
-								<%-- Here we're placing a little logic to dynamically set a logo, or use the site title as the site brand. --%>
-								<% if (String.IsNullOrWhiteSpace(theSiteSettings.Logo) || theSiteSettings.Logo == ".Use Site Name") { %>
-									<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="navbar-brand">
-										<portal:SiteTitle runat="server" SkinID="navbar-brand" />
-									</asp:HyperLink>
-								<% }
-								else
-								{
-									string logoVirtualPath = "~/Data/Sites/" + theSiteSettings.SiteId +
-										(WebConfigSettings.SiteLogoUseMediaFolder ? "/media/logos/" : "/logos/") +
-										theSiteSettings.Logo;
-									string logoExt = System.IO.Path.GetExtension(logoVirtualPath);
-									string logoHref = logoVirtualPath.Replace("~", string.Empty);
-
-									if (logoExt != ".svg") {
-										string serverPath = Server.MapPath(logoVirtualPath);
-										System.Drawing.Image logo = System.Drawing.Image.FromFile(serverPath);
-
-										Response.Write(
-											String.Format("<a class='navbar-brand' href='{4}'><img src=\"{0}\" alt='{1}' height='{2}' width='{3}'/></a>",
-												logoHref,
-												theSiteSettings.SiteName,
-												logo.Height,
-												logo.Width,
-												SiteUtils.GetNavigationSiteRoot() + "/"
-											)
-										);
-									}
-									else
-									{
-										Response.Write(
-											String.Format("<a class='navbar-brand' href='{3}' style='height: {2};'><img src=\"{0}\" alt='{1}'/></a>",
-												logoHref,
-												theSiteSettings.SiteName,
-												"130px",
-												SiteUtils.GetNavigationSiteRoot() + "/"
-											)
-										);
-									}
-								}
-							%>
+								<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
+								<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="navbar-brand navbar-logo" />
+								<% } else { %>
+								<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="navbar-brand">
+									<portal:SiteTitle runat="server" SkinId="navbar-brand" />
+								</asp:HyperLink>
+								<% } %>
 							</div>
 
 							<div class="collapse navbar-collapse" id="site-menu">
@@ -149,7 +116,8 @@
 				<div class="container">
 					<p>
 						<small><portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="true" BeginYear="2015" /></small> |
-						<small><portal:LoginLink id="LoginLink" runat="server" RenderAsListItem="false" /></small> |
+						<small><portal:LoginLink id="LoginLink" runat="server" RenderAsListItem="false" /></small>
+						<small><portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" /></small> |
 						<small>Creative Design by <a href="http://i7media.net/?utm_source=usersite&utm_medium=referral&utm_campaign=DesignByi7" style="text-transform: initial;">i7MEDIA</a></small>
 					</p>
 				</div>
