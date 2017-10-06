@@ -1,0 +1,690 @@
+// 
+// Flex Blox Class Library
+// --------------------------------------------------
+
+// Specific classes to enable flexbox at mobile+ sizes
+.fb-xs-parent {display: flex;}
+.fb-xs-row    {flex-direction: row;}
+.fb-xs-column {flex-direction: column;}
+.fb-xs-wrap   {flex-wrap: wrap;}
+.fb-xs-nowrap {flex-wrap: nowrap;}
+
+
+// Align Items
+.fb-xs-ai-start    {align-items: flex-start;}
+.fb-xs-ai-baseline {align-items: baseline;}
+.fb-xs-ai-center   {align-items: center;}
+.fb-xs-ai-end      {align-items: flex-end;}
+.fb-xs-ai-stretch  {align-items: stretch;}
+
+
+// Align Content
+
+.fb-xs-ac-start    {align-content: flex-start;}
+.fb-xs-ac-baseline {align-content: baseline;}
+.fb-xs-ac-center   {align-content: center;}
+.fb-xs-ac-end      {align-content: flex-end;}
+.fb-xs-ac-stretch  {align-content: stretch;}
+
+
+// Justify Content
+.fb-xs-j-start   {justify-content: flex-start;}
+.fb-xs-j-center  {justify-content: center;}
+.fb-xs-j-around  {justify-content: space-around;}
+.fb-xs-j-between {justify-content: space-between;}
+.fb-xs-j-end     {justify-content: flex-end;}
+
+
+// Align Self
+.fb-xs-as-start    {align-self: flex-start;}
+.fb-xs-as-baseline {align-self: baseline;}
+.fb-xs-as-center   {align-self: center;}
+.fb-xs-as-end      {align-self: flex-end;}
+.fb-xs-as-stretch  {align-self: stretch;}
+
+
+// Child Flex
+.fb-xs-child    {flex: 0 0 auto;}
+.fb-xs-grow   {flex-grow: 1;}
+.fb-xs-shrink {flex-shrink: 1;}
+
+// Grouped Syntax
+.flex-xs-end {
+  display: flex;
+  align-items: flex-xs-end;
+}
+
+.flex-xs-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-xs-children {
+  display: flex;
+
+  > * {
+    flex: 1 1 auto;
+  }
+
+}
+
+.flex-xs-row {
+  flex-xs-flow: row wrap;
+}
+
+.flex-xs-column {
+  flex-xs-flow: column wrap;
+}
+
+.flex-xs-stretch {
+  align-items: stretch;
+}
+
+.flex-xs-center {
+  justify-content: center;
+}
+
+// Fix bootstrap nav with flexbox styles applied
+.nav.nav-pills.flex-xs-children,
+.nav.nav-pills.fb-xs-parent {
+  li+li {
+    margin-left: 0;
+  }
+}
+
+// Fix bootstrap row with flexbox styles applied
+.row.flex-xs-children,
+.row.fb-xs-parent {
+  &::before,
+  &::after {
+    flex: 0 0 auto;
+  }
+}
+
+
+// Flexbox Grid Classes
+.fb-xs-25 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 25%;
+  }
+}
+
+.fb-xs-33 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 33%;
+  }
+}
+
+.fb-xs-40 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 40%;
+  }
+}
+
+.fb-xs-50 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 50%;
+  }
+}
+
+.fb-xs-60 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 60%;
+  }
+}
+
+.fb-xs-66 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 66%;
+  }
+}
+
+.fb-xs-75 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 75%;
+  }
+}
+
+.fb-xs-100 {
+  &:not(.flex-children),
+  &.flex-children > * {
+    flex-basis: 100%;
+  }
+}
+
+// Flex based re-order
+.order-xs-1 {
+  order: 1;
+}
+
+.order-xs-2 {
+  order: 2;
+}
+
+.order-xs-3 {
+  order: 3;
+}
+
+.order-xs-4 {
+  order: 4;
+}
+
+.order-xs-5 {
+  order: 5;
+}
+
+.order-xs-6 {
+  order: 6;
+}
+
+.order-xs-7 {
+  order: 7;
+}
+
+.order-xs-8 {
+  order: 8;
+}
+
+.order-xs-9 {
+  order: 9;
+}
+
+.order-xs-10 {
+  order: 10;
+}
+
+.order-xs-11 {
+  order: 11;
+}
+
+.order-xs-12 {
+  order: 12;
+}
+
+.order-xs-13 {
+  order: 13;
+}
+
+.order-xs-14 {
+  order: 14;
+}
+
+.order-xs-15 {
+  order: 15;
+}
+
+
+// Begin defaults at screen-sm, that way it has no effect on phone portrait views
+@media (min-width: @screen-sm) {
+  // Flex Parent
+  .fb-parent {display: flex;}
+  .fb-row    {flex-direction: row;}
+  .fb-column {flex-direction: column;}
+  .fb-wrap   {flex-wrap: wrap;}
+  .fb-nowrap {flex-wrap: nowrap;}
+
+
+  // Align Items
+  .fb-ai-start    {align-items: flex-start;}
+  .fb-ai-baseline {align-items: baseline;}
+  .fb-ai-center   {align-items: center;}
+  .fb-ai-end      {align-items: flex-end;}
+  .fb-ai-stretch  {align-items: stretch;}
+
+
+  // Align Content
+
+  .fb-ac-start    {align-content: flex-start;}
+  .fb-ac-baseline {align-content: baseline;}
+  .fb-ac-center   {align-content: center;}
+  .fb-ac-end      {align-content: flex-end;}
+  .fb-ac-stretch  {align-content: stretch;}
+
+
+  // Justify Content
+  .fb-j-start   {justify-content: flex-start;}
+  .fb-j-center  {justify-content: center;}
+  .fb-j-around  {justify-content: space-around;}
+  .fb-j-between {justify-content: space-between;}
+  .fb-j-end     {justify-content: flex-end;}
+
+
+  // Align Self
+  .fb-as-start    {align-self: flex-start;}
+  .fb-as-baseline {align-self: baseline;}
+  .fb-as-center   {align-self: center;}
+  .fb-as-end      {align-self: flex-end;}
+  .fb-as-stretch  {align-self: stretch;}
+
+
+  // Child Flex
+  .fb-child    {flex: 0 0 auto;}
+  .fb-grow   {flex-grow: 1;}
+  .fb-shrink {flex-shrink: 1;}
+
+  // Grouped Syntax
+  .flex-end {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .flex-children {
+    display: flex;
+
+    > * {
+      flex: 1 1 auto;
+    }
+
+  }
+
+  .flex-row {
+    flex-flow: row wrap;
+  }
+
+  .flex-column {
+    flex-flow: column wrap;
+  }
+
+  .flex-stretch {
+    align-items: stretch;
+  }
+
+  .flex-center {
+    justify-content: center;
+  }
+
+
+  // Fix bootstrap nav with flexbox styles applied
+  .nav.nav-pills.flex-children,
+  .nav.nav-pills.fb-parent {
+    li+li {
+      margin-left: 0;
+    }
+  }
+
+  // Fix bootstrap row with flexbox styles applied
+  .row.flex-children,
+  .row.fb-parent {
+    &::before,
+    &::after {
+      flex: 0 0 auto;
+    }
+  }
+
+
+  // Flexbox Grid Classes
+  .fb-sm-25 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 25%;
+    }
+  }
+
+  .fb-sm-33 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 33%;
+    }
+  }
+
+  .fb-sm-40 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 40%;
+    }
+  }
+
+  .fb-sm-50 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 50%;
+    }
+  }
+
+  .fb-sm-60 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 60%;
+    }
+  }
+
+  .fb-sm-66 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 66%;
+    }
+  }
+
+  .fb-sm-75 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 75%;
+    }
+  }
+
+  .fb-sm-100 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 100%;
+    }
+  }
+
+  // Flex based re-order
+  .order-sm-1 {
+    order: 1;
+  }
+
+  .order-sm-2 {
+    order: 2;
+  }
+
+  .order-sm-3 {
+    order: 3;
+  }
+
+  .order-sm-4 {
+    order: 4;
+  }
+
+  .order-sm-5 {
+    order: 5;
+  }
+
+  .order-sm-6 {
+    order: 6;
+  }
+
+  .order-sm-7 {
+    order: 7;
+  }
+
+  .order-sm-8 {
+    order: 8;
+  }
+
+  .order-sm-9 {
+    order: 9;
+  }
+
+  .order-sm-10 {
+    order: 10;
+  }
+
+  .order-sm-11 {
+    order: 11;
+  }
+
+  .order-sm-12 {
+    order: 12;
+  }
+
+  .order-sm-13 {
+    order: 13;
+  }
+
+  .order-sm-14 {
+    order: 14;
+  }
+
+  .order-sm-15 {
+    order: 15;
+  }
+}
+
+// screen-md
+@media (min-width: @screen-md) {
+  // 
+  // Flex Blox Class Library
+  // --------------------------------------------------
+  .fb-md-25 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 25%;
+    }
+  }
+
+  .fb-md-33 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 33%;
+    }
+  }
+
+  .fb-md-40 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 40%;
+    }
+  }
+
+  .fb-md-50 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 50%;
+    }
+  }
+  
+  .fb-md-60 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 60%;
+    }
+  }
+
+  .fb-md-66 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 66%;
+    }
+  }
+
+  .fb-md-75 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 75%;
+    }
+  }
+
+  .fb-md-100 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 100%;
+    }
+  }
+
+  // Flex reorder
+  .order-md-1 {
+    order: 1;
+  }
+
+  .order-md-2 {
+    order: 2;
+  }
+
+  .order-md-3 {
+    order: 3;
+  }
+
+  .order-md-4 {
+    order: 4;
+  }
+
+  .order-md-5 {
+    order: 5;
+  }
+
+  .order-md-6 {
+    order: 6;
+  }
+
+  .order-md-7 {
+    order: 7;
+  }
+
+  .order-md-8 {
+    order: 8;
+  }
+
+  .order-md-9 {
+    order: 9;
+  }
+
+  .order-md-10 {
+    order: 10;
+  }
+
+  .order-md-11 {
+    order: 11;
+  }
+
+  .order-md-12 {
+    order: 12;
+  }
+
+  .order-md-13 {
+    order: 13;
+  }
+
+  .order-md-14 {
+    order: 14;
+  }
+
+  .order-md-15 {
+    order: 15;
+  }
+}
+
+// screen-lg
+@media (min-width: @screen-lg) {
+  // 
+  // Flex Blox Class Library
+  // --------------------------------------------------
+  .fb-lg-25 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 25%;
+    }
+  }
+
+  .fb-lg-33 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 33%;
+    }
+  }
+
+  .fb-lg-40 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 40%;
+    }
+  }
+
+  .fb-lg-50 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 50%;
+    }
+  }
+
+  .fb-lg-60 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 60%;
+    }
+  }
+
+  .fb-lg-66 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 66%;
+    }
+  }
+
+  .fb-lg-75 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 75%;
+    }
+  }
+
+  .fb-lg-100 {
+    &:not(.flex-children),
+    &.flex-children > * {
+      flex-basis: 100%;
+    }
+  }
+
+  // Flex Reorder
+  .order-lg-1 {
+    order: 1;
+  }
+
+  .order-lg-2 {
+    order: 2;
+  }
+
+  .order-lg-3 {
+    order: 3;
+  }
+
+  .order-lg-4 {
+    order: 4;
+  }
+
+  .order-lg-5 {
+    order: 5;
+  }
+
+  .order-lg-6 {
+    order: 6;
+  }
+
+  .order-lg-7 {
+    order: 7;
+  }
+
+  .order-lg-8 {
+    order: 8;
+  }
+
+  .order-lg-9 {
+    order: 9;
+  }
+
+  .order-lg-10 {
+    order: 10;
+  }
+
+  .order-lg-11 {
+    order: 11;
+  }
+
+  .order-lg-12 {
+    order: 12;
+  }
+
+  .order-lg-13 {
+    order: 13;
+  }
+
+  .order-lg-14 {
+    order: 14;
+  }
+
+  .order-lg-15 {
+    order: 15;
+  }
+}
