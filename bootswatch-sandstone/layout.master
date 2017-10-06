@@ -35,6 +35,7 @@
 
 			<!--#include file="includes/browsehappy.html"-->
 			<!--#include file="includes/administration-drawer.html"-->
+			<!--#include file="../../../../skin-changer/skin-changer.html"-->
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
@@ -104,7 +105,6 @@
 						</div>
 						<div class="col-sm-6 text-xs-center text-sm-right">
 							<portal:LoginLink id="LoginLink" runat="server" RenderAsListItem="false" />
-							<portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" />
 						</div>
 					</div>
 					<br>
