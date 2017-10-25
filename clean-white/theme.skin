@@ -86,11 +86,12 @@
 	RenderFieldset="false"
 	ReorderItemCssClass="fwp-reorder-list__item panel panel-default panel-body"
 	ReorderTemplateCssClass="fwp-reorder-list__template panel panel-default panel-body"
-	/>
+	ReorderTemplateJavaScript="<script>;function pageLoad(e,t){var o=document.getElementById('reorderPlaceholder');o.parentNode.style.marginBottom=window.getComputedStyle(o).getPropertyValue('margin-bottom')}</script>"
+/>
 
-	<portal:BasePanel runat="server" SkinID="FWPOptionControls"
-		CssClass="btn-group-vertical"
-	/>
+<portal:BasePanel runat="server" SkinID="FWPOptionControls"
+	CssClass="btn-group-vertical"
+/>
 
 <portal:BasePanel runat="server" SkinID="FWPForm"
 	CssClass="fwp__form"
