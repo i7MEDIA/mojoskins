@@ -18,8 +18,11 @@
 
 		<!-- Scripts -->
 		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludeSimpleFaq="true" IncludejQueryAccordion="true" />
-		<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.2.1.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" ScriptRefFormat="<script>window.jQuery.ui || document.write('<link rel='stylesheet' href=\'{0}\'>')</script>" RenderInPlace="true" />
 		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
 		<script>$.widget.bridge('uiTooltip', $.ui.tooltip);$.widget.bridge('uiButton', $.ui.button);</script>
 	</head>
@@ -117,8 +120,8 @@
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.min.js" RenderInPlace="true" />
 		<!-- Change Bootstrap plugin names to fix name collision with jQueryUI -->
 		<script>var bstt = $.fn.tooltip.noConflict(); $.fn.bsTooltip = bstt;</script>
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.min.js" RenderInPlace="true" />
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/smartmenus/jquery.smartmenus.bootstrap.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/smartmenus/jquery.smartmenus.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.min.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/main.min.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/administration.min.js" RenderInPlace="true" VisibleRoles="Authenticated Users" />
 	</body>
