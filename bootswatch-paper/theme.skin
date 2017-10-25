@@ -65,28 +65,62 @@
 <%--
 	Form Wizard Pro
 	===============
-	<stsfw:FormWizardDisplaySettings runat="server"
-		UseHtml5SliderControl="true"
-		SaveQuestionProgressHtml="<span class='fa fa-spinner fa-spin'></span>"
-		InstructionBlockFormat="<div class='settingrow fw-instructions'>{0}</div>"
-		OptionUpButtonCssClass="fw-option-up btn btn-xs btn-default"
-		OptionDownButtonCssClass="fw-option-down btn btn-xs btn-default"
-		OptionEditButtonCssClass="fw-option-edit btn btn-xs btn-default"
-		OptionDeleteButtonCssClass="fw-option-delete btn btn-xs btn-default"
-		OptionAZSortButtonCssClass="fw-option-sort-az btn btn-xs btn-default"
-		OptionZASortButtonCssClass="fw-option-sort-za btn btn-xs btn-default"
-		OptionResetSortButtonCssClass="fw-option-sort-reset btn btn-xs btn-default"
-		OptionUpButtonInnerHtml="<i class='fa fa-arrow-up'></i>"
-		OptionDownButtonInnerHtml="<i class='fa fa-arrow-down'></i>"
-		OptionEditButtonInnerHtml="<i class='fa fa-pencil-square-o'></i>"
-		OptionDeleteButtonInnerHtml="<i class='fa fa-trash-o'></i>"
-		OptionAZSortButtonInnerHtml="<i class='fa fa-sort-alpha-asc'></i>"
-		OptionZASortButtonInnerHtml="<i class='fa fa-sort-alpha-desc'></i>"
-		OptionResetSortButtonInnerHtml="<i class='fa fa-refresh'></i>"
-	/>
-	<portal:BasePanel runat="server" SkinID="FWPOptionControls"
-		CssClass="btn-group-vertical"
-	/>
+<stsfw:FormWizardDisplaySettings runat="server"
+	UseHtml5SliderControl="true"
+	SaveQuestionProgressHtml="<span class='fa fa-spinner fa-spin'></span>"
+	OptionUpButtonCssClass="fw-option-up btn btn-xs btn-default"
+	OptionDownButtonCssClass="fw-option-down btn btn-xs btn-default"
+	OptionEditButtonCssClass="fw-option-edit btn btn-xs btn-default"
+	OptionDeleteButtonCssClass="fw-option-delete btn btn-xs btn-default"
+	OptionAZSortButtonCssClass="fw-option-sort-az btn btn-xs btn-default"
+	OptionZASortButtonCssClass="fw-option-sort-za btn btn-xs btn-default"
+	OptionResetSortButtonCssClass="fw-option-sort-reset btn btn-xs btn-default"
+	OptionUpButtonInnerHtml="<i class='fa fa-arrow-up'></i>"
+	OptionDownButtonInnerHtml="<i class='fa fa-arrow-down'></i>"
+	OptionEditButtonInnerHtml="<i class='fa fa-pencil-square-o'></i>"
+	OptionDeleteButtonInnerHtml="<i class='fa fa-trash-o'></i>"
+	OptionAZSortButtonInnerHtml="<i class='fa fa-sort-alpha-asc'></i>"
+	OptionZASortButtonInnerHtml="<i class='fa fa-sort-alpha-desc'></i>"
+	OptionResetSortButtonInnerHtml="<i class='fa fa-refresh'></i>"
+	
+	RenderFieldset="false"
+	ReorderItemCssClass="fwp-reorder-list__item panel panel-default panel-body"
+	ReorderTemplateCssClass="fwp-reorder-list__template panel panel-default panel-body"
+/>
+
+<portal:BasePanel runat="server" SkinID="FWPOptionControls"
+	CssClass="btn-group-vertical"
+/>
+
+<portal:BasePanel runat="server" SkinID="FWPForm"
+	CssClass="fwp__form"
+	RenderID="false"
+/>
+
+<portal:BasePanel runat="server" SkinID="FWPFormQuestions"
+	CssClass="fwp__form-questions"
+	RenderID="false"
+/>
+
+<portal:FormGroupPanel runat="server" SkinID="FWPFormQuestion"
+	CssClass="form-group"
+/>
+
+<portal:FormGroupPanel runat="server" SkinID="FWPFormInstructions"
+	CssClass="form-group"
+/>
+
+<portal:FormGroupPanel runat="server" SkinID="FWPFormToEmail"
+	CssClass="form-group"
+/>
+
+<portal:FormGroupPanel runat="server" SkinID="FWPFormCaptcha"
+	CssClass="form-group"
+/>
+
+<portal:FormGroupPanel runat="server" SkinID="FWPFormButtons"
+	CssClass="form-group"
+/>
 --%>
 
 
