@@ -20,7 +20,7 @@
 
 		<!-- Scripts -->
 		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludeSimpleFaq="true" IncludejQueryAccordion="true" />
-		<script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.2.1.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
