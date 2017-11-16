@@ -122,6 +122,14 @@
 <portal:FormGroupPanel runat="server" SkinID="FWPFormButtons"
 	CssClass="form-group"
 />
+
+<portal:mojoButton runat="server" SkinID="FWPPrevBtn"
+	CssClass="btn btn-primary"
+/>
+
+<portal:mojoButton runat="server" SkinID="FWPSubmitBtn"
+	CssClass="btn btn-success"
+/>
 --%>
 
 
