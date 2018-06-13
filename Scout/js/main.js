@@ -250,4 +250,13 @@ $(document).ready(function() {
 	if ($('.forumsearch input[type="text"]')) {
 		$('.forumsearch input[type="text"]').attr('placeholder', 'search forums...');
 	}
+
+	// In the case that child elements exist under a menu item but are set as invisible to the current user, ensure that the dropdown-toggle class and its subsequent event handlers are removed
+	$('.site-nav li.dropdown-toggle').each(function() { 
+		if (!$(this).children('ul').length) { 
+			$(this).removeClass('dropdown-toggle open close');
+			$(this).clone().insertBefore($(this)); 
+			$(this).remove(); 
+		} 
+	});
 });
