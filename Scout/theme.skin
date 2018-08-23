@@ -967,6 +967,14 @@ http://foundation.zurb.com/docs/ui.php
     HideFirstColumnIfNotEditable="true"
 />
 
+<asp:TextBox runat="server" SkinID="SharedFilesNewFolderInput"
+    CssClass="form-control"
+/>
+
+<portal:mojoButton runat="server" SkinID="SharedFilesNewFolderButton"
+    CssClass="btn btn-primary"
+/>
+
 
 
 <%-- Create User Wizard --%>
