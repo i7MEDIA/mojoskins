@@ -465,7 +465,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 --%>
 <%-- Default --%>
 <asp:button runat="server" CssClass="btn btn-default" />
-<asp:HyperLink runat="server" CssClass="btn btn-default"/>
+<%-- <asp:HyperLink runat="server" CssClass="btn btn-default"/> --%>
 <portal:mojoButton runat="server" CssClass="btn btn-default" />
 
 <portal:mojoButton runat="server" SkinID="ExportButton" CssClass="btn btn-xs btn-default" />
