@@ -136,7 +136,10 @@ div[data-val-validationgroup="profile"]:extend(.alert all, .alert-danger all) {}
 .survey [id*="_btnStartSurvey"],
 [id*="_btnGridUpdate"],
 .operationpanel [id="btnSubmit"],
-#pnlNewFolder [id="btnNewFolder"] {
+#pnlNewFolder [id="btnNewFolder"],
+.postcontainer .markanswer,
+.postcontainer .marksent,
+.postcontainer .sendnotification {
 	background-image: none;
 	box-shadow: none;
 	text-shadow: none;
@@ -154,6 +157,10 @@ div[data-val-validationgroup="profile"]:extend(.alert all, .alert-danger all) {}
 		&:focus:extend(.btn-success[disabled]:focus) {}
 	}
 }
+
+.postcontainer .markanswer:extend(.btn-sm all),
+.postcontainer .marksent:extend(.btn-sm all),
+.postcontainer .sendnotification:extend(.btn-sm all) {}
 
 
 // btn-info,
@@ -582,9 +589,16 @@ div.forminput {
 
 			> * {
 				flex: 0 0 auto;
-				margin-bottom: 4px;
+				margin-bottom: 10px;
+
+				&:first-child {
+					margin-top: 10px;
+				}
+
 			}
+
 		}
+
 	}
 
 	.layoutalt1,

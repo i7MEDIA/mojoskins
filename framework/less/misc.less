@@ -405,6 +405,19 @@ div.txterror:extend(.alert all, .alert-danger all)  {
 	}
 }
 
+.adminmenu ul.simplelist>li.secwarning a {
+	border-color: @brand-danger;
+
+	&::before {
+		color: @brand-danger;
+	}
+
+	small {
+		color: @brand-danger;
+	}
+
+}
+
 
 // 404 Page
 body.pagenotfound {
@@ -595,7 +608,8 @@ body.pagenotfound {
 
 // Admin Setting Styles
 .setting-section-title {
-	background-color: @gray-lighter;
+	background-color: @navbar-default-bg;
+	color: @navbar-default-color;
 	padding: 15px;
     font-size: 20px;
     margin-top: 20px;
@@ -856,23 +870,28 @@ input.list-inline {
 
 
 // Text Editor Font Sizes
-.font-xsmall {
+.font-xsmall,
+.text-xsmall {
 	font-size: 60%;
 }
 
-.font-small {
+.font-small,
+.text-small {
 	font-size: 80%;
 }
 
-.font-normal {
+.font-normal,
+.text-normal {
 	font-size: 100%;
 }
 
-.font-large {
+.font-large,
+.text-large {
 	font-size: 120%;
 }
 
-.font-xlarge {
+.font-xlarge,
+.text-xlarge {
 	font-size: 140%;
 }
 
