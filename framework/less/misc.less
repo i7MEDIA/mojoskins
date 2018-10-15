@@ -8,6 +8,29 @@
 	height: auto;
 }
 
+// Allow for inclusion of cart link in menu
+@media (max-width: @screen-xs-max) {
+	.flex-cart-inline {
+		margin: 7.5px -(@grid-gutter-width/2);
+		display: block;
+	}
+}
+
+@media (min-width: @screen-sm) {
+	.flex-cart-inline {
+		margin: 0;
+		display: inline;
+	}
+
+	span.cartnav {
+		margin-left: 15px;
+	}
+}
+
+span.cartnav {
+	padding: 10px 0 10px 15px;
+}
+
 // Ensure sitelogo never interrupts positioning of navbar toggle
 @media (max-width: @screen-sm) {
 	.navbar-header {
