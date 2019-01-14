@@ -356,6 +356,10 @@
 	CssClass="manage-site-features__right col-sm-4 text-center"
 />
 
+<mp:SiteLabel runat="server" SkinID="settinglabel"
+	CssClass="settinglabel"
+/>
+
 <asp:Button runat="server" SkinID="SiteFeaturesRemove" 
 	CssClass="btn btn-success btn-sm"
 />
