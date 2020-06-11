@@ -263,8 +263,8 @@
 
 <%-- Site Settings Display Settings --%>
 <portalAdmin:AdminDisplaySettings runat="server"
-	SiteSettingsPanelHeadingMarkup = "<h3 class='setting-section-title'>{0} <small>{1}</small></h3><div class='setting-section-body'>"
-	SiteSettingsSubPanelHeadingMarkup = "<div class='panel-heading'><h3 class='panel-title'>{0} <small>{1}</small></h3></div><div class='panel-body'>"
+	PanelHeadingMarkup = "<h3 class='setting-section-title'>{0} <small>{1}</small></h3><div class='setting-section-body'>"
+	SubPanelHeadingMarkup = "<div class='panel-heading'><h3 class='panel-title'>{0} <small>{1}</small></h3></div><div class='panel-body'>"
 />
 
 <%-- Form Group Panels --%>
