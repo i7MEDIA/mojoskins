@@ -133,6 +133,9 @@
 										<% } %>
 										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress)) {%>
 										<p><i class="fa fa-map-marker"></i> <span><portal:CompanyStreetAddressLiteral ID="litAddress" runat="server" /><br />
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress2)) {%>
+										<portal:CompanyStreetAddress2Literal ID="litAddress2" runat="server" /><br />
+										<% } %>
 										<portal:CompanyAddressLocalityLiteral ID="litCity" runat="server" />, <portal:CompanyAddressRegionLiteral ID="litState" runat="server" /> <portal:CompanyPostalCodeLiteral ID="litZip" runat="server" /></span>
 										<% } %>
 										</p>

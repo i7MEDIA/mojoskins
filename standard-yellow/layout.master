@@ -141,6 +141,9 @@
 										<% } %>
 										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress)) {%>
 										<p><i class="fa fa-map-marker"></i> <span><portal:CompanyStreetAddressLiteral ID="litAddress" runat="server" /><br />
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress2)) {%>
+										<portal:CompanyStreetAddress2Literal ID="litAddress2" runat="server" /><br />
+										<% } %>
 										<portal:CompanyAddressLocalityLiteral ID="litCity" runat="server" />, <portal:CompanyAddressRegionLiteral ID="litState" runat="server" /> <portal:CompanyPostalCodeLiteral ID="litZip" runat="server" /></span>
 										<% } %>
 										</p>
@@ -167,7 +170,9 @@
 						<div class="row">
 							<div class="col-md-5">
 								<p class="copyright">
-									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="false" BeginYear="2017" />
+									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="false" BeginYear="2017" /> |
+									<portal:LoginLink id="LoginLinkFoot" runat="server" RenderAsListItem="false" />
+									<portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" />
 								</p>
 							</div>
 							<div class="col-md-7 text-md-right">

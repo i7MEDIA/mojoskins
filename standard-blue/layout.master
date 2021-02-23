@@ -132,10 +132,19 @@
 								<% } %>
 								<div class="outerbody">
 									<div class="modulecontent">
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyPhone)) {%>
 										<p><i class="fa fa-phone"></i> <span><portal:CompanyPhoneLiteral ID="litPhone" runat="server" /></span></p>
+										<% } %>
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyFax)) {%>
 										<p><i class="fa fa-fax"></i> <span><portal:CompanyFaxLiteral ID="litFax" runat="server" /></span></p>
+										<% } %>
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress)) {%>
 										<p><i class="fa fa-map-marker"></i> <span><portal:CompanyStreetAddressLiteral ID="litAddress" runat="server" /><br />
+										<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress2)) {%>
+										<portal:CompanyStreetAddress2Literal ID="litAddress2" runat="server" /><br />
+										<% } %>
 										<portal:CompanyAddressLocalityLiteral ID="litCity" runat="server" />, <portal:CompanyAddressRegionLiteral ID="litState" runat="server" /> <portal:CompanyPostalCodeLiteral ID="litZip" runat="server" /></span>
+										<% } %>
 										</p>
 									</div>
 								</div>
@@ -160,7 +169,9 @@
 						<div class="row">
 							<div class="col-md-5">
 								<p class="copyright">
-									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="false" BeginYear="2017" />
+									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="false" BeginYear="2017" /> |
+									<portal:LoginLink id="LoginLinkFoot" runat="server" RenderAsListItem="false" />
+									<portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" />
 								</p>
 							</div>
 							<div class="col-md-7 text-md-right">

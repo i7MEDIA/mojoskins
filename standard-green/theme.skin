@@ -28,10 +28,10 @@
 <%--
 	These are for Pro Modules
 	=========================
-	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
---%>
 	<%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
 	<%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
+	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
+--%>
 
 <%--
 	IMPORTANT
@@ -49,7 +49,6 @@
 	==================
 	To enable, remove comments from the @Register statement for the sts.Web.UI Namespace and the sts:CalendarGrid control below.
 	Only enable if Event Calendar Pro is installed.
---%>
 
 	<sts:CalendarGrid runat="server"
 		BackColor=""
@@ -90,7 +89,7 @@
 		MonthViewEventEditLinkFormat="<a href='{0}' title='{1}' class='editeventlink ModuleEditLink {3}' ><span class='fa fa-pencil-square-o'></span></a>"
 		MonthViewEventMarkupTop="<div class='eventcontainer {0}' style='{1} {2} {3}'>"
 	 />
-
+--%>
 <%--
 	Form Wizard Pro
 	===============

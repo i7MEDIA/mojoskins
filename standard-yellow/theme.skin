@@ -55,15 +55,11 @@
 		BorderColor=""
 		BorderStyle="none"
 		CaptionAlign="Top"
-		CssClass="event-cal-pro table table-condensed table-bordered"
-		DayHeaderStyle-CssClass="ec-head"
 		DayNameFormat="Full"
-		DayStyle-CssClass="ec-day"
 		FirstDayOfWeek="sunday"
 		NextMonthText="&#xf054;"
 		NextPrevFormat="CustomText"
 		NextPrevStyle-CssClass="ec-next-prev"
-		OtherMonthDayStyle-CssClass="ec-day ec-other-month"
 		PrevMonthText="&#xf053;"
 		SelectedDayStyle-CssClass="ec-day ec-selected-day"
 		SelectorStyle-CssClass="ec-selector"
@@ -77,6 +73,22 @@
 		TodayDayStyle-CssClass="ec-day ec-today"
 		WeekendDayStyle-CssClass="ec-day ec-weekend-day"
 	/>
+	<ecp:EventDisplaySettings runat="server"
+		MonthViewCssClass="hide"
+		MonthViewHeaderMarkupTop="</td></tr></tbody></table><div class='ec-month-head row fb-parent fb-row fb-wrap fb-ai-center fb-j-between'>"
+		MonthViewHeaderMarkupBottom="</div><table class='event-cal-pro table table-condensed table-bordered table-responsive'><tbody><tr class='hide'><td>"
+		MonthViewDayHeaderCssClass="ec-head"
+		MonthViewDayCssClass="ec-day"
+		MonthViewTodayCssClass="ec-day ec-today"
+		MonthViewWeekendDayCssClass="ec-day ec-weekend-day"
+		MonthViewOtherMonthDayCssClass="ec-day ec-other-month"
+		MonthViewHeaderPreviousMonthLinkFormat="<div class='ec-month-previous fb-child col-sm-3 text-xs-center text-md-left'><a href='{0}' class='eventNextPrevious previousMonth'><span class='fa fa-angle-double-left'></span> <span class='monthName'>{1}</span></a></div>"
+		MonthViewHeaderNextMonthLinkFormat="<div class='nextMonth ec-month-next fb-child col-sm-3 text-xs-center text-md-right'><a href='{0}' class='eventNextPrevious nextMonth'><span class='monthName'>{1}</span> <span class='fa fa-angle-double-right'></span></a></div>"
+		MonthViewHeaderCurrentMonthFormat="<h3 class='currentMonth fb-child col-sm-6 fb-ai-center fb-j-center text-center'>{0}</h3>"
+		MonthViewEmptyDayFiller="<div class='ec-filler'></div>" 
+		MonthViewEventEditLinkFormat="<a href='{0}' title='{1}' class='editeventlink ModuleEditLink {3}' ><span class='fa fa-pencil-square-o'></span></a>"
+		MonthViewEventMarkupTop="<div class='eventcontainer {0}' style='{1} {2} {3}'>"
+	 />
 --%>
 
 <%--
