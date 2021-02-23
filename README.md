@@ -23,5 +23,6 @@ You will need to open the theme.skin file for the skin you are wanting to use an
 * `<%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>`
 * `<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>`
 * `<sts:CalendarGrid runat="server" ... `
+* `<ecp:EventDisplaySettings runat="server" ... `
 * `<stsfw:FormWizardDisplaySettings runat="server" ... `
 * `<portal:BasePanel runat="server" SkinID="FWPOptionControls" .. `
