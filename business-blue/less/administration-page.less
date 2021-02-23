@@ -1,0 +1,45 @@
+// Admin Menu
+.adminmenu { 
+	ul.simplelist {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		margin-left: -15px;
+		margin-right: -15px;
+		padding: 0;
+
+		> li {
+			align-items: stretch;
+			display: flex;
+			flex: 0 0 calc(~"100%/7");
+			font-family: arial, sans-serif;
+			font-size: 14px;
+			min-width: 160px;
+			padding: 15px;
+			text-align: center;
+
+			a > {
+				border: 1px solid #ddd;
+				display: flex;
+				flex: 1 0 100%;
+				flex-flow: column wrap;
+				justify-content: center;
+				padding: 15px;
+				position: relative;
+				> span.fa {
+					margin: 10px 0;
+					font-size: 30px; 
+				}
+
+				> span.fa.fa-stack {
+					font-size: 20px;
+				}
+				&:hover {
+					background-color: @nav-link-hover-bg;
+					text-decoration: none;
+				}
+
+			}
+		}
+	}
+}

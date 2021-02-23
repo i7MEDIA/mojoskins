@@ -1,0 +1,277 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/App_MasterPages/layout.Master.cs" Inherits="mojoPortal.Web.layout" %>
+<%@ Register TagPrefix="i7MEDIA" TagName="SuperWrapper" Src="~/SuperFlexi/SuperWrapper.ascx" %>
+
+<!DOCTYPE html>
+<html class="htmlclass">
+	<head id="Head1" runat="server">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+		<!--#include file="includes/favicons.html"-->
+		<portal:MetaContent id="MetaContent" runat="server" DisableContentType="true" PreZoomForIPhone="false" />
+
+		<!-- Style -->
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.css" />
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" QtFileCssIsInMainCss="false" IncludeColorBox="true" />
+
+		<!-- Scripts -->
+		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludeSimpleFaq="true" IncludejQueryAccordion="true" />
+		<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.2.1.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<portal:SkinFolderCssFile runat="server" ID="SFCF" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
+		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
+		<script>$.widget.bridge('uiTooltip', $.ui.tooltip);$.widget.bridge('uiButton', $.ui.button);</script>
+	</head>
+	<body runat="server" class="pagebody" ID="Body">
+		<portal:FacebookSdk runat="server" ID="fbsdk" />
+		<portal:AnalyticsAsyncTopScript runat="server" ID="analyticsTop" />
+		<portal:LayoutDisplaySettings runat="server" ID="LayoutDisplaySettings1" />
+		<form runat="server" ID="frmMain" class="main-form">
+			<asp:SiteMapDataSource runat="server" ShowStartingNode="false" ID="SiteMapData" />
+			<asp:SiteMapDataSource runat="server" ShowStartingNode="false" ID="PageMapDataSource" />
+			<asp:SiteMapDataSource runat="server" ShowStartingNode="false" ID="ChildPageSiteMapData" />
+			<asp:ScriptManager runat="server" ID="ScriptManager1" EnablePageMethods="true" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+
+			<!--#include file="includes/browsehappy.html" -->
+			<!--#include file="includes/administration-drawer.html" -->
+			<div class="sitewrap">
+				<header class="container head" role="banner">
+					<div class="row">
+						<div class="col-sm-5 col-md-6">
+							<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
+							<portal:SiteLogo runat="server" ImageCssClass="site-logo_img" LinkCssClass="site-logo__link" />
+							<% } else { %>
+							<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="site-logo__link h1">
+								<portal:SiteTitle runat="server" SkinId="navbar-brand" />
+							</asp:HyperLink>
+							<% } %>
+						</div>
+						<div class="col-sm-7 col-md-6">
+							<div class="search-wrap">
+								<portal:SearchInput runat="server"
+									LinkOnly="false"
+									RenderAsListItem="false"
+									ButtonCssClass="search-btn btn btn-link"
+									OverrideButtonText="&#xf002;"
+									TextboxCssClass="search-input form-control"
+									OverrideWatermark="Search"
+									UseHeading="false"
+									HideOnLoginPage="false"
+									HideOnPasswordRecoveryPage="false"
+									HideOnRegistrationPage="false"
+									HideOnSearchResultsPage="false"
+									HideOnSiteSettingsPage="false"
+								/>
+
+								<%--<span class="search-divider hidden-xs"></span>
+
+								
+								<i7MEDIA:SuperWrapper ID="DonateLink1" runat="server"
+									FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+									ModuleGuidToUse="278a7f0e-6c11-4986-91c7-082d254ddd73" 
+									DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/Sites/$_SiteID_$/skins/hoac-framework/SuperFlexi/Solutions/donate-link/donate-link.sfMarkup', 'ExtraCssClassSetting': '', 'DescendingSortOrder': false}"
+									DefaultGeneralSettings="{'ModuleTitle': 'Donate Link','ShowTitle': false}"
+								/>--%>
+							</div>
+						</div>
+					</div>
+
+					<nav class="navbar navbar-default navbar-site hidden-xs">
+						<div class="collapse navbar-collapse" id="site-menu1" data-sm-skip>
+							<portal:SiteMenu id="SiteMenu1" runat="server" MenuSkinId="MainMenu1" UseFlexMenu="true" />
+						</div>
+					</nav>
+
+					<nav class="navbar navbar-default navbar-site visible-xs-block">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-menu2" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<span class="navbar-brand visible-xs-block">Menu</span>
+						</div>
+
+						<div class="collapse navbar-collapse" id="site-menu2">
+							<portal:SiteMenu id="SiteMenu2" runat="server" MenuSkinId="MainMenu2" UseFlexMenu="true" />
+						</div>
+					</nav>
+				</header>
+
+				<main class="main-content">
+					<div class="container">
+						<portal:LayoutPanel id="divAlt1" runat="server" SkinID="TopPane">
+							<asp:ContentPlaceHolder id="altContent1" runat="server"></asp:ContentPlaceHolder>
+						</portal:LayoutPanel>
+
+						<portal:Breadcrumbs id="Breadcrumbs" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
+
+						<div class="row" id="start-content">
+							<portal:LayoutPanel id="divLeft" runat="server" SkinID="LeftPane">
+								<asp:contentplaceholder id="leftContent" runat="server"></asp:contentplaceholder>								
+							</portal:LayoutPanel>
+
+							<portal:LayoutPanel id="divCenter" runat="server" SkinID="CenterPane">
+								<asp:ContentPlaceHolder id="mainContent" runat="server"></asp:ContentPlaceHolder>
+							</portal:LayoutPanel>
+
+							<portal:LayoutPanel id="divRight" runat="server" SkinID="RightPane">
+								<asp:contentplaceholder id="rightContent" runat="server"></asp:contentplaceholder>
+							</portal:LayoutPanel>
+						</div>
+
+						<portal:LayoutPanel id="divAltContent2" runat="server" SkinID="BottomPane">
+							<asp:ContentPlaceHolder id="altContent2" runat="server"></asp:ContentPlaceHolder>
+						</portal:LayoutPanel>
+					</div>
+				</main>
+			</div>
+
+
+			<footer class="foot">
+				<div class="foot-top">
+					<a class="backtotop" href="#" title="Back to Top"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i><span class="sr-only">Back to Top of Page</span></a>
+				</div>
+				<div class="foot-bottom container">
+					<div class="row">
+						<div class="col-sm-4">
+							<i7MEDIA:SuperWrapper ID="FooterQuickLinks" runat="server"
+								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
+								ModuleGuidToUse="8474561a-8e16-4b79-8437-6e56d261f68f" 
+								DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': '', 'DescendingSortOrder': false}"
+								DefaultGeneralSettings="{'ModuleTitle': 'Footer Quick Links','ShowTitle': false}"
+							/>
+						</div>
+						<div class="col-sm-5">
+							<%
+								// Email
+								var email1 = siteSettings.CompanyPublicEmail.ToString();
+
+								if (!String.IsNullOrWhiteSpace(email1))
+								{
+									email1 = System.Convert.ToBase64String(Encoding.Unicode.GetBytes(email1));
+								}
+
+
+								// Phone
+								var phone1 = onlyDigits(siteSettings.CompanyPhone);
+								var phoneFormatted1 = String.Empty;
+
+								if (!String.IsNullOrWhiteSpace(phone1))
+								{
+									phoneFormatted1 = formatPhoneNumber(phone1);
+								}
+
+								
+								// Fax
+								var fax1 = onlyDigits(siteSettings.CompanyFax);
+								var faxFormatted1 = String.Empty;
+
+								if (!String.IsNullOrWhiteSpace(fax1))
+								{
+									faxFormatted1 = formatPhoneNumber(fax1);
+								}
+							%>
+
+							<script runat="server">
+								protected string onlyDigits(string value)
+								{
+									return Regex.Replace(value, @"\D+", string.Empty);
+								}
+
+								protected string formatPhoneNumber(string value)
+								{
+									return Regex.Replace(value, @"(\d{3})(\d{3})(\d{4})", "($1) $2-$3");
+								}
+							</script>
+<% if (WebUser.IsInRoles("Admins;Content Admins;")) {%>
+								<span class="modulelinks"><a class="ModuleEditLink address-settings" href="/Admin/SiteSettings.aspx#tabCompanyInfo" title="Address Settings"><span class="fa fa-cog"></span> Edit Address Info</a></span><br/>
+								<% } %>
+								
+							<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress)) {%>
+							<p><span class="foot__link-fa fa fa-map-marker"></span> 
+							<span><portal:CompanyStreetAddressLiteral ID="litAddress" runat="server" />,
+							<% if (!String.IsNullOrWhiteSpace(siteSettings.CompanyStreetAddress2)) {%>
+							<portal:CompanyStreetAddress2Literal ID="litAddress2" runat="server" />,
+							<% } %>
+							<portal:CompanyAddressLocalityLiteral ID="litCity" runat="server" />, <portal:CompanyAddressRegionLiteral ID="litState" runat="server" /> <portal:CompanyPostalCodeLiteral ID="litZip" runat="server" /></span>
+							<% } %>
+							
+							<div class="row m-y-gutter-half">
+								<div class="col-xs-6 col-sm-12 col-md-6">
+								<% if (!String.IsNullOrWhiteSpace(phone1)) { %>
+									<span class="foot__link-fa fa fa-phone"></span><b class="foot__link-label">Local</b>
+									<a class="foot__link" href="tel:<%= phone1 %>"><%= phoneFormatted1 %></a>
+								<% } %>
+								<% if (!String.IsNullOrWhiteSpace(fax1)) { %>
+									<br>
+									<span class="foot__link-fa fa fa-phone"></span><b class="foot__link-label">Fax</b>
+									<a class="foot__link" href="fax:<%= fax1 %>"><%= faxFormatted1 %></a>
+								<% } %>
+								</div>
+
+								<div class="col-xs-6 col-sm-12 col-md-6">
+								<% if (!String.IsNullOrWhiteSpace(email1)) { %>
+									<span class="foot__link-fa fa fa-envelope-o"></span><%= String.Format("<a data-b64='{0}'></a>", email1) %>
+									<script>
+										[].forEach.call(document.querySelectorAll('[data-b64]'), function(b64) {
+											var email = window.atob(b64.getAttribute('data-b64')).replace(/\0/g, '').trim();
+											b64.innerHTML = email;
+											b64.href = 'mailto:' + email;
+										});
+									</script>
+								<% } %>									
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<i7MEDIA:SuperWrapper ID="FooterCustomContent" runat="server"
+								FeatureGuid="881e4e00-93e4-444c-b7b0-6672fb55de10" 
+								ModuleGuidToUse="428698bd-036b-48ec-9e13-0583aeaec879" 
+								DefaultModuleSettings="{'ExtraCssClassSetting': ''}"
+								DefaultGeneralSettings="{'ModuleTitle': 'Footer Custom Content','ShowTitle': false}"
+							/>
+						</div>
+					</div>
+					<div class="row m-b-gutter-half">
+						<div class="col-sm-4 fb-2col">
+							<span>
+								<span class="foot__link-fa fa fa-sitemap"></span><a class="foot__link" href="/SiteMap.aspx">Site Map</a>
+							</span>
+							<span>
+								<span class="foot__link-fa fa fa-sign-in"></span><portal:LoginLink id="LoginLinkFoot" runat="server" RenderAsListItem="false" />
+							</span>
+						</div>
+						<div class="col-sm-5 g-y-mobile">
+							&copy; <%= DateTime.Now.Year.ToString() %> <portal:CompanyNameLiteral id="CompanyName1" runat="server" />
+						</div>
+						<div class="col-sm-3 text-xs-center text-sm-right">
+							<a class="i7mark" href="http://i7media.net?utm_source=usersite&amp;utm_medium=referral&amp;utm_campaign=DesignByi7" rel="nofollow" title="Design by i7MEDIA">Design by <b>i7MEDIA</b></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</form>
+
+		<portal:AnalyticsAsyncBottomScript id="analyticsBottom" runat="server" />
+
+		<!-- Main Script -->
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.min.js" RenderInPlace="true" />
+		<!-- Change Bootstrap plugin names to fix name collision with jQueryUI -->
+		<script>var bstt = $.fn.tooltip.noConflict(); $.fn.bsTooltip = bstt;</script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/smartmenus/jquery.smartmenus.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/xdate.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery.hoverIntent.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/main.min.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/administration.min.js" RenderInPlace="true" VisibleRoles="Authenticated Users" />
+	</body>
+</html>
