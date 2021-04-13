@@ -50,61 +50,61 @@
 	.fb-@{class}-shrink {flex-shrink: 1;}
 
 	// Flexbox Grid Classes (I don't like these, just use the grid col-xx-6/etc classes - E.F.)
-	// .fb-@{class}-25 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 25%;
-	// 	}
-	// }
+	.fb-@{class}-25 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 25%;
+		}
+	}
 
-	// .fb-@{class}-33 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 33%;
-	// 	}
-	// }
+	.fb-@{class}-33 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 33%;
+		}
+	}
 
-	// .fb-@{class}-40 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 40%;
-	// 	}
-	// }
+	.fb-@{class}-40 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 40%;
+		}
+	}
 
-	// .fb-@{class}-50 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 50%;
-	// 	}
-	// }
+	.fb-@{class}-50 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 50%;
+		}
+	}
 
-	// .fb-@{class}-60 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 60%;
-	// 	}
-	// }
+	.fb-@{class}-60 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 60%;
+		}
+	}
 
-	// .fb-@{class}-66 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 66%;
-	// 	}
-	// }
+	.fb-@{class}-66 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 66%;
+		}
+	}
 
-	// .fb-@{class}-75 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 75%;
-	// 	}
-	// }
+	.fb-@{class}-75 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 75%;
+		}
+	}
 
-	// .fb-@{class}-100 {
-	// 	&:not(.flex-children),
-	// 	&.flex-children > * {
-	// 		flex-basis: 100%;
-	// 	}
-	// }
+	.fb-@{class}-100 {
+		&:not(.flex-children),
+		&.flex-children > * {
+			flex-basis: 100%;
+		}
+	}
 }
 
 .fb-order(@index, @class) {
@@ -143,15 +143,62 @@
 	}
 }
 
+// Sizeless Defaults
+@media (min-width: @screen-sm) {
+	.fb-parent,
+	.flex-children {
+		display: flex;
+
+		> * {
+			flex: 1 1 auto;
+		}
+	}
+	.fb-row    {flex-direction: row;}
+	.fb-column {flex-direction: column;}
+	.fb-wrap   {flex-wrap: wrap;}
+	.fb-nowrap {flex-wrap: nowrap;}
+
+	// Align Items
+	.fb-ai-start    {align-items: flex-start;}
+	.fb-ai-baseline {align-items: baseline;}
+	.fb-ai-center   {align-items: center;}
+	.fb-ai-end      {align-items: flex-end;}
+	.fb-ai-stretch  {align-items: stretch;}
+
+	// Align Content
+	.fb-ac-start    {align-content: flex-start;}
+	.fb-ac-baseline {align-content: baseline;}
+	.fb-ac-center   {align-content: center;}
+	.fb-ac-end      {align-content: flex-end;}
+	.fb-ac-stretch  {align-content: stretch;}
+
+	// Justify Content
+	.fb-j-start   {justify-content: flex-start;}
+	.fb-j-center  {justify-content: center;}
+	.fb-j-around  {justify-content: space-around;}
+	.fb-j-between {justify-content: space-between;}
+	.fb-j-end     {justify-content: flex-end;}
+
+	// Align Self
+	.fb-as-start    {align-self: flex-start;}
+	.fb-as-baseline {align-self: baseline;}
+	.fb-as-center   {align-self: center;}
+	.fb-as-end      {align-self: flex-end;}
+	.fb-as-stretch  {align-self: stretch;}
+
+	// Child Flex
+	.fb-child  {flex: 0 0 auto;}
+	.fb-grow   {flex-grow: 1;}
+	.fb-shrink {flex-shrink: 1;}
+}
+
+
+// Initialize
 .make-fb-grid(xs);
 .make-fb-grid(sm);
 .make-fb-grid(md);
 .make-fb-grid(lg);
 
-
-// 
-// (Do we actually needs these?)
-// 
 
 // Fix bootstrap nav with flexbox styles applied
 .nav.nav-pills[class*="fb-"][class*="-parent"],
