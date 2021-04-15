@@ -1,3 +1,25 @@
+// Server log
+.serverlog dd.logmessage { 
+    overflow: auto hidden; 
+} 
+ 
+.serverlog dd.logmessage, 
+.serverlog dt.logmessage { 
+    border-left: 5px solid @brand-info; 
+    padding-left: 10px; 
+ 
+} 
+ 
+.serverlog dt.logmessage.text-danger, 
+.serverlog dd.logmessage.text-danger { 
+    border-color: @brand-danger; 
+} 
+ 
+.serverlog dt.logmessage { 
+    margin-top: 20px; 
+} 
+
+
 // Misc Fixes / Fixes For SuperFlexi Solutions
 .top-pane .content-slider-module:first-child {
     margin: -(@navbar-margin-bottom + 2px); // Fixes banner slider position in top pane
