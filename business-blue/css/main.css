@@ -10364,6 +10364,9 @@ div.blogdate .tagslabel::before {
 .eventmenu .rsslink img {
   display: none;
 }
+.emptydayfiller {
+  display: inline-block;
+}
 .FileManager_table {
   width: 100%;
 }

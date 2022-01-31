@@ -10321,6 +10321,9 @@ div.blogdate .tagslabel::before {
 .eventmenu .rsslink img {
   display: none;
 }
+.ec-filler {
+  margin-top: 40px;
+}
 .FileManager_table {
   width: 100%;
 }
@@ -13287,4 +13290,7 @@ del {
 }
 .second-level a {
   padding: 5px 10px;
+}
+.top-pane .content-slider-module:first-child {
+  margin: -15px -15px 15px -15px;
 }

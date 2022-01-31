@@ -13311,3 +13311,6 @@ del {
 .second-level a {
   padding: 5px 10px;
 }
+.top-pane .content-slider-module:first-child {
+  margin: -15px -15px 15px -15px;
+}
