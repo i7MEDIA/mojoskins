@@ -1,8 +1,33 @@
+// Server log
+.serverlog dd.logmessage { 
+    overflow: auto hidden; 
+} 
+ 
+.serverlog dd.logmessage, 
+.serverlog dt.logmessage { 
+    border-left: 5px solid @brand-info; 
+    padding-left: 10px; 
+ 
+} 
+ 
+.serverlog dt.logmessage.text-danger, 
+.serverlog dd.logmessage.text-danger { 
+    border-color: @brand-danger; 
+} 
+ 
+.serverlog dt.logmessage { 
+    margin-top: 20px; 
+} 
+
+// Basic formwizard styles
+.formwizard .block-label .settinglabel {width: auto;display:block;}
+.formwizard .inline-block-label {width:auto;}
+.formwizard .hide-label .settinglabel {display:none;}
+
 // Misc Fixes / Fixes For SuperFlexi Solutions
 .top-pane .content-slider-module:first-child {
     margin: -(@navbar-margin-bottom + 2px); // Fixes banner slider position in top pane
 }
-
 
 // Ensures aspect ratio on default Site Logos
 .navbar-logo {
@@ -11,7 +36,30 @@
 }
 
 .navbar-brand {
-	height: auto;
+	height: auto; 
+}
+
+// Allow for inclusion of cart link in menu
+@media (max-width: @screen-xs-max) {
+	.flex-cart-inline {
+		margin: 7.5px -(@grid-gutter-width/2);
+		display: block;
+	}
+}
+
+@media (min-width: @screen-sm) {
+	.flex-cart-inline {
+		margin: 0;
+		display: inline;
+	}
+
+	span.cartnav {
+		margin-left: 15px;
+	}
+}
+
+span.cartnav {
+	padding: 10px 0 10px 15px;
 }
 
 // Ensure sitelogo never interrupts positioning of navbar toggle
@@ -265,7 +313,7 @@ img {
 .cke_tpl_preview .cke_tpl_preview_img {
 	width: 110px;
 	min-width: 110px;
-	max-width: 110px;
+	max-width: 110px; 
 }
 
 .cke_panel_listItem pre {
@@ -278,6 +326,16 @@ img {
 	margin: 0;
 }
 
+// Other CKE niceties
+span.cke_combo_text {
+	width: inherit;
+}
+div.cke_combopanel {
+    height: 45vh;
+}
+body.dialogpage {
+    background: none white;
+}
 
 // Ensure logolist is visible and the img next to it isn't huge
 .logolist:extend(.settingrow all) { 
@@ -409,6 +467,19 @@ div.txterror:extend(.alert all, .alert-danger all)  {
 			}
 		}
 	}
+}
+
+.adminmenu ul.simplelist>li.secwarning a {
+	border-color: @brand-danger;
+
+	&::before {
+		color: @brand-danger;
+	}
+
+	small {
+		color: @brand-danger;
+	}
+
 }
 
 
@@ -601,7 +672,8 @@ body.pagenotfound {
 
 // Admin Setting Styles
 .setting-section-title {
-	background-color: @gray;
+	background-color: @navbar-default-bg;
+	color: @navbar-default-color;
 	padding: 15px;
     font-size: 20px;
     margin-top: 20px;
@@ -664,14 +736,6 @@ body.pagenotfound {
 	}
 }
 
-.ui-widget-content .panel-heading a {
-	color: @gray-darker;
-
-	&:hover { 
-		text-decoration: underline;
-	}
-}
-
 .ui-widget-header a {
 	color: #222222;
 }
@@ -730,7 +794,8 @@ input.list-inline {
 	  outline: none;
 	}
 	input[type='radio'] + label,
-	input[type='checkbox'] + label {
+	input[type='checkbox'] + label,
+	.aspNetDisabled + .prettyemptylabel {
 	  cursor: pointer;
 	  display: inline-block;
 	  position: relative;
@@ -739,9 +804,16 @@ input.list-inline {
 	  margin-bottom: 10px;
 	  color: @gray-darker;
 	}
+	input:not([type='checkbox']) + [type='checkbox'] + label {
+		margin-left: 10px;
+		font-weight: normal;
+	}
+
 	input[type='radio'] + label:before, input[type='radio'] + label:after,
 	input[type='checkbox'] + label:before,
-	input[type='checkbox'] + label:after {
+	input[type='checkbox'] + label:after,
+	.aspNetDisabled + .prettyemptylabel:before,
+	.aspNetDisabled + .prettyemptylabel:after {
 	  content: '';
 	  font-family: helvetica;
 	  display: inline-block;
@@ -753,12 +825,14 @@ input.list-inline {
 	  position: absolute;
 	}
 	input[type='radio'] + label:before,
-	input[type='checkbox'] + label:before {
+	input[type='checkbox'] + label:before,
+	.aspNetDisabled + .prettyemptylabel:before {
 	  background-color: @gray-lighter;
 	  transition: all 0.2s ease-in-out;
 	}
 	input[type='radio'] + label:after,
-	input[type='checkbox'] + label:after {
+	input[type='checkbox'] + label:after,
+	.aspNetDisabled + .prettyemptylabel:after {
 	  color: #fff;
 	}
 	input[type='radio']:checked + label:before,
@@ -785,15 +859,19 @@ input.list-inline {
 	}
 
 	/*Checkbox Specific styles*/
-	input[type='checkbox'] + label:before {
+	input[type='checkbox'] + label:before,
+	.aspNetDisabled + .prettyemptylabel:before {
 	  border-radius: 3px;
 	}
-	input[type='checkbox'] + label:hover:after, input[type='checkbox']:checked + label:after {
+	input[type='checkbox'] + label:hover:after,
+	input[type='checkbox']:checked + label:after,
+	.aspNetDisabled + .prettyemptylabel:hover:after {
 	  content: "\2713";
 	  line-height: 18px;
 	  font-size: 14px;
 	}
-	input[type='checkbox'] + label:hover:after {
+	input[type='checkbox'] + label:hover:after,
+	.aspNetDisabled + .prettyemptylabel:hover:after {
 	  color: darken(@gray-lighter, 10%);
 	}
 	input[type='checkbox']:checked + label:after, input[type='checkbox']:checked + label:hover:after {
@@ -833,6 +911,48 @@ input.list-inline {
 	  left: 29px;
 	  background-color: #fff;
 	}
+
+	/* Disabled Styles */
+	.aspNetDisabled + .prettyemptylabel:hover:after {
+		content: "\f05e"
+	}
+}
+
+// Small fix for ECP recurr
+[for$="_chkTicketIncludesRecurrence"] + .aspNetDisabled,
+[for$="_chkUseSameSalesBeginForRecurrences"] + .aspNetDisabled {
+	width: 21px;
+	height: 21px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle; 
+
+	&:hover::after {
+		position: absolute;
+		top: 73%;
+		left: 100%;
+		transform: translateY(-50%);
+		content: "Recurrences are disabled.";
+		font-size: 13px;
+		color: #fff;
+		background: @gray-darker;
+		white-space: nowrap;
+		padding: 4px 6px;
+		border-radius: 4px;
+		z-index: 1;
+	}
+
+	&:hover::before {
+		content: '';
+		position: absolute;
+		top: 73%;
+		left: calc(100% - 3px);
+		transform: translateY(-50%);
+		border-right: 5px solid @gray-darker;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		z-index: 1;
+	}
 }
 
 // Category select checklist
@@ -870,23 +990,28 @@ input.list-inline {
 
 
 // Text Editor Font Sizes
-.font-xsmall {
+.font-xsmall,
+.text-xsmall {
 	font-size: 60%;
 }
 
-.font-small {
+.font-small,
+.text-small {
 	font-size: 80%;
 }
 
-.font-normal {
+.font-normal,
+.text-normal {
 	font-size: 100%;
 }
 
-.font-large {
+.font-large,
+.text-large {
 	font-size: 120%;
 }
 
-.font-xlarge {
+.font-xlarge,
+.text-xlarge {
 	font-size: 140%;
 }
 
@@ -950,3 +1075,16 @@ del {
 	color: #555;
 	text-decoration: none;
 }
+
+// Override input widths inside settingrows
+.input-fullwidth {
+	width: 100% !important;
+}
+
+// Make login page inputs line up
+.loginpage .idrow .settinglabel,
+.loginpage .passwordrow .settinglabel {
+	width: 10em;
+}
+
+
