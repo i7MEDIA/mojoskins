@@ -62,6 +62,24 @@ span.cartnav {
 	padding: 10px 0 10px 15px;
 }
 
+// Allow some large features to scroll if they're added to the left/right panes
+.left-pane,
+.right-pane { 
+	[id$="_ctl00_pnlFile"],
+	.eventcalendar .modulecontent,
+	.AudioPlayer .modulecontent,
+	.VideoPlayer .modulecontent,
+	.GoogleTranslateModule .modulecontent {
+		max-width: 100%;
+		overflow-x: scroll;
+	}
+}
+
+// Fix case where Better Image Gallery thumbs get too small
+.big__thumbnail {
+	min-width: 100px;
+}
+
 // Ensure sitelogo never interrupts positioning of navbar toggle
 @media (max-width: @screen-sm) {
 	.navbar-header {

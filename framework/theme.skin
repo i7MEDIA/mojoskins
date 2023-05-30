@@ -772,6 +772,21 @@ http://foundation.zurb.com/docs/ui.php
      UlSelectedCssClass=""
 />
 
+<portal:FlexMenu runat="server" SkinID="CustomMenu"
+	ContainerElement="nav"
+	ContainerCssClass="custom-sidebar pagemenu hidden-xs hidden-sm"
+	RootUlCssClass="sidenav affix-top"
+	ChildUlCssClass="sidenav-child-list"
+	AppendDepthToChildUlCssClass="false"
+	RenderLiCssClasses="true"
+	LiCssClass=""
+	LiSelectedCssClass="active"
+	LiChildSelectedCssClass="child-active"
+	RenderAnchorCss="false"
+	AnchorCssClass=""
+	AnchorSelectedCssClass=""
+/>
+
 <portal:mojoTreeView runat="server" SkinID="SiteMenu"
 	ContainerElement="nav"
 	ContainerCssClass="col-md-4"
@@ -790,6 +805,7 @@ http://foundation.zurb.com/docs/ui.php
 	MaxDataBindDepth="1"
 	/>
 
+	
 
 
 <portal:mojoTreeView runat="server" SkinID="PageMenu"

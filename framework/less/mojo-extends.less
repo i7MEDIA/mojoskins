@@ -720,27 +720,17 @@ div.forminput {
 }
 
 // Media
-.authorinfo {
-	&:extend(.media);
-}
+.authorinfo:not(.createdby):extend(.well) {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	justify-content: stretch;
+	gap: 10px;
+	margin: 15px 0;
 
-.authorbio {
-	&:extend(.media-body);
-}
-
-.authorinfo .avatar img {
-	&:extend(.media-object);
-	max-width: none;
-}
-
-.authorinfo .avatar {
-	&:extend(.media-left);
-}
-
-.authorbio,
-.authorinfo .avatar {
-	display: table-cell;
-	vertical-align: top;
+	.avatar {
+		flex: 0 0 70px;
+	}
 }
 
 // Tabs
