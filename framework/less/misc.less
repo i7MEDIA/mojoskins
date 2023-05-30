@@ -76,8 +76,39 @@ span.cartnav {
 }
 
 // Fix case where Better Image Gallery thumbs get too small
+.big__thumbnails {
+	display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+	container-type: inline-size;
+}
 .big__thumbnail {
 	min-width: 100px;
+}
+
+@container (max-width: 250px) {
+	.big__thumbnails .big__thumbnail {
+		flex: 1 1 100%;
+	}
+}
+
+@container (min-width: 250px) and (max-width: @screen-xs) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 50%;
+	}
+}
+
+@container (min-width: @screen-xs) and (max-width: @screen-sm) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 25%;
+	}
+}
+
+@container (min-width: @screen-sm) and (max-width: @screen-md) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 16.66666667%;
+	}
 }
 
 // Ensure sitelogo never interrupts positioning of navbar toggle
