@@ -347,14 +347,17 @@ input[type='file'] {
 	display: inline-block;
 }
 
-select.forminput,
-input[type='text'].forminput {
+select.forminput, 
+input[type='text'].forminput,
+input[type='number'].forminput,
+input[type='password'].forminput,
+input[type='email'].forminput {
 	&:extend(.form-control);
 }
 
 @media (min-width: @screen-sm-min) {
 	// Keep input smaller on large screens
-	.form-control {
+	.form-control:not([type="checkbox"]) {
 		display: inline-block;
 		width: 260px;
 		vertical-align: middle;
@@ -367,6 +370,11 @@ input[type='text'].forminput {
 			}
 		}
 	}
+}
+
+// For some instances in module settings
+.settingrow .settingblock {
+    display: inline-block;
 }
 
 // Input Range & Output
