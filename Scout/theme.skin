@@ -1,3 +1,64 @@
+<%--
+	## Using the theme.skin file
+
+	Many components of mojoPortal can be customized using the theme.skin file. 
+
+	Most options are included in the theme.skin for the "Framework" skin. 
+
+	You are encouraged to set CSS Classes, settings, and in some cases even markup. 
+	What you should not do is set styles (color, font, width, height, etc...) in this file. 
+	Styles should be controlled by CSS.
+
+	### File Organization
+
+	We've tried to keep controls of similar types grouped together. 
+
+	1. Core Namespace Registrations
+	2. Plugins/Addons (Namespace Registrations and Controls)
+		a. Web Store
+		b. Event Calendar Pro
+		c. Form Wizard Pro
+	3. Base Layout 
+	4. Inputs
+	5. Content Panels
+	6. Admin Areas
+	7. HTML Module
+	8. Blog
+	9. Buttons
+	10. Alerts
+	11. Titles/Headings (Site, Page, Module)
+	12. Breadcrumbs
+	13. Menus
+		a. Main/Site Menu
+		b. Page Menu
+	14. Pagers
+	15. Member List 
+	16. Search
+	17. Grid View
+	18. Shared Files
+	19. Create User Wizard
+	20. Calendars
+	21. Validators
+	22. Lists (checkboxlist, radiobuttonlist)
+	23. Obsolete - controls that are left for backwards compatibility but are disabled through theme.skin settings
+
+	### Plugins / Addons
+	
+	You will some controls are commented out (thus disabled) in this file. This is done 
+	because those controls are not available in mojoPortal out of the box, they are for 
+	plugins/addons. If the plugins they support are not installed and the controls are not
+	commented out, the skin will fail to load. To use these controls, first install the plugin
+	associated with them and then remove the comment tags from around the controls. Be sure
+	get the opening and closing comment tags. Also be sure to leave any actual comments 
+	wrapped with comment tags. As this is a webforms file, the comment tags use % characters, 
+	not ! characters. For example, this information is wrapped in comment tags.
+
+	
+
+	For more info: http://www.mojoportal.com/docs/theme-skin-file
+--%>
+
+
 <%@ Register Namespace="mojoPortal.Web.UI" Assembly="mojoPortal.Web" TagPrefix="portal" %>
 <%@ Register Namespace="mojoPortal.Web.Controls" Assembly="mojoPortal.Web.Controls" TagPrefix="mp" %>
 <%@ Register Namespace="mojoPortal.Web.ContentUI" Assembly="mojoPortal.Web" TagPrefix="html" %>
@@ -6,114 +67,143 @@
 <%@ Register Namespace="mojoPortal.Web.FeedUI" Assembly="mojoPortal.Features.UI" TagPrefix="feed" %>
 <%@ Register Namespace="mojoPortal.Web.SharedFilesUI" Assembly="mojoPortal.Features.UI" TagPrefix="sf" %>
 <%@ Register TagPrefix="portal" TagName="ChildPagesSiteMap" Src="~/Controls/ChildPageMenu.ascx" %>
-<%@ Register TagPrefix="portal" TagName="mojoRating" Src="~/Controls/mojoRating.ascx" %>
-
+ 
 <%-- The following registers the WebStore controls in the layout.master. Uncomment if you have installed the WebStore. --%>
 <%-- <%@ Register Namespace="WebStore.UI" Assembly="WebStore.UI" TagPrefix="webstore" %>
 <webstore:WebStoreDisplaySettings runat="server"
-    EmptyCartFormat="<div class='row'><div class='col-xl-3 col-lg-4 col-md-5 col-xs-12'><div class='alert alert-info'>{0} <a class='alert-link' href='{1}'>{2}</a></div></div></div>"
-    CartCheckoutDiscountDivCssClass="settingrow discountcode store-cart-discountcode col-md-6"
-    CartCheckoutLinksDivCssClass="settingrow checkoutlinks store-cart-checkoutlinks"
-    CartCheckoutLinksDivOutsideTopMarkup="<div class='col-md-6'>"
-    CartCheckoutLinksDivOutsideBottomMarkup=""
-    CartCheckoutLinksDivAnonymousOutsideTopMarkup="<div class='col-md-6'>"
-    CartCheckoutLinksDivAnonymousOutsideBottomMarkup="</div>"
-    CartPayPalDivCssClass="settingrow paypalrow store-cart-paypal"
-    CartPayPalDivOutsideBottomMarkup="</div>"
-    CartCheckoutActionsEmptyCartOutsideBottomMarkup="</div>"
-    CartCheckoutActionsDivClass="row"
-    CartTableCssClass="cartgrid table table-bordered table-striped"
-    OfferTableCssClass="offergrid table table-bordered table-striped"
+	EmptyCartFormat="<div class='row'><div class='col-xl-3 col-lg-4 col-md-5 col-xs-12'><div class='alert alert-info'>{0} <a class='alert-link' href='{1}'>{2}</a></div></div></div>"
+	CartCheckoutDiscountDivCssClass="settingrow discountcode store-cart-discountcode col-md-6"
+	CartCheckoutLinksDivCssClass="settingrow checkoutlinks store-cart-checkoutlinks"
+	CartCheckoutLinksDivOutsideTopMarkup="<div class='col-md-6'>"
+	CartCheckoutLinksDivOutsideBottomMarkup=""
+	CartCheckoutLinksDivAnonymousOutsideTopMarkup="<div class='col-md-6'>"
+	CartCheckoutLinksDivAnonymousOutsideBottomMarkup="</div>"
+	CartPayPalDivCssClass="settingrow paypalrow store-cart-paypal"
+	CartPayPalDivOutsideBottomMarkup="</div>"
+	CartCheckoutActionsEmptyCartOutsideBottomMarkup="</div>"
+	CartCheckoutActionsDivClass="row"
+	CartTableCssClass="cartgrid table table-bordered table-striped"
+	OfferTableCssClass="offergrid table table-bordered table-striped"
 /> --%>
-
 <%--
-    These are for Pro Modules
-    ========================= --%>
-<%-- Delete this comment to enable
-    <%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
-    <%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
-    <%@ Register TagPrefix="fundr"  Namespace="sts.FundRaiser.Web.UI" Assembly="sts.FundRaiser.Web.UI" %>
-
-    <%@ Register Assembly="sts.FormWizard.Web.UI" Namespace="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
+	These are for Pro Modules
+	=========================
+	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
+	<%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
+	<%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
 --%>
 
 <%--
-    IMPORTANT
-    =========
+	Event Calendar Pro
+	==================
+	To enable, remove comments from the @Register statement for the sts.Web.UI Namespace and the sts:CalendarGrid control below.
+	Only enable if Event Calendar Pro is installed.
+	<sts:CalendarGrid runat="server"
+		BackColor=""
+		BorderColor=""
+		BorderStyle="none"
+		CaptionAlign="Top"
+		CssClass="event-cal-pro table table-condensed table-bordered"
+		DayHeaderStyle-CssClass="ec-head"
+		DayNameFormat="Full"
+		DayStyle-CssClass="ec-day"
+		FirstDayOfWeek="sunday"
+		NextMonthText="&#xf054;"
+		NextPrevFormat="CustomText"
+		NextPrevStyle-CssClass="ec-next-prev"
+		OtherMonthDayStyle-CssClass="ec-day ec-other-month"
+		PrevMonthText="&#xf053;"
+		SelectedDayStyle-CssClass="ec-day ec-selected-day"
+		SelectorStyle-CssClass="ec-selector"
+		ShowDayHeader="true"
+		ShowGridLines="false"
+		ShowNextPrevMonth="true"
+		ShowTitle="true"
+		TitleFormat="MonthYear"
+		TitleStyle="true"
+		TitleStyle-CssClass="ec-title"
+		TodayDayStyle-CssClass="ec-day ec-today"
+		WeekendDayStyle-CssClass="ec-day ec-weekend-day"
+	/>
+	
+	<%-- For the main ECP Module display --%>
+	<ecp:EventDisplaySettings runat="server"
+		MonthViewCssClass="hide"
+		MonthViewHeaderMarkupTop="</td></tr></tbody></table><div class='ec-month-head row fb-parent fb-row fb-wrap fb-ai-center fb-j-between'>"
+		MonthViewHeaderMarkupBottom="</div><table class='event-cal-pro table table-condensed table-bordered table-responsive'><tbody><tr class='hide'><td>"
+		MonthViewDayHeaderCssClass="ec-head"
+		MonthViewDayCssClass="ec-day"
+		MonthViewTodayCssClass="ec-day ec-today"
+		MonthViewWeekendDayCssClass="ec-day ec-weekend-day"
+		MonthViewOtherMonthDayCssClass="ec-day ec-other-month"
+		MonthViewHeaderPreviousMonthContainer="<div class='ec-month-previous fb-child col-sm-3 text-xs-center text-md-left'>{0}</div>"
+		MonthViewHeaderPreviousMonthLinkFormat="<a href='{0}' class='eventNextPrevious previousMonth' {2}><span class='fa fa-angle-double-left'></span> <span class='monthName'>{1}</span></a>"
+		MonthViewHeaderNextMonthContainer="<div class='nextMonth ec-month-next fb-child col-sm-3 text-xs-center text-md-right'>{0}</div>"
+		MonthViewHeaderNextMonthLinkFormat="<a href='{0}' class='eventNextPrevious nextMonth' {2}><span class='monthName'>{1}</span> <span class='fa fa-angle-double-right'></span></a>"
+		MonthViewHeaderCurrentMonthFormat="<h3 class='currentMonth fb-child col-sm-6 fb-ai-center fb-j-center text-center'>{0}</h3>"
+		MonthViewEmptyDayFiller="<div class='ec-filler'></div>" 
+		MonthViewEventEditLinkFormat="<a href='{0}' title='{1}' class='editeventlink ModuleEditLink {3}' ><span class='fa fa-pencil-square-o'></span></a>"
+		MonthViewEventMarkupTop="<div class='eventcontainer {0}' style='{1} {2} {3}'>"
+		WeekViewPreviousFormat="<div class='row m-b-gutter-half m-t-gutter-half'><div class='col-sm-6 text-left'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div>"
+		WeekViewNextFormat="<div class='col-sm-6 text-right'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div></div>"
+		DayViewPreviousFormat="<div class='row m-b-gutter-half m-t-gutter-half'><div class='col-sm-6 text-left'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div>"
+		DayViewNextFormat="<div class='col-sm-6 text-right'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div></div>"
+	 />
 
-    Setting any styling in the theme.skin will make the page heavier and cause
-    the site to be slower overall.  All styles should go in your CSS style sheets.
-
-    For more info: http://www.mojoportal.com/understanding-the-theme-skin-file.aspx
+	 <%-- For the ECP Month View Module --%>
+	 <ecp:EventDisplaySettings runat="server" SkinID="MonthViewModule"
+		MonthViewCssClass="hide"
+		MonthViewHeaderMarkupTop="</td></tr></tbody></table><div class='ec-month-head row fb-parent fb-row fb-wrap fb-ai-center fb-j-between'>"
+		MonthViewHeaderMarkupBottom="</div><table class='event-cal-pro table table-condensed table-bordered table-responsive'><tbody><tr class='hide'><td>"
+		MonthViewDayHeaderCssClass="ec-head"
+		MonthViewDayCssClass="ec-day"
+		MonthViewTodayCssClass="ec-day ec-today"
+		MonthViewWeekendDayCssClass="ec-day ec-weekend-day"
+		MonthViewOtherMonthDayCssClass="ec-day ec-other-month"
+		MonthViewHeaderPreviousMonthContainer="<div class='ec-month-previous fb-child col-sm-3 text-xs-center text-md-left'>{0}</div>"
+		MonthViewHeaderPreviousMonthLinkFormat="<a href='{0}' class='eventNextPrevious previousMonth' {2}><span class='fa fa-angle-double-left'></span> <span class='monthName'>{1}</span></a>"
+		MonthViewHeaderNextMonthContainer="<div class='nextMonth ec-month-next fb-child col-sm-3 text-xs-center text-md-right'>{0}</div>"
+		MonthViewHeaderNextMonthLinkFormat="<a href='{0}' class='eventNextPrevious nextMonth' {2}><span class='monthName'>{1}</span> <span class='fa fa-angle-double-right'></span></a>"
+		MonthViewHeaderCurrentMonthFormat="<h3 class='currentMonth fb-child col-sm-6 fb-ai-center fb-j-center text-center'>{0}</h3>"
+		MonthViewEmptyDayFiller="<div class='ec-filler'></div>" 
+		MonthViewEventEditLinkFormat="<a href='{0}' title='{1}' class='editeventlink ModuleEditLink {3}' ><span class='fa fa-pencil-square-o'></span></a>"
+		MonthViewEventMarkupTop="<div class='eventcontainer {0}' style='{1} {2} {3}'>"
+		WeekViewPreviousFormat="<div class='row m-b-gutter-half m-t-gutter-half'><div class='col-sm-6 text-left'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div>"
+		WeekViewNextFormat="<div class='col-sm-6 text-right'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div></div>"
+		DayViewPreviousFormat="<div class='row m-b-gutter-half m-t-gutter-half'><div class='col-sm-6 text-left'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div>"
+		DayViewNextFormat="<div class='col-sm-6 text-right'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div></div>"
+	 />
 --%>
-
 
 <%--
-    Event Calendar Pro
-    ==================
-    To enable, remove comments from the @Register statement for the sts.Web.UI Namespace and the sts:CalendarGrid control below.
-    Only enable if Event Calendar Pro is installed. --%>
-<%-- Delete this comment to enable
-    <sts:CalendarGrid runat="server"
-        BackColor=""
-        BorderColor=""
-        BorderStyle="none"
-        CaptionAlign="Top"
-        CssClass="event-cal-pro table table-condensed table-bordered"
-        DayHeaderStyle-CssClass="ec-head"
-        DayNameFormat="Full"
-        DayStyle-CssClass="ec-day"
-        FirstDayOfWeek="sunday"
-        NextMonthText="&#xf054;"
-        NextPrevFormat="CustomText"
-        NextPrevStyle-CssClass="ec-next-prev"
-        OtherMonthDayStyle-CssClass="ec-day ec-other-month"
-        PrevMonthText="&#xf053;"
-        SelectedDayStyle-CssClass="ec-day ec-selected-day"
-        SelectorStyle-CssClass="ec-selector"
-        ShowDayHeader="true"
-        ShowGridLines="false"
-        ShowNextPrevMonth="true"
-        ShowTitle="true"
-        TitleFormat="MonthYear"
-        TitleStyle="true"
-        TitleStyle-CssClass="ec-title"
-        TodayDayStyle-CssClass="ec-day ec-today"
-        WeekendDayStyle-CssClass="ec-day ec-weekend-day"
-    />
---%>
-
-<%--
-    Form Wizard Pro
-    ===============
---%>
-<%-- Delete this comment to enable
+	Form Wizard Pro
+	===============
 <stsfw:FormWizardDisplaySettings runat="server"
-    UseHtml5SliderControl="true"
-    SaveQuestionProgressHtml="<span class='fa fa-spinner fa-spin'></span>"
-    OptionUpButtonCssClass="fw-option-up btn btn-xs btn-default"
-    OptionDownButtonCssClass="fw-option-down btn btn-xs btn-default"
-    OptionEditButtonCssClass="fw-option-edit btn btn-xs btn-default"
-    OptionDeleteButtonCssClass="fw-option-delete btn btn-xs btn-default"
-    OptionAZSortButtonCssClass="fw-option-sort-az btn btn-xs btn-default"
-    OptionZASortButtonCssClass="fw-option-sort-za btn btn-xs btn-default"
-    OptionResetSortButtonCssClass="fw-option-sort-reset btn btn-xs btn-default"
-    OptionUpButtonInnerHtml="<i class='fa fa-arrow-up'></i>"
-    OptionDownButtonInnerHtml="<i class='fa fa-arrow-down'></i>"
-    OptionEditButtonInnerHtml="<i class='fa fa-pencil-square-o'></i>"
-    OptionDeleteButtonInnerHtml="<i class='fa fa-trash-o'></i>"
-    OptionAZSortButtonInnerHtml="<i class='fa fa-sort-alpha-asc'></i>"
-    OptionZASortButtonInnerHtml="<i class='fa fa-sort-alpha-desc'></i>"
-    OptionResetSortButtonInnerHtml="<i class='fa fa-refresh'></i>"
-
+	UseHtml5SliderControl="true"
+	SaveQuestionProgressHtml="<span class='fa fa-spinner fa-spin'></span>"
+	OptionUpButtonCssClass="fw-option-up btn btn-xs btn-default"
+	OptionDownButtonCssClass="fw-option-down btn btn-xs btn-default"
+	OptionEditButtonCssClass="fw-option-edit btn btn-xs btn-default"
+	OptionDeleteButtonCssClass="fw-option-delete btn btn-xs btn-default"
+	OptionAZSortButtonCssClass="fw-option-sort-az btn btn-xs btn-default"
+	OptionZASortButtonCssClass="fw-option-sort-za btn btn-xs btn-default"
+	OptionResetSortButtonCssClass="fw-option-sort-reset btn btn-xs btn-default"
+	OptionUpButtonInnerHtml="<i class='fa fa-arrow-up'></i>"
+	OptionDownButtonInnerHtml="<i class='fa fa-arrow-down'></i>"
+	OptionEditButtonInnerHtml="<i class='fa fa-pencil-square-o'></i>"
+	OptionDeleteButtonInnerHtml="<i class='fa fa-trash-o'></i>"
+	OptionAZSortButtonInnerHtml="<i class='fa fa-sort-alpha-asc'></i>"
+	OptionZASortButtonInnerHtml="<i class='fa fa-sort-alpha-desc'></i>"
+	OptionResetSortButtonInnerHtml="<i class='fa fa-refresh'></i>"
+	
 	RenderFieldset="false"
 	ReorderItemCssClass="fwp-reorder-list__item panel panel-default panel-body"
 	ReorderTemplateCssClass="fwp-reorder-list__template panel panel-default panel-body"
-    ReorderTemplateJavaScript="<script>;function pageLoad(e,t){var o = document.getElementById('reorderPlaceholder');if(o!=undefined){o.parentNode.style.marginBottom=window.getComputedStyle(o).getPropertyValue('margin-bottom')}}</script>"
+	ReorderTemplateJavaScript="<script>;function pageLoad(e,t){var o = document.getElementById('reorderPlaceholder');if(o!=undefined){o.parentNode.style.marginBottom=window.getComputedStyle(o).getPropertyValue('margin-bottom')}}</script>"
 />
 
 <portal:BasePanel runat="server" SkinID="FWPOptionControls"
-    CssClass="btn-group-vertical"
+	CssClass="btn-group-vertical"
 />
 
 <portal:BasePanel runat="server" SkinID="FWPForm"
@@ -147,11 +237,11 @@
 />
 
 <portal:mojoButton runat="server" SkinID="FWPPrevBtn"
-    CssClass="btn btn-primary"
+	CssClass="btn btn-primary"
 />
 
 <portal:mojoButton runat="server" SkinID="FWPSubmitBtn"
-    CssClass="btn btn-success"
+	CssClass="btn btn-success"
 />
 --%>
 
@@ -266,43 +356,51 @@
     HideEmptyCenterIfOnlySidesHaveContent="true"
 />
 
-
 <%-- Input Classes --%>
 <asp:TextBox runat="server"
-    CssClass="form-control"
+	CssClass="form-control"
 />
 <asp:TextBox runat="server" SkinId="SliderInput"
-    CssClass="slider-input"
+	CssClass="slider-input"
 />
 <asp:TextBox runat="server" SkinId="SliderOutput"
-    CssClass="slider-output"
+	CssClass="slider-output"
 />
 <asp:TextBox runat="server" SkinId="regex"
-    CssClass="form-control pwd-regex"
+	CssClass="form-control pwd-regex"
 />
 <mp:WatermarkTextBox runat="server"
-    CssClass="form-control watermarktextbox"
+	CssClass="form-control watermarktextbox"
 />
 <asp:ListBox  runat="server" SkinID="PageTree"
-    CssClass="form-control page-tree"
+	CssClass="form-control page-tree"
 />
 <asp:DropDownList runat="server"
-    CssClass="form-control"
+	CssClass="form-control"
 />
 <portal:mojoDropDownList runat="server"
-    CssClass="form-control"
+	CssClass="form-control"
 />
 <portal:mojoListBox runat="server"
-    CssClass="form-control"
+	CssClass="form-control"
 />
 <portal:jDatePicker runat="server"
-    CssClass="form-control date-picker"
+	CssClass="form-control date-picker"
+/>
+<mp:DatePickerControl runat="server"
+	CssClass="form-control date-picker"
+/>
+<mp:AirDatepicker runat="server"
+	CssClass="form-control date-picker"
 />
 <portal:jQueryAutoCompleteTextBox runat="server"
-    CssClass="form-control auto-complete"
+	CssClass="form-control auto-complete"
 />
 <portal:jQueryAutoCompleteTextBox runat="server" SkinId="modulesecurity"
-    CssClass="form-control auto-complete"
+	CssClass="form-control auto-complete"
+/>
+<asp:TextBox runat="server" SkinId="fullwidth"
+	CssClass="form-control input-fullwidth"
 />
 
 
@@ -374,7 +472,7 @@
     ExtraCssClasses="bottom-pane clearfix"
 />
 
-<%-- Site Settings Display Settings --%>
+<%-- Admin Areas --%>
 <portalAdmin:AdminDisplaySettings runat="server"
 	PanelHeadingMarkup = "<h3 class='setting-section-title'>{0} <small>{1}</small></h3><div class='setting-section-body'>"
 	PanelBottomMarkup = "</div><!--end PanelBottomMarkup-->"
@@ -382,63 +480,62 @@
 	SubPanelBottomMarkup="</div><!--end panel-body--></div><!--end panel><!--end SubPanelBottomMarkup-->"
 	SubPanelHeadingMarkupCollapsible = "<div class='panel panel-info'><div class='panel-heading'><a href='#{2}' data-toggle='collapse'><h3 class='panel-title'>{0} <small>{1}</small></h3></a></div><div class='panel-collapse collapse' id='{2}'><div class='panel-body'>"
 	SubPanelBottomMarkupCollapsible="</div></div></div><!--end SubPanelBottomMarkupCollapsible-->"
-	
+	ModuleSettingsSettingControlClass="form-control" 
 />
 
-
 <portal:FormGroupPanel runat="server" SkinID="ButtonPanel"
-    CssClass="settingrow button-row"
-    InsideTopMarkup="<label class='settinglabel'></label>"
+	CssClass="settingrow button-row"
+	InsideTopMarkup="<label class='settinglabel'></label>"
 />
 
 <%-- For the site features add/remove panels --%>
 <portal:FormGroupPanel runat="server" SkinID="SiteFeatures"
-    Element="div"
-    CssClass="manage-site-features"
+	Element="div"
+	CssClass="manage-site-features"
 />
 
 <portal:FormGroupPanel runat="server" SkinID="SiteFeaturesLeft"
-    Element="div"
-    OutsideTopMarkup="<div class='row flex-children flex-center'>"
-    CssClass="manage-site-features__left col-sm-4 text-center"
+	Element="div"
+	OutsideTopMarkup="<div class='row flex-children flex-center'>"
+	CssClass="manage-site-features__left col-sm-4 text-center"
 />
 
 <portal:FormGroupPanel runat="server" SkinID="SiteFeaturesCenter"
-    Element="div"
-    CssClass="manage-site-features__right col-sm-4 text-center"
+	Element="div"
+	CssClass="manage-site-features__right col-sm-4 text-center"
 />
 
 <portal:FormGroupPanel runat="server" SkinID="SiteFeaturesRight"
-    Element="div"
-    OutsideBottomMarkup="</div>"
-    CssClass="manage-site-features__right col-sm-4 text-center"
+	Element="div"
+	OutsideBottomMarkup="</div>"
+	CssClass="manage-site-features__right col-sm-4 text-center"
 />
 
 <mp:SiteLabel runat="server" SkinID="settinglabel"
-    CssClass="settinglabel"
+	CssClass="settinglabel"
 />
 
 <asp:Button runat="server" SkinID="SiteFeaturesRemove" 
-    CssClass="btn btn-success btn-sm"
+	CssClass="btn btn-success btn-sm"
 />
 
 <asp:Button runat="server" SkinID="SiteFeaturesAdd" 
-    CssClass="btn btn-success btn-sm"
+	CssClass="btn btn-success btn-sm"
 />
 
 <%-- HTML Module Display Settings --%>
 <html:HtmlDisplaySettings runat="server"
-    DisableContentRating="false"
-    UseBottomContentRating="true"
-    UseHtml5Elements="false"
-    UseAuthorFirstAndLastName="true"
-    OverrideCreatedDateFormat="<span class='datelabel'>Created: </span><span class='date'>{0}</span>"
-    OverrideCreatedByUserFormat="<span class='authorlabel'>Created By: </span><span class='authorname'>{0}</span>"
-    OverrideModifiedDateFormat="<span class='datelabel'>Last Modified: </span><span class='date'>{0}</span>"
-    OverrideModifiedByUserFormat="<span class='authorlabel'>Last Modified By: </span><span class='authorname'>{0}</span>"
-    OverrideCreatedByUserDateFormat="<span class='authorlabel'>Created by </span><span class='authorname'>{1} </span><span class='datelabel'>on </span><span class='date'>{0}</span>"
-    OverrideModifiedByUserDateFormat="<span class='authorlabel'>Last Modified by </span><span class='authorname'>{1} </span><span class='datelabel'>on </span><span class='date'>{0}</span>"
-    DateFormat="MMM dd, yyyy"
+	DisableContentRating="false"
+	UseBottomContentRating="true"
+	UseHtml5Elements="false"
+	UseAuthorFirstAndLastName="true"
+	OverrideCreatedDateFormat="<span class='datelabel'>Created: </span><span class='date'>{0}</span>"
+	OverrideCreatedByUserFormat="<span class='authorlabel'>Created By: </span><span class='authorname'>{0}</span>"
+	OverrideModifiedDateFormat="<span class='datelabel'>Last Modified: </span><span class='date'>{0}</span>"
+	OverrideModifiedByUserFormat="<span class='authorlabel'>Last Modified By: </span><span class='authorname'>{0}</span>"
+	OverrideCreatedByUserDateFormat="<span class='authorlabel'>Created by </span><span class='authorname'>{1} </span><span class='datelabel'>on </span><span class='date'>{0}</span>"
+	OverrideModifiedByUserDateFormat="<span class='authorlabel'>Last Modified by </span><span class='authorname'>{1} </span><span class='datelabel'>on </span><span class='date'>{0}</span>"
+	DateFormat="MMM dd, yyyy"
 />
 
 
@@ -497,26 +594,26 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 --%>
 
 <blog:BlogStatsPanel runat="server"
-    Element="section"
+	Element="section"
 />
 
 <blog:BlogCatListPanel runat="server"
-    Element="section"
+	Element="section"
 />
 
 <blog:BlogArchiveListPanel runat="server"
-    Element="section"
+	Element="section"
 />
 
 <blog:BlogPostListWrapperPanel runat="server"
-    Element="div"
-    RenderId="false"
-    LiteralExtraTopContent=""
+	Element="div"
+	RenderId="false"
+	LiteralExtraTopContent=""
 />
 
 <blog:BlogPostListItemPanel runat="server"
-    Element="article"
-    RenderId="false"
+	Element="article"
+	RenderId="false"
 />
 
 <%-- Adjust comment widget classes for blog to allow blog-specific comment styles --%>
@@ -561,7 +658,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <asp:button runat="server" CssClass="btn btn-default" />
 <%-- <asp:HyperLink runat="server" CssClass="btn btn-default"/> --%>
 <portal:mojoButton runat="server" CssClass="btn btn-default" />
-
+<asp:HyperLink runat="server" SkinID="DefaultButton" CssClass="btn btn-default" />
 <portal:mojoButton runat="server" SkinID="ExportButton" CssClass="btn btn-xs btn-default" />
 
 
@@ -569,6 +666,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <asp:button runat="server" SkinID="PrimaryButton" CssClass="btn btn-primary" />
 <asp:HyperLink runat="server" SkinID="PrimaryButton" CssClass="btn btn-primary"/>
 <portal:mojoButton runat="server" SkinID="PrimaryButton" CssClass="btn btn-primary" />
+<portal:mojoButton runat="server" SkinID="LoginControlLoginButton" CssClass="btn btn-primary" />
 
 
 <%-- Success --%>
@@ -607,7 +705,8 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <asp:button runat="server" SkinID="LinkButton" CssClass="btn btn-link" />
 <asp:HyperLink runat="server" SkinID="LinkButton" CssClass="btn btn-link"/>
 <portal:mojoButton runat="server" SkinID="LinkButton" CssClass="btn btn-link" />
-
+<portal:mojoButton runat="server" SkinID="TextButton" CssClass="btn btn-link" />
+<portal:mojoButton runat="server" SkinID="Text" CssClass="btn-text" />
 <asp:HyperLink runat="server" SkinID="TextButton" CssClass="btn btn-link"/>
 <asp:HyperLink runat="server" SkinID="TextButtonSmall" CssClass="btn btn-link btn-xs" />
 <asp:HyperLink runat="server" SkinID="CBTextButtonSmall" CssClass="cblink btn btn-link btn-xs" />
@@ -617,32 +716,34 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <portal:mojoButton runat="server" SkinID="ModalXButton" CssClass="close" />
 
 <%--
-    Below we define classes for our alerts to match bootstrap 3.3.7. Note that AlertPanel was added in mojoPortal version 2.6.0.2 and you MUST comment all instances of AlertPanel out if you are running a previous version
+	Below we define classes for our alerts to match bootstrap 3.3.7. Note that AlertPanel was added in mojoPortal version 2.6.0.2 and you MUST comment all instances of AlertPanel out if you are running a previous version
 --%>
 <portal:AlertPanel runat="server" SkinID="Success"
-    Element="div"
-    ExtraCssClasses="alert alert-success"
+	Element="div"
+	ExtraCssClasses="alert alert-success"
 />
 
 <portal:AlertPanel runat="server" SkinID="Info"
-    Element="div"
-    ExtraCssClasses="alert alert-info"
+	Element="div"
+	ExtraCssClasses="alert alert-info"
 />
 
 <portal:AlertPanel runat="server" SkinID="Warning"
-    Element="div"
-    ExtraCssClasses="alert alert-warning"
+	Element="div"
+	ExtraCssClasses="alert alert-warning"
 />
 
 <portal:AlertPanel runat="server" SkinID="Error"
-    Element="div"
-    ExtraCssClasses="alert alert-danger"
+	Element="div"
+	ExtraCssClasses="alert alert-danger"
 />
 
 <portal:AlertPanel runat="server" SkinID="Danger"
-    Element="div"
-    ExtraCssClasses="alert alert-danger"
+	Element="div"
+	ExtraCssClasses="alert alert-danger"
 />
+
+<%-- Titles/Headings --%>
 
 <portal:SiteTitle runat="server" SkinId="navbar-brand"
     UseLink="false"
@@ -678,7 +779,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
     ExtraCssClasses=""
 />
 
-<%--
+<%-- Breadcrumbs
 below we are wrapping a nav element around the breadcrumbs, it is debateable whether that is a good idea we leave it up to you
 the documentation says it is only needed for major navigation blocks but it does not say it hurts to use it for lesser navigation
 http://dev.w3.org/html5/spec/single-page.html#the-nav-element
@@ -713,7 +814,6 @@ http://foundation.zurb.com/docs/ui.php
     CrumbSeparator="</li><li>"
     LiteralExtraBottomContent="</li></ul>"
 />
-
 
 <%-- Main Menu --%>
 <portal:FlexMenu runat="server" SkinID="MainMenu"
@@ -812,6 +912,54 @@ http://foundation.zurb.com/docs/ui.php
     UlSelectedCssClass=""
 />
 
+<%-- Page Menu --%>
+<portal:FlexMenu runat="server" SkinID="PageMenu"
+     AnchorChildSelectedCssClass=""
+     AnchorCssClass=""
+     AnchorInnerHtmlBottom=""
+     AnchorInnerHtmlTop=""
+     AnchorSelectedCssClass=""
+     ChildContainerCssClass=""
+     ChildContainerElement=""
+     ChildNodesPerUl="-1"
+     ChildUlCssClass="nav sub-nav"
+     ContainerCssClass="page-menu"
+     ContainerElement=""
+     DescriptionCssClass=""
+     ExtraBottomMarkup=""
+     ExtraTopMarkup=""
+     IsMobileSkin="false"
+     ItemDepthCssPrefix=""
+     LiChildSelectedCssClass="show"
+     LiCssClass=""
+     LiSelectedCssClass="show active"
+     MaxDataRenderDepth="2"
+     ParentLiCssClass=""
+     RenderCustomClassOnAnchor=""
+     RenderCustomClassOnLi=""
+     RenderDescription="true"
+     RootLevelLiCssClass="hide"
+     RootUlCssClass="nav page-nav hidden-xs"
+     StartingNodeOffset="-1"
+     UlChildSelectedCssClass=""
+     UlSelectedCssClass=""
+/>
+
+<portal:FlexMenu runat="server" SkinID="CustomMenu"
+	ContainerElement="nav"
+	ContainerCssClass="custom-sidebar pagemenu hidden-xs hidden-sm"
+	RootUlCssClass="sidenav affix-top"
+	ChildUlCssClass="sidenav-child-list"
+	AppendDepthToChildUlCssClass="false"
+	RenderLiCssClasses="true"
+	LiCssClass=""
+	LiSelectedCssClass="active"
+	LiChildSelectedCssClass="child-active"
+	RenderAnchorCss="false"
+	AnchorCssClass=""
+	AnchorSelectedCssClass=""
+/>
+
 <portal:mojoTreeView runat="server" SkinID="SiteMenu"
     ContainerElement="nav"
     ContainerCssClass="col-md-4"
@@ -901,6 +1049,8 @@ http://foundation.zurb.com/docs/ui.php
     SuppressCornerDivs="true"
 />
 
+<%-- Pagers --%>
+
 <portal:mojoCutePager runat="server"
     ContainerElement=""
     ContainerElementCssClass=""
@@ -937,6 +1087,8 @@ http://foundation.zurb.com/docs/ui.php
     LastClause="&#xf101;"
 />
 
+<%-- Member List --%>
+
 <portal:MemberListDisplaySettings  runat="server"
     TableCssClass="table table-condensed table-hover"
     TableAttributes=""
@@ -952,6 +1104,8 @@ http://foundation.zurb.com/docs/ui.php
     AlphaPagerOtherPageCssClass=""
     AllUsersLinkCssClass=""
 />
+
+<%-- Search --%>
 
 <portal:SearchPanel  runat="server"
     Element="div"
@@ -969,6 +1123,13 @@ http://foundation.zurb.com/docs/ui.php
     AdminLinksContainerDivCssClass="btn-group pagelayout-buttons"
     AdminLinkSeparator=""
     AdminLinkCssClass="btn btn-default"
+/>
+
+<portal:mojoHelpLink runat="server" 
+	UseImage="false" 
+	ModalScript=""
+	ModalHtml=""
+	LinkCss=""
 />
 
 
@@ -996,7 +1157,6 @@ http://foundation.zurb.com/docs/ui.php
     RenderCellSpacing="false"
     RenderTableId="false"
 />
-
 
 <%-- Shared Files --%>
 <sf:SharedFilesDisplaySettings runat="server"
@@ -1026,118 +1186,116 @@ http://foundation.zurb.com/docs/ui.php
     StartNextButtonStyle-CssClass="btn btn-default"
 />
 
+<%-- Calendars --%>
+
 <asp:Calendar  runat="server"
-    CaptionAlign="Top"
-    CssClass="aspcalendarmain"
-    DayHeaderStyle-CssClass="aspcalendardayheader"
-    DayNameFormat="FirstLetter"
-    DayStyle-CssClass="aspcalendarday"
-    FirstDayOfWeek="sunday"
-    NextMonthText="&rsaquo;"
-    NextPrevFormat="CustomText"
-    NextPrevStyle-CssClass="aspcalendarnextprevious"
-    OtherMonthDayStyle-CssClass="aspcalendarothermonth"
-    PrevMonthText="&lsaquo;"
-    SelectedDayStyle-CssClass="aspcalendarselectedday"
-    SelectorStyle-CssClass="aspcalendarselector"
-    ShowDayHeader="true"
-    ShowGridLines="false"
-    ShowNextPrevMonth="true"
-    ShowTitle="true"
-    TitleFormat="MonthYear"
-    TitleStyle-CssClass="aspcalendartitle"
-    TodayDayStyle-CssClass="aspcalendartoday"
-    WeekendDayStyle-CssClass="aspcalendarweekendday"
-    Width="100%"
+	CaptionAlign="Top"
+	CssClass="aspcalendarmain"
+	DayHeaderStyle-CssClass="aspcalendardayheader"
+	DayNameFormat="FirstLetter"
+	DayStyle-CssClass="aspcalendarday"
+	FirstDayOfWeek="sunday"
+	NextMonthText="&rsaquo;"
+	NextPrevFormat="CustomText"
+	NextPrevStyle-CssClass="aspcalendarnextprevious"
+	OtherMonthDayStyle-CssClass="aspcalendarothermonth"
+	PrevMonthText="&lsaquo;"
+	SelectedDayStyle-CssClass="aspcalendarselectedday"
+	SelectorStyle-CssClass="aspcalendarselector"
+	ShowDayHeader="true"
+	ShowGridLines="false"
+	ShowNextPrevMonth="true"
+	ShowTitle="true"
+	TitleFormat="MonthYear"
+	TitleStyle-CssClass="aspcalendartitle"
+	TodayDayStyle-CssClass="aspcalendartoday"
+	WeekendDayStyle-CssClass="aspcalendarweekendday"
+	Width="100%"
 />
 
 <asp:Calendar  runat="server" SkinID="Blog"
-    CaptionAlign="Top"
-    CssClass="bc-main"
-    DayHeaderStyle-CssClass="bc-head"
-    DayNameFormat="FirstTwoLetters"
-    DayStyle-CssClass="bc-day"
-    FirstDayOfWeek="sunday"
-    NextMonthText="&#xf0da;"
-    NextPrevFormat="CustomText"
-    NextPrevStyle-CssClass="bc-nextprev"
-    OtherMonthDayStyle-CssClass="bc-day bc-othermonth"
-    PrevMonthText="&#xf0d9;"
-    SelectedDayStyle-CssClass="bc-day bc-selected"
-    SelectorStyle-CssClass="bc-day bc-selector"
-    ShowDayHeader="true"
-    ShowGridLines="false"
-    ShowNextPrevMonth="true"
-    ShowTitle="true"
-    TitleFormat="MonthYear"
-    TitleStyle-CssClass="bc-title"
-    TodayDayStyle-CssClass="bc-day bc-today"
-    WeekendDayStyle-CssClass="bc-day bc-weekend"
+	CaptionAlign="Top"
+	CssClass="bc-main"
+	DayHeaderStyle-CssClass="bc-head"
+	DayNameFormat="FirstTwoLetters"
+	DayStyle-CssClass="bc-day"
+	FirstDayOfWeek="sunday"
+	NextMonthText="&#xf0da;"
+	NextPrevFormat="CustomText"
+	NextPrevStyle-CssClass="bc-nextprev"
+	OtherMonthDayStyle-CssClass="bc-day bc-othermonth"
+	PrevMonthText="&#xf0d9;"
+	SelectedDayStyle-CssClass="bc-day bc-selected"
+	SelectorStyle-CssClass="bc-day bc-selector"
+	ShowDayHeader="true"
+	ShowGridLines="false"
+	ShowNextPrevMonth="true"
+	ShowTitle="true"
+	TitleFormat="MonthYear"
+	TitleStyle-CssClass="bc-title"
+	TodayDayStyle-CssClass="bc-day bc-today"
+	WeekendDayStyle-CssClass="bc-day bc-weekend"
 />
 
 
 <%--  This is the Event Calendar  --%>
 <mp:DataCalendar runat="server" SkinID="eventcal"
-    BackColor=""
-    BorderColor=""
-    BorderStyle="none"
-    CaptionAlign="Top"
-    CssClass="event-cal table table-condensed table-bordered"
-    DayHeaderStyle-CssClass="ec-head"
-    DayNameFormat="Full"
-    DayStyle-CssClass="ec-day"
-    FirstDayOfWeek="sunday"
-    NextMonthText="&#xf054;"
-    NextPrevFormat="CustomText"
-    NextPrevStyle-CssClass="ec-next-prev"
-    OtherMonthDayStyle-CssClass="ec-day ec-other-month"
-    PrevMonthText="&#xf053;"
-    SelectedDayStyle-CssClass="ec-day ec-selected-day"
-    SelectorStyle-CssClass="ec-selector"
-    ShowDayHeader="true"
-    ShowGridLines="false"
-    ShowNextPrevMonth="true"
-    ShowTitle="true"
-    TitleFormat="MonthYear"
-    TitleStyle-CssClass="ec-title"
-    TodayDayStyle-CssClass="ec-day ec-today"
-    WeekendDayStyle-CssClass="ec-day ec-weekend-day"
+	BackColor=""
+	BorderColor=""
+	BorderStyle="none"
+	CaptionAlign="Top"
+	CssClass="event-cal table table-condensed table-bordered"
+	DayHeaderStyle-CssClass="ec-head"
+	DayNameFormat="Full"
+	DayStyle-CssClass="ec-day"
+	FirstDayOfWeek="sunday"
+	NextMonthText="&#xf054;"
+	NextPrevFormat="CustomText"
+	NextPrevStyle-CssClass="ec-next-prev"
+	OtherMonthDayStyle-CssClass="ec-day ec-other-month"
+	PrevMonthText="&#xf053;"
+	SelectedDayStyle-CssClass="ec-day ec-selected-day"
+	SelectorStyle-CssClass="ec-selector"
+	ShowDayHeader="true"
+	ShowGridLines="false"
+	ShowNextPrevMonth="true"
+	ShowTitle="true"
+	TitleFormat="MonthYear"
+	TitleStyle-CssClass="ec-title"
+	TodayDayStyle-CssClass="ec-day ec-today"
+	WeekendDayStyle-CssClass="ec-day ec-weekend-day"
 />
 
 
 <%-- This is the RSS Feed Calendar --%>
 <mp:DataCalendar runat="server" SkinID="rsscal"
-    BackColor=""
-    BorderColor=""
-    BorderStyle="none"
-    CaptionAlign="Top"
-    CssClass="event-cal table table-condensed table-bordered"
-    DayHeaderStyle-CssClass="ec-head"
-    DayNameFormat="Full"
-    DayStyle-CssClass="ec-day"
-    FirstDayOfWeek="sunday"
-    NextMonthText="&#xf054;"
-    NextPrevFormat="CustomText"
-    NextPrevStyle-CssClass="ec-next-prev"
-    OtherMonthDayStyle-CssClass="ec-day ec-other-month"
-    PrevMonthText="&#xf053;"
-    SelectedDayStyle-CssClass="ec-day ec-selected-day"
-    SelectorStyle-CssClass="ec-selector"
-    ShowDayHeader="true"
-    ShowGridLines="false"
-    ShowNextPrevMonth="true"
-    ShowTitle="true"
-    TitleFormat="MonthYear"
-    TitleStyle-CssClass="ec-title"
-    TodayDayStyle-CssClass="ec-day ec-today"
-    WeekendDayStyle-CssClass="ec-day ec-weekend-day"
+	BackColor=""
+	BorderColor=""
+	BorderStyle="none"
+	CaptionAlign="Top"
+	CssClass="event-cal table table-condensed table-bordered"
+	DayHeaderStyle-CssClass="ec-head"
+	DayNameFormat="Full"
+	DayStyle-CssClass="ec-day"
+	FirstDayOfWeek="sunday"
+	NextMonthText="&#xf054;"
+	NextPrevFormat="CustomText"
+	NextPrevStyle-CssClass="ec-next-prev"
+	OtherMonthDayStyle-CssClass="ec-day ec-other-month"
+	PrevMonthText="&#xf053;"
+	SelectedDayStyle-CssClass="ec-day ec-selected-day"
+	SelectorStyle-CssClass="ec-selector"
+	ShowDayHeader="true"
+	ShowGridLines="false"
+	ShowNextPrevMonth="true"
+	ShowTitle="true"
+	TitleFormat="MonthYear"
+	TitleStyle-CssClass="ec-title"
+	TodayDayStyle-CssClass="ec-day ec-today"
+	WeekendDayStyle-CssClass="ec-day ec-weekend-day"
 />
 
-
-<%-- these are used in other skins to add additional markup for nifty corners --%>
-<mp:CornerRounderTop    runat="server" DoRounding="false" />
-<mp:CornerRounderBottom runat="server" DoRounding="false" />
-
+<%-- Validators --%>
 <%-- this clears hard coded style from validators --%>
 <asp:ValidationSummary          runat="server" ForeColor="" CssClass="txterror" />
 <asp:RangeValidator             runat="server" ForeColor="" CssClass="txterror" />
@@ -1146,45 +1304,56 @@ http://foundation.zurb.com/docs/ui.php
 <asp:CompareValidator           runat="server" ForeColor="" CssClass="txterror" />
 <asp:CustomValidator            runat="server" ForeColor="" CssClass="txterror" />
 
+<%-- Lists --%>
 
 <asp:CheckBoxList runat="server"
-    CssClass="box-table"
-    RepeatDirection="vertical"
-    RepeatLayout="table"
+	CssClass="box-table"
+	RepeatDirection="vertical"
+	RepeatLayout="table"
 />
 
 <asp:RadioButtonList runat="server"
-    CssClass="box-inline"
-    RepeatDirection="vertical"
-    RepeatLayout="UnorderedList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
+/>
+
+<asp:CheckBoxList runat="server" SkinID="InlineList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
 />
 
 <asp:CheckBoxList runat="server" SkinID="Roles"
-    CssClass="box-table"
-    RepeatDirection="vertical"
-    RepeatLayout="table"
+	CssClass="box-table"
+	RepeatDirection="vertical"
+	RepeatLayout="table"
 />
 
 <asp:CheckBoxList runat="server" SkinID="Blog"
-    CssClass="box-inline"
-    RepeatDirection="vertical"
-    RepeatLayout="UnorderedList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
 />
 
 <asp:RadioButtonList runat="server" SkinID="Blog"
-    CssClass="box-inline"
-    RepeatDirection="vertical"
-    RepeatLayout="UnorderedList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
 />
 
 <asp:CheckBoxList runat="server" SkinID="FormWizard"
-    CssClass="box-inline"
-    RepeatDirection="vertical"
-    RepeatLayout="UnorderedList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
 />
 
 <asp:RadioButtonList runat="server" SkinID="FormWizard"
-    CssClass="box-inline"
-    RepeatDirection="vertical"
-    RepeatLayout="UnorderedList"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
 />
+
+<%-- these are used in other skins to add additional markup for nifty corners --%>
+<mp:CornerRounderTop    runat="server" DoRounding="false" />
+<mp:CornerRounderBottom runat="server" DoRounding="false" />

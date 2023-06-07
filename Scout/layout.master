@@ -1,7 +1,7 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/App_MasterPages/layout.Master.cs" Inherits="mojoPortal.Web.layout" %>
 <%@ Register TagPrefix="i7MEDIA" TagName="SuperWrapper" Src="~/SuperFlexi/SuperWrapper.ascx" %>
 <!DOCTYPE html>
-<html class="htmlclass"> 
+<html class="htmlclass" id="Html" runat="server">
 	<head id="Head1" runat="server">
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,18 +16,25 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.css" />
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" QtFileCssIsInMainCss="false" IncludeColorBox="true" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/default/default.css" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/light/light.css" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/dark/dark.css" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/bar/bar.css" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/nivo-slider.css" />
+		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" IncludeColorBox="true" />
 
 		<!-- Scripts -->
-		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludeSimpleFaq="true" IncludejQueryAccordion="true" />
-		<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.2.1.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludejQueryAccordion="true" />
+		<script src="//code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.6.0.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
-		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/nivo-slider/jquery.nivo.slider.pack.js" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" RenderInPlace="true" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>"/>
+	    <portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
+
 		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
 		<script>$.widget.bridge('uiTooltip', $.ui.tooltip);$.widget.bridge('uiButton', $.ui.button);</script>
-	</head> 
+	</head>
 	<body class="pagebody" id="Body" runat="server">
 		<portal:FacebookSdk id="fbsdk" runat="server" />
 		<portal:AnalyticsAsyncTopScript id="analyticsTop" runat="server" />
@@ -44,7 +51,7 @@
 			<div class="userbar">
 				<div class="left">
 					<a class="btn btn-red btn-square" href="#"><i class="fa fa-heart"></i> &nbsp; Donate</a>
-					<portal:LoginLink ID="LoginLink" runat="server" RenderAsListItem="false" CssClass=" " />
+					<portal:LoginLink id="LoginLink" runat="server" RenderAsListItem="false" CssClass=" " />
 					<portal:RegisterLink id="RegisterLink" runat="server" RenderAsListItem="false" CssClass=" bar-left" />
 				</div> 
 				<div class="right">
@@ -96,10 +103,10 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-6">
-									<h2 class="page-title"><portal:PageTitle runat="server" ID="pageTitle1" /></h2>
+									<h2 class="page-title"><portal:PageTitle runat="server" id="pageTitle1" /></h2>
 								</div>
 								<div class="col-md-6 text-md-right">
-									<portal:Breadcrumbs ID="Breadcrumbs" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
+									<portal:Breadcrumbs id="Breadcrumbs" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
 								</div>
 							</div>
 						</div>
@@ -109,11 +116,13 @@
 					<div class="of-x-hidden">
 						<div class="container">
 							<% if (currentPage != null && !currentPage.ShowPageHeading) { %>
-								<portal:Breadcrumbs ID="Breadcrumbs2" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
+								<portal:Breadcrumbs id="Breadcrumbs2" runat="server" Separator="" ItemWrapperTop="<li>" ItemWrapperBottom="</li>" CssClass="" CurrentPageCssClass="active" />
 							<% } %>
 
 							<div class="row" id="start-content">
 								<portal:LayoutPanel id="divLeft" runat="server" SkinID="LeftPane">
+									<%-- Below is an optional page menu, uncomment to enable --%>
+									<%-- portal:PageMenu id="PageMenu1" runat="server" UseFlexMenu="true" /> --%>
 									<asp:contentplaceholder id="leftContent" runat="server"></asp:contentplaceholder>
 								</portal:LayoutPanel>
 
@@ -141,29 +150,29 @@
 					<div class="foot-menu-top">
 						<div class='fb-parent fb-row fb-wrap fb-j-between'>
 							<nav class='foot-menus fb-child fb-shrink fb-grow fb-sm-100 fb-xl-75 fb-parent fb-row fb-wrap fb-j-between'>
-								<i7MEDIA:SuperWrapper ID="FooterCustomMenu" runat="server"
+								<i7MEDIA:SuperWrapper id="FooterCustomMenu" runat="server"
 								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
 								ModuleGuidToUse="32758cd4-ac40-410f-9b90-a809f8812289" 
 					            DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25', 'DescendingSortOrder': false}"
 					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 1','ShowTitle': true}" />
-					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu2" runat="server"
+					            <i7MEDIA:SuperWrapper id="FooterCustomMenu2" runat="server"
 								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
 								ModuleGuidToUse="a4337ba5-a9ab-4464-9190-fd4335a35afb" 
 					            DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
 					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 2','ShowTitle': true}" />
-					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu3" runat="server"
+					            <i7MEDIA:SuperWrapper id="FooterCustomMenu3" runat="server"
 								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
 								ModuleGuidToUse="6e8cf289-2e1c-4708-a003-8b23648956d4" 
 					            DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
 					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 3','ShowTitle': true}" />
-					            <i7MEDIA:SuperWrapper ID="FooterCustomMenu4" runat="server"
+					            <i7MEDIA:SuperWrapper id="FooterCustomMenu4" runat="server"
 								FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
 								ModuleGuidToUse="a2d3845d-9326-4927-afef-87818be05155" 
 					            DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Quick Links/quick-links.sfMarkup', 'ExtraCssClassSetting': 'fb-child fb-grow fb-sm-50 fb-md-25',  'DescendingSortOrder': false}"  
 					            DefaultGeneralSettings="{'ModuleTitle': 'Custom Menu 4','ShowTitle': true}" />
 							</nav>
 							<div class="fb-child fb-shrink fb-grow fb-sm-100 fb-xl-25">
-								<i7MEDIA:SuperWrapper ID="SuperWrapperSocialLinks" runat="server"
+								<i7MEDIA:SuperWrapper id="SuperWrapperSocialLinks" runat="server"
 									FeatureGuid="4FF93793-1187-4022-899C-C3E9096A855F" 
 									ModuleGuidToUse="82b44e9f-bf06-41c4-b174-b6c2e50c1f54" 
 						            DefaultModuleSettings="{'MarkupDefinitionFile': '/Data/SuperFlexi/Solutions/Social Media/social-links.sfMarkup', 'DescendingSortOrder': false}"  
@@ -175,7 +184,7 @@
 						<div class="row">
 							<div class="col-md-5">
 								<p class="copyright">
-									<portal:CopyrightLabel ID="CopyrightCompany1" runat="server" ShowYear="true" BeginYear="2017" />
+									<portal:CopyrightLabel id="CopyrightCompany1" runat="server" ShowYear="true" BeginYear="2017" />
 								</p>
 							</div>
 							<div class="col-md-7 text-md-right">
@@ -220,7 +229,7 @@
 					<portal:SiteMenu id="SiteMenu2" runat="server" MenuSkinId="MobileMenu" UseFlexMenu="true" />
 					<div class="menu-btns">
 						<a class="btn btn-red" href="#"><i class="fa fa-heart"></i> &nbsp; Donate</a>
-						<portal:LoginLink ID="LoginLinkMobile" runat="server" RenderAsListItem="false" CssClass="btn btn-blue fa fa-sign-in" OverrideText="Sign In" />
+						<portal:LoginLink id="LoginLinkMobile" runat="server" RenderAsListItem="false" CssClass="btn btn-blue fa fa-sign-in" OverrideText="Sign In" />
 						<portal:LogoutLink id="LogoutLinkMobile" runat="server" RenderAsListItem="false" CssClass="btn btn-warning fa fa-sign-out" OverrideText="Sign Out" />
 					</div>
 				</div>
@@ -239,5 +248,7 @@
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.tabcollapse.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/main.min.js" RenderInPlace="true" />
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/administration.min.js" RenderInPlace="true" VisibleRoles="Authenticated Users" />
+		<!-- For the new modal template -->
+		<asp:PlaceHolder id="phSiteFooter" runat="server" />
 	</body>
 </html>
