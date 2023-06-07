@@ -13122,6 +13122,45 @@ del {
   color: #555;
   text-decoration: none;
 }
+.fb-bordered-section-wrap {
+  border: 2px solid #eeeeee;
+}
+.fb-bordered-section-wrap .fb-section-heading::after {
+  background-color: #5cb85c;
+}
+.fb-bordered-section-wrap .fb-subsection-heading {
+  background: rgba(238, 238, 238, 0.5);
+  color: #333333;
+}
+.fb-bordered-section-wrap .fb-text-subdued {
+  color: rgba(51, 51, 51, 0.8);
+}
+.fb-fieldset-style .fb-section-heading {
+  color: #5cb85c;
+}
+.flip-box__item .front {
+  background-color: #eeeeee;
+  color: #333333;
+}
+.flip-box__item .back {
+  background-color: #015498;
+  color: #fff;
+}
+.flip-box__item--green .back {
+  background-color: #5cb85c;
+}
+.flip-box__item--red .back {
+  background-color: #d9534f;
+}
+.flip-box__item--orange .back {
+  background-color: #f0ad4e;
+}
+.flip-box__item--purple .back {
+  background-color: #965be8;
+}
+.flip-box__item--light-blue .back {
+  background-color: #5bc0de;
+}
 .pagebody {
   background: url("img/white_plaster.png") scroll 0 0 transparent;
 }

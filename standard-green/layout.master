@@ -95,28 +95,28 @@
 
 				<main class="main-content container" role="main">
 					<div class="inner-wrapper">
-						<portal:LayoutPanel id="divAlt1" runat="server" Skinid="TopPane">
+						<portal:LayoutPanel id="divAlt1" runat="server" SkinId="TopPane">
 							<asp:ContentPlaceHolder id="altContent1" runat="server"></asp:ContentPlaceHolder>
 						</portal:LayoutPanel>
 
 
 						<div class="row">
-							<portal:LayoutPanel id="divLeft" runat="server" Skinid="LeftPane">
+							<portal:LayoutPanel id="divLeft" runat="server" SkinId="LeftPane">
 								<%-- Below is an optional page menu, uncomment to enable --%>
 								<%-- portal:PageMenu id="PageMenu1" runat="server" UseFlexMenu="true" /> --%>
 								<asp:contentplaceholder id="leftContent" runat="server"></asp:contentplaceholder>
 							</portal:LayoutPanel>
 
-							<portal:LayoutPanel id="divCenter" runat="server" Skinid="CenterPane">
+							<portal:LayoutPanel id="divCenter" runat="server" SkinId="CenterPane">
 								<asp:ContentPlaceHolder id="mainContent" runat="server"></asp:ContentPlaceHolder>
 							</portal:LayoutPanel>
 
-							<portal:LayoutPanel id="divRight" runat="server" Skinid="RightPane">
+							<portal:LayoutPanel id="divRight" runat="server" SkinId="RightPane">
 								<asp:contentplaceholder id="rightContent" runat="server"></asp:contentplaceholder>
 							</portal:LayoutPanel>
 						</div>
 
-						<portal:LayoutPanel id="divAltContent2" runat="server" Skinid="BottomPane">
+						<portal:LayoutPanel id="divAltContent2" runat="server" SkinId="BottomPane">
 							<asp:ContentPlaceHolder id="altContent2" runat="server"></asp:ContentPlaceHolder>
 						</portal:LayoutPanel>
 					</div>
