@@ -633,8 +633,9 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <%-- Titles/Headings --%>
 
 <portal:SiteTitle runat="server" SkinId="navbar-brand"
-	UseLink="false"
-	UseElement="false"
+	Element="h1"
+	UseLink="true"
+	UseElement="true"
 />
 
 <portal:SiteTitle runat="server" SkinId="HiddenTitle"

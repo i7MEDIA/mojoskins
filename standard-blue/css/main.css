@@ -13334,6 +13334,13 @@ span.txterror {
 div.txterror *:last-child {
   margin-bottom: 0;
 }
+input[type="file"] {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  vertical-align: middle;
+  border-radius: 4px;
+  color: #333;
+}
 .captcha {
   background-color: white;
   border: 1px solid #ccc;
