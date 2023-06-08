@@ -83,3 +83,26 @@ img[src*="/Data/SiteImages/edit.png"] {
 .panelistbox select {
     color: @gray-dark;
 }
+
+// Ensure dark colors for readable text on various grids
+.AspNet-GridView {
+    background-color: @body-bg;
+}
+
+// Ensure readable text on form wizard browse submissions page
+.dialogpage form[action*="/FormResultsBrowse.aspx"] {
+    color: #000;
+
+    .navigation + .settingrow {
+        color: #000;
+    }
+
+    .pagination .disabled {
+        color: #fff;
+    }
+}
+
+// Fix weird datepicker alignment in some places
+.input-group .form-control.date-picker:not([type=checkbox]) {
+    max-height: 31px;
+}
