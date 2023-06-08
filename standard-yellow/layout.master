@@ -69,13 +69,11 @@
 								</button>
 
 								<% if (siteSettings.Logo != "" && siteSettings.Logo != "blank.gif") { %>
-								<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="navbar-brand navbar-logo" />
+									<portal:SiteLogo runat="server" ImageCssClass="site-logo" LinkCssClass="navbar-brand navbar-logo" />
+									<portal:SiteTitle runat="server" SkinId="HiddenTitle" UseLink="false" />
+								<% } else { %>
+									<portal:SiteTitle runat="server" SkinId="navbar-brand" UseLink="true" />
 								<% } %>
-								<h1>
-									<asp:HyperLink runat="server" NavigateUrl="~/" CssClass="navbar-brand">
-										<portal:SiteTitle runat="server" SkinId="navbar-brand" />
-									</asp:HyperLink>
-								</h1>
 							</div>
 
 							<div class="collapse navbar-collapse" id="site-menu">
