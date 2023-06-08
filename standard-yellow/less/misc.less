@@ -442,6 +442,13 @@ input[type="file"] {
 	color: @btn-default-color;
 }
 
+// Fix weird datepicker alignment in index browser
+.admin-index-browser .input-group .form-control.date-picker:not([type=checkbox]) {
+    margin: 5px 0;
+	border-top-left-radius: @input-border-radius !important;
+    border-bottom-left-radius: @input-border-radius !important;
+}
+
 // captcha
 .captcha {
 	background-color: white;

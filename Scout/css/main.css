@@ -17862,7 +17862,7 @@ span.cartnav {
 }
 .ptreebuttons br,
 .addnewtemplatebottom > br,
-[id$="_divLdapTestPassword"] br {
+[id$="_divLdapTestPassword"] {
   display: none;
 }
 .ptreebuttons {
@@ -18045,6 +18045,24 @@ span.txterror {
 }
 div.txterror *:last-child {
   margin-bottom: 0;
+}
+input[type="file"] {
+  border: 1px solid #a1b8c6;
+  padding: 8px 14px;
+  vertical-align: middle;
+  border-radius: 4px;
+  color: #73797d;
+}
+.admin-index-browser .input-group .form-control.date-picker:not([type=checkbox]),
+.admin-index-browser .input-group select.forminput.date-picker:not([type=checkbox]),
+.admin-index-browser .input-group input[type='text'].forminput.date-picker:not([type=checkbox]),
+.admin-index-browser .input-group input[type='number'].forminput.date-picker:not([type=checkbox]),
+.admin-index-browser .input-group input[type='password'].forminput.date-picker:not([type=checkbox]),
+.admin-index-browser .input-group input[type='email'].forminput.date-picker:not([type=checkbox]),
+.admin-index-browser .wrapsearchinput > .searchpanel .form-control.date-picker:not([type=checkbox]) {
+  margin: 5px 0;
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
 }
 .captcha {
   background-color: white;
