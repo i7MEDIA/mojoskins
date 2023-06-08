@@ -36,7 +36,7 @@
 // --------------------------------------------------
 $(document).ready(function() {
 	// Add caret to menu items with drop-down
-	$('.navbar-site .dropdown-toggle > a').append(' <span class="caret"></span>');
+	$('.navbar-nav .dropdown-toggle > a').append(' <span class="caret"></span>');
 
 	// Administration Drawer | Needs to be refoctored and moved to administration.js
 	if ($('.workflow-type select').length > 0) {
