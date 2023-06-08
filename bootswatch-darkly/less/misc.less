@@ -433,6 +433,21 @@ div.txterror:extend(.alert all, .alert-danger all)  {
 	}
 }
 
+// File input
+input[type="file"] {
+    border: 1px solid @btn-default-border;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    vertical-align: middle;
+    border-radius: @btn-border-radius-base;
+	color: @btn-default-color;
+}
+
+// Fix weird datepicker alignment in index browser
+.admin-index-browser .input-group .form-control.date-picker:not([type=checkbox]) {
+    margin: 5px 0;
+	border-top-left-radius: @input-border-radius !important;
+    border-bottom-left-radius: @input-border-radius !important;
+}
 
 // captcha
 .captcha {
