@@ -2,9 +2,84 @@
  
 // Darken UI Widget Panel Headings
 .ui-widget-content .panel-heading a {
-	color: @gray-darker;
+	color: @gray-darker; 
 
 	&:hover { 
 		text-decoration: underline;
 	}
+}
+
+// Overwrite the default admin drawer background, don't put this in administration-drawer.less because then framework updates will overwrite it
+.admin-drawer {
+    background-color: lighten(@gray-base, 5%);
+}
+
+// Another color overwrite that should remain here in skin.less
+nav.custom-sidebar ul>.active:focus>a:before, 
+nav.custom-sidebar ul>.active:hover>a:before, 
+nav.custom-sidebar ul>.active>a:before {
+    background-color: @brand-success;
+}
+
+nav.custom-sidebar ul>.active:focus>a, 
+nav.custom-sidebar ul>.active:hover>a, 
+nav.custom-sidebar ul>.active>a {
+    color: @brand-success;
+}
+
+nav.custom-sidebar ul > li > a:hover,
+nav.custom-sidebar ul > li > a:focus {
+    background-color: @gray-dark;
+    color: @brand-success;
+}
+
+// Convert all the black-by-default site images to be white
+input[src*="/Data/SiteImages/delete.png"],
+img[src*="/Data/SiteImages/delete.png"],
+input[src*="/Data/SiteImages/email.png"],
+img[src*="/Data/SiteImages/email.png"],
+input[src*="/Data/SiteImages/down.png"],
+img[src*="/Data/SiteImages/down.png"],
+input[src*="/Data/SiteImages/up.png"],
+img[src*="/Data/SiteImages/up.png"],
+input[src*="/Data/SiteImages/cog-icon.png"],
+img[src*="/Data/SiteImages/cog-icon.png"],
+input[src*="/Data/SiteImages/minus_circle.png"],
+img[src*="/Data/SiteImages/minus_circle.png"],
+input[src*="/Data/SiteImages/plus_circle.png"],
+img[src*="/Data/SiteImages/plus_circle.png"],
+input[src*="/Data/SiteImages/edit.png"], 
+img[src*="/Data/SiteImages/edit.png"] {
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
+
+// icons in mp buttons should match current color
+.mp-svg-icon {
+    fill: currentColor;
+}
+
+// For event calendar current day
+.ec-today {
+	background-color: @gray-highlight; // #798a9b
+}
+
+// Overwrite color for form wizard checkbox label styles
+.formwizard input[type=checkbox] + label {
+    color: inherit !important;
+}
+
+// Overwrite background color for wysiwyg
+.cke_wysiwyg_frame, .cke_wysiwyg_div {
+    background-color: @body-bg !important;
+}
+
+// Color fix for page manager
+.pagetree ul.jqtree-tree .jqtree-toggler {
+    color: #fff;
+}
+
+// Fix for dark themed pagelayout.aspx
+.panelistbox select {
+    color: @gray-dark;
 }
