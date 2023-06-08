@@ -4,7 +4,7 @@
 
 //
 // Head Styles
-//
+// 
 
 .pagebody {
 	background: url('img/cream_pixels.png') repeat scroll 0 0 transparent;
@@ -113,7 +113,7 @@
 	position: relative;
 
 	h1 {
-		color: @text-color;
+		color: @gray-lighter;
 		float: left;
 		font-size: 24px;
 	}
@@ -126,6 +126,10 @@
 
 		a {
 			color: #FFF;
+
+			&.active {
+				color: #AFAFAF;
+			}
 		}
 	}
 }
@@ -155,13 +159,13 @@
 .foot {
 	background: @brand-primary; 
 	padding: 40px (@grid-gutter-width / 2) 20px;
-	color: @text-color;
+	color: @gray-lighter;
 	.foot-metas {
 		margin-bottom: 0;
 		line-height: 26px;
 	}
 	a {
-		color: @link-color;
+		color: @gray-lighter;
 	}
 	.copyright { 
 		margin: 10px;
@@ -246,6 +250,6 @@
 }
 
 // Misc Fixes / Fixed For SuperFlexi Solutions
-.top-pane .content-slider-module:first-child { 
+.top-pane .content-slider-module:first-child {
     margin: -(@grid-gutter-width/2) -(@grid-gutter-width/2) (@grid-gutter-width/2) -(@grid-gutter-width/2); // Fixes banner slider position in top pane
 }

@@ -1,5 +1,149 @@
+// Server log
+.serverlog dd.logmessage { 
+    overflow: auto hidden; 
+} 
+ 
+.serverlog dd.logmessage, 
+.serverlog dt.logmessage { 
+    border-left: 5px solid @brand-info; 
+    padding-left: 10px; 
+ 
+} 
+ 
+.serverlog dt.logmessage.text-danger, 
+.serverlog dd.logmessage.text-danger { 
+    border-color: @brand-danger; 
+} 
+ 
+.serverlog dt.logmessage { 
+    margin-top: 20px; 
+} 
+
+// Basic formwizard styles
+.formwizard .block-label .settinglabel {width: auto;display:block;}
+.formwizard .inline-block-label {width:auto;}
+.formwizard .hide-label .settinglabel {display:none;}
+
+// Misc Fixes / Fixes For SuperFlexi Solutions
+.top-pane .content-slider-module:first-child {
+    margin: -(@navbar-margin-bottom + 2px); // Fixes banner slider position in top pane
+}
+
+// Ensures aspect ratio on default Site Logos
+.navbar-logo {
+	height: auto;
+	max-height: 300px;
+}
+
+.navbar-brand {
+	height: auto; 
+}
+
+// Allow for inclusion of cart link in menu
+@media (max-width: @screen-xs-max) {
+	.flex-cart-inline {
+		margin: 7.5px -(@grid-gutter-width/2);
+		display: block;
+	}
+}
+
+@media (min-width: @screen-sm) {
+	.flex-cart-inline {
+		margin: 0;
+		display: inline;
+	}
+
+	span.cartnav {
+		margin-left: 15px;
+	}
+}
+
+span.cartnav {
+	padding: 10px 0 10px 15px;
+}
+
+// Allow some large features to scroll if they're added to the left/right panes
+.left-pane,
+.right-pane { 
+	[id$="_ctl00_pnlFile"],
+	.eventcalendar .modulecontent,
+	.AudioPlayer .modulecontent,
+	.VideoPlayer .modulecontent,
+	.GoogleTranslateModule .modulecontent {
+		max-width: 100%;
+		overflow-x: scroll;
+	}
+}
+
+// Fix case where Better Image Gallery thumbs get too small
+.big__thumbnails {
+	display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+	container-type: inline-size;
+}
+.big__thumbnail {
+	min-width: 100px;
+}
+
+@container (max-width: 250px) {
+	.big__thumbnails .big__thumbnail {
+		flex: 1 1 100%;
+	}
+}
+
+@container (min-width: 250px) and (max-width: @screen-xs) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 50%;
+	}
+}
+
+@container (min-width: @screen-xs) and (max-width: @screen-sm) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 25%;
+	}
+}
+
+@container (min-width: @screen-sm) and (max-width: @screen-md) {
+	.big__thumbnails .big__thumbnail {
+		flex: 0 1 16.66666667%;
+	}
+}
+
+// Ensure sitelogo never interrupts positioning of navbar toggle
+@media (max-width: @screen-sm) {
+	.navbar-header {
+	    padding-right: 75px;
+	    position: relative;
+
+		.navbar-toggle {
+			top: 50%;
+		    position: absolute;
+		    right: 0;
+		    transform: translateY(-50%);
+		    margin: 0 15px;
+		}
+
+	}
+}
+
+// Fix the navbar with flexbox enabled on it
+@media (min-width: @screen-sm) {
+	#site-menu.flex-children,
+	#site-menu.fb-parent {
+		display: flex !important;
+
+		.navbar-nav {
+			flex: 0 1 auto;
+		}
+
+	}
+}
+
+
 // Adds a small margin between the system log and the buttons below
-.serverlog textarea { 
+.serverlog textarea {
 	margin-bottom: @form-group-margin-bottom;
 }
 
@@ -14,7 +158,7 @@
 // Remove unnecessary BRs
 .ptreebuttons br,
 .addnewtemplatebottom > br,
-[id$="_divLdapTestPassword"] {
+[id$="_divLdapTestPassword"] br {
 	display: none;
 }
 
@@ -44,11 +188,28 @@
 
 }
 
+// Add some margins for the host mapping options in site settings
+.hostslist,
+.foldernamelist {
+	margin-top: 20px;
+}
+
+.add-mapping {
+	margin-bottom: 20px;
+}
+
+
 // Img auto scale
 img {
 	max-width: 100%;
 	height: auto !important;
 	max-height: 100%;
+}
+
+// Fix Bootstrap Media Object image, the image max-width: 100% makes the image hide
+.media-object { 
+	max-height: none; 
+	max-width: none;
 }
 
 
@@ -208,9 +369,29 @@ img {
 .cke_tpl_preview .cke_tpl_preview_img {
 	width: 110px;
 	min-width: 110px;
-	max-width: 110px;
+	max-width: 110px; 
 }
 
+.cke_panel_listItem pre {
+	margin: 0;
+	overflow: initial;
+	white-space: normal;
+}
+
+.cke_panel_listItem address {
+	margin: 0;
+}
+
+// Other CKE niceties
+span.cke_combo_text {
+	width: inherit;
+}
+div.cke_combopanel {
+    height: 45vh;
+}
+body.dialogpage {
+    background: none white;
+}
 
 // Ensure logolist is visible and the img next to it isn't huge
 .logolist:extend(.settingrow all) { 
@@ -342,6 +523,19 @@ div.txterror:extend(.alert all, .alert-danger all)  {
 			}
 		}
 	}
+}
+
+.adminmenu ul.simplelist>li.secwarning a {
+	border-color: @brand-danger;
+
+	&::before {
+		color: @brand-danger;
+	}
+
+	small {
+		color: @brand-danger;
+	}
+
 }
 
 
@@ -532,6 +726,42 @@ body.pagenotfound {
 }
 
 
+// Admin Setting Styles
+.setting-section-title {
+	background-color: @navbar-default-bg;
+	color: @navbar-default-color;
+	padding: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.setting-section-body {
+	padding: 10px 15px 0;
+}
+
+// Override Features Styles From Search - For Feature List In Sub-Sites
+.manage-site-features {
+
+	[id*="_upFeatures"] {
+		display: block;
+
+		h3 {
+			font-size: 18px;
+			margin-top: 20px;
+		}
+	}
+
+	.row {
+		margin-bottom: 20px;
+	}
+
+	select {
+		width: 100%;
+	}
+	
+}
+
+
 // jQuery Component containers Overrides
 .ui-widget {
 	font-family: @font-family-base;
@@ -583,6 +813,203 @@ body.pagenotfound {
 	max-height: none;
 }
 
+
+// Prevent negative margin on inputs that are given list-inline by SuperFlexi
+input.list-inline {
+	margin-left: 0;
+}
+
+
+// Pretty Checkbox, Radio, and Toggles
+.formwizard,
+.pretty-checkboxes,
+.cats-list {
+
+	.rbroles, .box-inline li, .radio-inline, .checkbox-inline {
+		cursor: default;
+		padding-left: 0;
+	}
+
+	input[type='radio'],
+	input[type='checkbox'] {
+	  display: none;
+	  cursor: pointer;
+	}
+
+	.formwizardedit div[id*="_QuestionEditor"] {
+		input[type='radio'],
+		input[type='checkbox'] {
+		  display: inline-block;
+		  cursor: pointer;
+		}
+	}
+
+	input[type='radio']:focus, input[type='radio']:active,
+	input[type='checkbox']:focus,
+	input[type='checkbox']:active {
+	  outline: none;
+	}
+	input[type='radio'] + label,
+	input[type='checkbox'] + label,
+	.aspNetDisabled + .prettyemptylabel {
+	  cursor: pointer;
+	  display: inline-block;
+	  position: relative;
+	  padding-left: 25px;
+	  margin-right: 10px;
+	  margin-bottom: 10px;
+	  color: @gray-darker;
+	}
+	input:not([type='checkbox']) + [type='checkbox'] + label {
+		margin-left: 10px;
+		font-weight: normal;
+	}
+
+	input[type='radio'] + label:before, input[type='radio'] + label:after,
+	input[type='checkbox'] + label:before,
+	input[type='checkbox'] + label:after,
+	.aspNetDisabled + .prettyemptylabel:before,
+	.aspNetDisabled + .prettyemptylabel:after {
+	  content: '';
+	  font-family: helvetica;
+	  display: inline-block;
+	  width: 18px;
+	  height: 18px;
+	  left: 0;
+	  top: 2px;
+	  text-align: center;
+	  position: absolute;
+	}
+	input[type='radio'] + label:before,
+	input[type='checkbox'] + label:before,
+	.aspNetDisabled + .prettyemptylabel:before {
+	  background-color: @gray-lighter;
+	  transition: all 0.2s ease-in-out;
+	}
+	input[type='radio'] + label:after,
+	input[type='checkbox'] + label:after,
+	.aspNetDisabled + .prettyemptylabel:after {
+	  color: #fff;
+	}
+	input[type='radio']:checked + label:before,
+	input[type='checkbox']:checked + label:before {
+	  box-shadow: inset 0 0 0 10px @brand-primary;
+	}
+
+	/*Radio Specific styles*/
+	input[type='radio'] + label:before {
+	  border-radius: 50%;
+	}
+	input[type='radio'] + label:hover:after, input[type='radio']:checked + label:after {
+	  content: '\2022';
+	  position: absolute;
+	  top: 0px;
+	  font-size: 20px;
+	  line-height: 22px;
+	}
+	input[type='radio'] + label:hover:after {
+	  color: darken(@gray-lighter, 10%);
+	}
+	input[type='radio']:checked + label:after, input[type='radio']:checked + label:hover:after {
+	  color: #fff;
+	}
+
+	/*Checkbox Specific styles*/
+	input[type='checkbox'] + label:before,
+	.aspNetDisabled + .prettyemptylabel:before {
+	  border-radius: 3px;
+	}
+	input[type='checkbox'] + label:hover:after,
+	input[type='checkbox']:checked + label:after,
+	.aspNetDisabled + .prettyemptylabel:hover:after {
+	  content: "\2713";
+	  line-height: 18px;
+	  font-size: 14px;
+	}
+	input[type='checkbox'] + label:hover:after,
+	.aspNetDisabled + .prettyemptylabel:hover:after {
+	  color: darken(@gray-lighter, 10%);
+	}
+	input[type='checkbox']:checked + label:after, input[type='checkbox']:checked + label:hover:after {
+	  color: #fff;
+	}
+
+	/*Toggle Specific styles*/
+	input[type='checkbox'].toggle {
+	  display: inline-block;
+	  appearance: none;
+	  width: 55px;
+	  height: 28px;
+	  background-color: @gray-lighter;
+	  position: relative;
+	  border-radius: 30px;
+	  transition: all 0.2s ease-in-out;
+	}
+	input[type='checkbox'].toggle:hover:after {
+	  background-color: darken(@gray-lighter, 10%);
+	}
+	input[type='checkbox'].toggle:after {
+	  content: '';
+	  display: inline-block;
+	  position: absolute;
+	  width: 24px;
+	  height: 24px;
+	  background-color: @gray-light;
+	  top: 2px;
+	  left: 2px;
+	  border-radius: 50%;
+	  transition: all 0.2s ease-in-out;
+	}
+	input[type='checkbox']:checked.toggle {
+	  box-shadow: inset 0 0 0 15px @brand-primary;
+	}
+	input[type='checkbox']:checked.toggle:after {
+	  left: 29px;
+	  background-color: #fff;
+	}
+
+	/* Disabled Styles */
+	.aspNetDisabled + .prettyemptylabel:hover:after {
+		content: "\f05e"
+	}
+}
+
+// Small fix for ECP recurr
+[for$="_chkTicketIncludesRecurrence"] + .aspNetDisabled,
+[for$="_chkUseSameSalesBeginForRecurrences"] + .aspNetDisabled {
+	width: 21px;
+	height: 21px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle; 
+
+	&:hover::after {
+		position: absolute;
+		top: 73%;
+		left: 100%;
+		transform: translateY(-50%);
+		content: "Recurrences are disabled.";
+		font-size: 13px;
+		color: #fff;
+		background: @gray-darker;
+		white-space: nowrap;
+		padding: 4px 6px;
+		border-radius: 4px;
+		z-index: 1;
+	}
+
+	&:hover::before {
+		content: '';
+		position: absolute;
+		top: 73%;
+		left: calc(100% - 3px);
+		transform: translateY(-50%);
+		border-right: 5px solid @gray-darker;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		z-index: 1;
+	}
+}
 
 // Category select checklist
 .cats-wrap {

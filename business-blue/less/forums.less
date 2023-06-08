@@ -33,11 +33,22 @@
 }
 
 // Post
-.forumview .modulepager,
+.forumview .modulepager, 
 .forumthreadview .modulepager,
 .postlistwrap,
 .forumnotify {
 	margin-bottom: @line-height-computed;
+}
+
+.postcontainer .cmdbar {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.postcontainer .markanswer,
+.postcontainer .marksent,
+.postcontainer .sendnotification {
+	margin-right: 5px;
 }
 
 .postcontainer {
@@ -92,4 +103,21 @@
 	img {
 		display: none;
 	}
+}
+
+.forumpostusername .edituser {
+	font-size: 0;
+	color: transparent;
+
+	.fontawesome("\f007", before);
+
+	&::before {
+		font-size: @font-size-base;
+		color: @link-color;
+	}
+
+	&:hover::before {
+		color: @link-hover-color;
+	}
+
 }

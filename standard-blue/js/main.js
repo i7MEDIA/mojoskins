@@ -36,7 +36,7 @@
 // --------------------------------------------------
 $(document).ready(function() {
 	// Add caret to menu items with drop-down
-	$('.site-nav .dropdown-toggle > a').append(' <span class="caret"></span>'); 
+	$('.navbar-site .dropdown-toggle > a').append(' <span class="caret"></span>');
 
 	// Administration Drawer | Needs to be refoctored and moved to administration.js
 	if ($('.workflow-type select').length > 0) {
@@ -105,4 +105,15 @@ $(document).ready(function() {
 	// Remove classes from certain elements
 	$(".pollchoose .buttonlink, input[id$='_btnShowResults']").removeClass("buttonlink");
 	$(".altfile").parent(".breadcrumbs").removeClass("breadcrumbs");
+
+	// Placeholders for form wizard
+	if ($('.formwizard.labels-as-placeholders')) {
+		$('.formwizard.labels-as-placeholders [id$="_pnlQuestions"] .settingrow').each(function() {
+			var label = $(this).find('label').text();
+			if ($(this).hasClass('require')) {
+				label = label+" *";
+			}
+			$(this).find('input[type="text"]').prop('placeholder', label);
+		});
+	}
 });

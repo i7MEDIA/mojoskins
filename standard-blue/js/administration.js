@@ -21,7 +21,7 @@
 			return Get_Cookie('fwEditLinks');
 		},
 		setCookie: function(fwValue) {
-			Set_Cookie('fwEditLinks', fwValue);
+			Set_Cookie('fwEditLinks', fwValue, "", "/");
 		},
 		hide: function() {
 			[].forEach.call(this.links, function(link) {
@@ -62,7 +62,7 @@
 	if (document.querySelector('.admin-drawer')) {
 		toggleLinks.init();
 	}
-})();
+})(); 
 
 
 
@@ -82,7 +82,7 @@
 		},
 		getCookie: Get_Cookie('fwAdminDrawer'),
 		setCookie: function(fwValue) {
-			Set_Cookie('fwAdminDrawer', fwValue);
+			Set_Cookie('fwAdminDrawer', fwValue, "", "/");
 		},
 		open: function(fwClass, fwCookie) {
 			var _this = this;

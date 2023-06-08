@@ -126,7 +126,6 @@
 		WeekendDayStyle-CssClass="ec-day ec-weekend-day"
 	/>
 	
-	<%-- For the main ECP Module display --%>
 	<ecp:EventDisplaySettings runat="server"
 		MonthViewCssClass="hide"
 		MonthViewHeaderMarkupTop="</td></tr></tbody></table><div class='ec-month-head row fb-parent fb-row fb-wrap fb-ai-center fb-j-between'>"
@@ -150,7 +149,6 @@
 		DayViewNextFormat="<div class='col-sm-6 text-right'><a href='{0}' title='{1}' class='btn btn-sm btn-default' {3}>{2}</a></div></div>"
 	 />
 
-	 <%-- For the ECP Month View Module --%>
 	 <ecp:EventDisplaySettings runat="server" SkinID="MonthViewModule"
 		MonthViewCssClass="hide"
 		MonthViewHeaderMarkupTop="</td></tr></tbody></table><div class='ec-month-head row fb-parent fb-row fb-wrap fb-ai-center fb-j-between'>"
