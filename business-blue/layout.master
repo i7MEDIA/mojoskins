@@ -28,8 +28,9 @@
 		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludejQueryAccordion="true" />
 		<script src="//code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.6.0.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/nivo-slider/jquery.nivo.slider.pack.js" RenderInPlace="true" />
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" RenderInPlace="true" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>"/>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" RenderInPlace="true" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>"/>
 	    <portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
 
 		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
@@ -255,7 +256,7 @@
 								<span class="foot__link-fa fa fa-sitemap"></span><a class="foot__link" href="/SiteMap.aspx">Site Map</a>
 							</span>
 							<span>
-								<span class="foot__link-fa fa fa-sign-in"></span><portal:LoginLink id="LoginLinkFoot" runat="server" RenderAsListItem="false" />
+								<span class="foot__link-fa fa fa-sign-in"></span><portal:LoginLink id="LoginLinkFoot" runat="server" RenderAsListItem="false" /><portal:LogoutLink id="LogoutLinkFoot" runat="server" RenderAsListItem="false" />
 							</span>
 						</div>
 						<div class="col-sm-5 g-y-mobile">
