@@ -14774,6 +14774,10 @@ body.pagenotfound .pnfmsg .alert-link {
   left: auto;
   right: -3px;
 }
+.content-slider__item--inner {
+  background-color: #bdbdbd;
+  color: #3E3F3A;
+}
 .fb-bordered-section-wrap {
   border: 2px solid #F8F5F0;
 }
