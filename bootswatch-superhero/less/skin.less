@@ -15,6 +15,10 @@
 }
 
 // Another color overwrite that should remain here in skin.less
+nav.custom-sidebar ul>li>a {
+    color: @text-color;
+}
+
 nav.custom-sidebar ul>.active:focus>a:before, 
 nav.custom-sidebar ul>.active:hover>a:before, 
 nav.custom-sidebar ul>.active>a:before {
@@ -31,7 +35,7 @@ nav.custom-sidebar ul > li > a:hover,
 nav.custom-sidebar ul > li > a:focus {
     background-color: @gray-dark;
     color: @brand-success;
-}
+} 
 
 // Convert all the black-by-default site images to be white
 input[src*="/Data/SiteImages/delete.png"],
@@ -106,3 +110,4 @@ img[src*="/Data/SiteImages/edit.png"] {
 .input-group .form-control.date-picker:not([type=checkbox]) {
     max-height: 31px;
 }
+
