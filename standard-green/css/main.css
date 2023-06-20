@@ -14445,11 +14445,6 @@ del {
   height: auto;
   padding: 25px 15px;
 }
-.site-nav .navbar-brand img {
-  height: 100% !important;
-  max-width: none !important;
-  width: auto;
-}
 .site-nav .navbar-header {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -14494,11 +14489,6 @@ del {
   .site-nav .container::before,
   .site-nav .container::after {
     content: none;
-  }
-  .site-nav .navbar-header {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
   }
   .site-nav .navbar-collapse {
     -webkit-box-align: center;
@@ -14737,6 +14727,10 @@ del {
 .custom-sidebar.right-bordered ul > .active > a::before {
   left: auto;
   right: -3px;
+}
+.content-slider__item--inner {
+  background-color: #bdbdbd;
+  color: #333333;
 }
 .fb-bordered-section-wrap {
   border: 2px solid #eeeeee;
