@@ -1150,24 +1150,90 @@ input.list-inline {
 
 
 // Text Editor Font Sizes
-.font-xsmall {
+.font-xsmall,
+.text-xsmall {
 	font-size: 60%;
 }
 
-.font-small {
+.font-small,
+.text-small {
 	font-size: 80%;
 }
 
-.font-normal {
+.font-normal,
+.text-normal {
 	font-size: 100%;
 }
 
-.font-large {
+.font-large,
+.text-large {
 	font-size: 120%;
 }
 
-.font-xlarge {
+.font-xlarge,
+.text-xlarge {
 	font-size: 140%;
+}
+
+
+// Text Editor Image Classes
+@media (max-width: @screen-xs-max) {
+	.image-left,
+	.image-right {
+		display: block;
+		margin: 0 0 (@line-height-computed / 2);
+		text-align: center;
+
+		img& {
+			display: table;
+			margin: 0 auto (@line-height-computed / 2);
+			vertical-align: top;
+		}
+	}
+}
+
+.image-center {
+	display: block;
+	margin: 0 0 (@line-height-computed / 2);
+	text-align: center;
+}
+
+@media (min-width: @screen-sm) {
+	.image-left {
+		float: left;
+		margin-right: (@line-height-computed / 2);
+	}
+
+	.image-right {
+		float: right;
+		margin-left: (@line-height-computed / 2);
+	}
+}
+
+.image-captioned {
+	figcaption {
+		font-size: small;
+		margin: (@line-height-computed / 2) 0;
+		opacity: 0.7;
+	}
+}
+
+
+
+// Insert and Delete elements
+ins {
+	background-color: #eaffea;
+	border-bottom: 1px dotted #80ce51;
+	color: black;
+	text-decoration: none;
+}
+
+
+del {
+	background-color: #ffdddd;
+	border-bottom: 1px dotted #c37575;
+	color: #555;
+	text-decoration: none;
 }
 
 
@@ -1175,7 +1241,7 @@ input.list-inline {
 .newsletterpicker-label {
 	font-weight: 400;
 	text-align: center;
-}
+} 
 
 .newsletterpicker-list {
 	width: 100%;
