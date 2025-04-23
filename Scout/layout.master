@@ -37,7 +37,6 @@
 	</head>
 	<body class="pagebody" id="Body" runat="server">
 		<portal:FacebookSdk id="fbsdk" runat="server" />
-		<portal:AnalyticsAsyncTopScript id="analyticsTop" runat="server" />
 		<portal:LayoutDisplaySettings id="LayoutDisplaySettings1" runat="server" />
 		<form id="frmMain" runat="server" class="main-form">
 			<asp:SiteMapDataSource id="SiteMapData" runat="server" ShowStartingNode="false" />
@@ -236,8 +235,6 @@
 			</nav>
 
 		</form>
-
-		<portal:AnalyticsAsyncBottomScript id="analyticsBottom" runat="server" />
 
 		<!-- Main Script -->
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/bootstrap.min.js" RenderInPlace="true" />
