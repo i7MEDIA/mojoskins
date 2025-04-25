@@ -442,3 +442,38 @@
 .labels-as-placeholders [id$="_pnlQuestions"] label {
 	display: none;
 }
+
+// small fix for admin ui
+.dragVisualContainer {
+	list-style: none;
+}
+.fwp-edit-questions_item {
+	border-bottom: 1px solid @gray-lighter;
+	margin: 15px 0;
+	padding: 10px 0 15px;
+}
+.fwp-edit-reorderPlaceholder,
+.fwp-reorder-list_template {
+	border: 1px dashed @gray-lighter;
+	background-color: fade(@gray-lighter, 20%);
+	margin: (@grid-gutter-width / 2) 0;
+	height: 90%;
+}
+
+.fwp-reorder-list__item {
+	list-style: none outside none;
+}
+
+.draghandle {
+	.fontawesome('\f0c9', before);
+	border-radius: @btn-border-radius-base;
+	border: 1px solid @btn-default-border;
+	cursor: n-resize;
+	float: left;
+	margin-right: 10px;
+	padding: 8px 12px 6px;
+
+	li {
+		list-style: none;
+	}
+}
