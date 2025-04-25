@@ -4,18 +4,20 @@
 	protected PageSettings thePageSettings = CacheHelper.GetCurrentPage();
 </script>
 <!DOCTYPE html>
-<html class="htmlclass" id="Html" runat="server">
-	<head id="Head1" runat="server">
+<html class="htmlclass" ID="Html" runat="server">
+	<head ID="Head1" runat="server">
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 		<!--#include file="includes/favicons.html"-->
-		<portal:MetaContent id="MetaContent" runat="server" DisableContentType="true" PreZoomForIPhone="false" />
+		<portal:MetaContent ID="MetaContent" runat="server" DisableContentType="true" PreZoomForIPhone="false" />
 
 		<!-- Style -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+		<portal:SkinFolderCssFile runat="server" CssFileName="fonts/fontawesome-free-6.4.2-web/css/all.min.css" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="fonts/fontawesome-free-6.4.2-web/css/v4-shims.min.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.css" />
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/default/default.css" />
@@ -23,28 +25,30 @@
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/dark/dark.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/bar/bar.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/nivo-slider.css" />
-		<portal:StyleSheetCombiner id="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" IncludeColorBox="true" />
+		<portal:StyleSheetCombiner ID="StyleSheetCombiner" runat="server" IncludeJQueryUI="false" UseIconsForAdminLinks="false" EnableNonClickablePageLinks="true" IncludeColorBox="true" />
 
 		<!-- Scripts -->
-		<portal:ScriptLoader id="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludejQueryAccordion="true" />
-		<script src="//code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.6.0.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
+		<portal:ScriptLoader ID="ScriptLoader1" runat="server" AssumejQueryIsLoaded="true" AssumejQueryUiIsLoaded="true" IncludeColorBox="false" IncludejQueryAccordion="true" />
+		<script src="//code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-3.7.0.min.js" ScriptRefFormat="<script>window.jQuery || document.write('<script src=\'{0}\'><\/script>')</script>" RenderInPlace="true" />
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/nivo-slider/jquery.nivo.slider.pack.js" RenderInPlace="true" />
-		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" RenderInPlace="true" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>"/>
-	    <portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
+		<portal:SkinFolderScript runat="server" ScriptFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js" RenderInPlace="true" ScriptRefFormat="<script>window.jQuery.ui || document.write('<script src=\'{0}\'><\/script>')</script>" />
+		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.css" LinkFormat="<script>window.jQuery.ui || document.write('<link rel=\'stylesheet\' href=\'{0}\'>')</script>" RenderInPlace="true" />
 
 		<!-- Change JQueryUI plugin names to fix name collision with Bootstrap. -->
-		<script>$.widget.bridge('uiTooltip', $.ui.tooltip);$.widget.bridge('uiButton', $.ui.button);</script>
+		<script>$.widget.bridge('uiTooltip', $.ui.tooltip); $.widget.bridge('uiButton', $.ui.button);</script>
 	</head>
 	<body class="pagebody" id="Body" runat="server">
-		<portal:FacebookSdk id="fbsdk" runat="server" />
-		<portal:LayoutDisplaySettings id="LayoutDisplaySettings1" runat="server" />
-		<form id="frmMain" runat="server" class="main-form">
-			<asp:SiteMapDataSource id="SiteMapData" runat="server" ShowStartingNode="false" />
-			<asp:SiteMapDataSource id="PageMapDataSource" runat="server" ShowStartingNode="false" />
-			<asp:SiteMapDataSource id="ChildPageSiteMapData" runat="server" ShowStartingNode="false" />
-			<asp:ScriptManager id="ScriptManager1" EnablePageMethods="true" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
+		<portal:FacebookSdk ID="fbsdk" runat="server" />
+
+		<portal:LayoutDisplaySettings ID="LayoutDisplaySettings1" runat="server" />
+			<form ID="frmMain" runat="server" class="main-form">
+				<a href="#main-content" class="sr-only skiplink"><%= Resources.Resource.SkipLink %></a>
+			<asp:SiteMapDataSource ID="SiteMapData" runat="server" ShowStartingNode="false" />
+			<asp:SiteMapDataSource ID="PageMapDataSource" runat="server" ShowStartingNode="false" />
+			<asp:SiteMapDataSource ID="ChildPageSiteMapData" runat="server" ShowStartingNode="false" />
+			<asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" />
 
 			<!--#include file="includes/browsehappy.html"-->
 			<!--#include file="includes/administration-drawer.html"-->
@@ -98,7 +102,7 @@
 						</portal:LayoutPanel>
 
 
-						<div class="row">
+						<div class="row" ID="start-content">
 							<portal:LayoutPanel ID="divLeft" runat="server" SkinID="LeftPane">
 								<%-- Below is an optional page menu, uncomment to enable --%>
 								<%-- portal:PageMenu id="PageMenu1" runat="server" UseFlexMenu="true" /> --%>
