@@ -72,7 +72,7 @@
 							</div>
 
 							<div class="collapse navbar-collapse fb-parent fb-row fb-j-end fb-ai-center fb-sm-66" ID="site-menu">
-								<portal:SiteMenu ID="SiteMenu1" runat="server" MenuSkinID="MainMenu" UseFlexMenu="true" />
+								<portal:Menu runat="server" View="MobileMenu" />
 								<%-- Below is an optional cart-link that sits by the menu, but only works if the webstore add-on is installed --%>
 								<%-- <span class="flex-cart-inline">
 									<webstore:FlexCartLink ID="cartlink1" runat="server" PageID="4" ModuleID="5" ModuleGuID="f4260a9f-d170-4e4a-a8c8-baf0bcbc22b6" IncludeItemCount="true" IncludeCartTotal="true" LiteralTopMarkup="<span class='topnavitem cartnav'><span class='ui-icon ui-icon-cart'></span>" LiteralBottomMarkup="</span>" CssClass="sitelink" />
