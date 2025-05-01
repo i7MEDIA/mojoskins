@@ -1,3 +1,3 @@
 #Standard Blue skin for mojoPortal
 
-As standard skin for mojoPortal
+A standard skin for mojoPortal

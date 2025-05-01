@@ -16,7 +16,7 @@
 		<portal:SkinFolderCssFile runat="server" CssFileName="fonts/fontawesome-free-6.4.2-web/css/all.min.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="fonts/fontawesome-free-6.4.2-web/css/v4-shims.min.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/smartmenus/jquery.smartmenus.bootstrap.css" />
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/pepper-grinder/jquery-ui.css">
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/default/default.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/light/light.css" />
 		<portal:SkinFolderCssFile runat="server" CssFileName="js/vendors/nivo-slider/themes/dark/dark.css" />
@@ -72,7 +72,7 @@
 							</div>
 
 							<div class="collapse navbar-collapse fb-parent fb-row fb-j-end fb-ai-center fb-sm-66" ID="site-menu">
-								<portal:SiteMenu ID="SiteMenu1" runat="server" MenuSkinID="MainMenu" UseFlexMenu="true" />
+								<portal:Menu runat="server" View="Menu" />
 								<%-- Below is an optional cart-link that sits by the menu, but only works if the webstore add-on is installed --%>
 								<%-- <span class="flex-cart-inline">
 									<webstore:FlexCartLink ID="cartlink1" runat="server" PageID="4" ModuleID="5" ModuleGuID="f4260a9f-d170-4e4a-a8c8-baf0bcbc22b6" IncludeItemCount="true" IncludeCartTotal="true" LiteralTopMarkup="<span class='topnavitem cartnav'><span class='ui-icon ui-icon-cart'></span>" LiteralBottomMarkup="</span>" CssClass="sitelink" />

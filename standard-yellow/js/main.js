@@ -33,7 +33,7 @@
 // --------------------------------------------------
 $(document).ready(function() {
 	// Add caret to menu items with drop-down
-	$('.navbar-nav .dropdown-toggle > a').append(' <span class="caret"></span>');
+	$('.navbar-site .dropdown-toggle > a').append(' <span class="caret"></span>');
 
 	// Remove classes from certain elements
 	$(".pollchoose .buttonlink, input[id$='_btnShowResults']").removeClass("buttonlink");

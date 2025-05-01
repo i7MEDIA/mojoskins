@@ -1,9 +1,5 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/App_MasterPages/layout.Master.cs" Inherits="mojoPortal.Web.layout" %>
 <%@ Register TagPrefix="i7MEDIA" TagName="SuperWrapper" Src="~/SuperFlexi/SuperWrapper.ascx" %>
-<script runat="server">
-	protected SiteSettings theSiteSettings = CacheHelper.GetCurrentSiteSettings();
-	protected PageSettings thePageSettings = CacheHelper.GetCurrentPage();
-</script>
 <!DOCTYPE html>
 <html class="htmlclass" id="Html" runat="server">
 	<head id="Head1" runat="server">
@@ -42,6 +38,7 @@
 		<portal:FacebookSdk id="fbsdk" runat="server" />
 		<portal:LayoutDisplaySettings id="LayoutDisplaySettings1" runat="server" />
 		<form id="frmMain" runat="server" class="main-form">
+		<a href="#main-content" class="sr-only skiplink"><%= Resources.Resource.SkipLink %></a>
 			<asp:SiteMapDataSource id="SiteMapData" runat="server" ShowStartingNode="false" />
 			<asp:SiteMapDataSource id="PageMapDataSource" runat="server" ShowStartingNode="false" />
 			<asp:SiteMapDataSource id="ChildPageSiteMapData" runat="server" ShowStartingNode="false" />
@@ -52,7 +49,7 @@
 
 			<div class="sitewrap">
 				<header class="head" role="banner">
-					<% if (thePageSettings != null && thePageSettings.ShowPageHeading) { %>
+					<% if (currentPage != null && currentPage.ShowPageHeading) { %>
 					<nav class="navbar navbar-default navbar-static-top site-nav" role="navigation">
 					<% } else {%>
 					<nav class="navbar navbar-default navbar-static-top site-nav no-page-title" role="navigation">
@@ -76,13 +73,17 @@
 							</div>
 
 							<div class="collapse navbar-collapse fb-parent fb-row fb-j-end fb-ai-center fb-sm-66" id="site-menu">
-								<portal:SiteMenu id="SiteMenu1" runat="server" MenuSkinId="MainMenu" UseFlexMenu="true" />
+								<portal:Menu runat="server" View="Menu" />
+								<%-- Below is an optional cart-link that sits by the menu, but only works if the webstore add-on is installed --%>
+								<%-- <span class="flex-cart-inline">
+									<webstore:FlexCartLink ID="cartlink1" runat="server" PageID="4" ModuleID="5" ModuleGuID="f4260a9f-d170-4e4a-a8c8-baf0bcbc22b6" IncludeItemCount="true" IncludeCartTotal="true" LiteralTopMarkup="<span class='topnavitem cartnav'><span class='ui-icon ui-icon-cart'></span>" LiteralBottomMarkup="</span>" CssClass="sitelink" />
+								</span> --%>
 							</div>
 						</div>
 					</nav>
 				</header>
 
-				<% if (thePageSettings != null && thePageSettings.ShowPageHeading) { %>
+				<% if (currentPage != null && currentPage.ShowPageHeading) { %>
 				<div class="page-title">
 					<div class="container">
 						<h1 class="m-y-0"><portal:PageTitle id="PageTitle1" runat="server" /></h1>

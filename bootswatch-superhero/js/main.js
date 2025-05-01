@@ -1,7 +1,7 @@
 //
 // Event Calendar - Clean out styles and BR elements
 // --------------------------------------------------
-
+ 
 ;(function() {
 	var cal = document.querySelector('.event-cal');
 
