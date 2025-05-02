@@ -590,6 +590,33 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <asp:HyperLink runat="server" SkinID="TextButtonSmall" CssClass="btn btn-link btn-xs" />
 <asp:HyperLink runat="server" SkinID="CBTextButtonSmall" CssClass="cblink btn btn-link btn-xs" />
 
+<%--
+	Below we define classes for our alerts to match bootstrap 3.3.7. Note that AlertPanel was added in mojoPortal version 2.6.0.2 and you MUST comment all instances of AlertPanel out if you are running a previous version
+--%>
+<portal:AlertPanel runat="server" SkinID="Success"
+	Element="div"
+	ExtraCssClasses="alert alert-success"
+/>
+
+<portal:AlertPanel runat="server" SkinID="Info"
+	Element="div"
+	ExtraCssClasses="alert alert-info"
+/>
+
+<portal:AlertPanel runat="server" SkinID="Warning"
+	Element="div"
+	ExtraCssClasses="alert alert-warning"
+/>
+
+<portal:AlertPanel runat="server" SkinID="Error"
+	Element="div"
+	ExtraCssClasses="alert alert-danger"
+/>
+
+<portal:AlertPanel runat="server" SkinID="Danger"
+	Element="div"
+	ExtraCssClasses="alert alert-danger"
+/>
 
 <%-- Titles/Headings --%>
 

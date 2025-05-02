@@ -592,7 +592,7 @@ body {
 // --------------------------------------------------------------------
 
 // Banner slider
-.top-pane .content-slider-module:first-child {
+.top-pane > .content-slider:first-child {
 	margin-top: -50px;
 }
 
@@ -1565,12 +1565,12 @@ address {
 	} 
 
 	@media(min-width: @screen-sm) {
-		[id$="_pnlQuestions"] {
+		.fwp__form-questions {
 			.make-row();
 		}
 	}
 
-	[id$="_pnlQuestions"] {
+	.fwp__form-questions {
 		
 		.settingrow:not([class*="col-"]) {
 			.make-md-column(12);
@@ -1669,7 +1669,7 @@ address {
 // See screen-lg section for column styles
 .pages-to-columns {
 
-	[id$="_pnlQuestions"] {
+	.fwp__form-questions {
 		
 
 	}
@@ -4308,7 +4308,7 @@ object {
 
 
 	// Content Slider
-	.content-slider-module {
+	.top-pane > .content-slider {
 		margin-bottom: @grid-gutter-width;
 	}
 
@@ -4794,7 +4794,7 @@ object {
 	// Form Styles - Enable pages-to-columns at screen-lg
 	.pages-to-columns {
 
-		[id$="_pnlQuestions"] {
+		.fwp__form-questions {
 			display: flex;
 			flex-flow: row nowrap;
 			align-items: stretch; 
