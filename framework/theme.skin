@@ -88,9 +88,10 @@
 <%--
 	These are for Pro Modules
 	=========================
-	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
+	
 	<%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
 	<%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
+	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
 --%>
 
 <%--
@@ -199,6 +200,7 @@
 	ReorderTemplateCssClass="fwp-reorder-list__template panel panel-default panel-body"
 	ReorderTemplateJavaScript="<script>;function pageLoad(e,t){var o = document.getElementById('reorderPlaceholder');if(o!=undefined){o.parentNode.style.marginBottom=window.getComputedStyle(o).getPropertyValue('margin-bottom')}}</script>"
 />
+--%>
 
 <portal:BasePanel runat="server" SkinID="FWPOptionControls"
 	CssClass="btn-group-vertical"
@@ -241,18 +243,6 @@
 <portal:mojoButton runat="server" SkinID="FWPSubmitBtn"
 	CssClass="btn btn-success"
 />
---%>
-
-<%-- Base Layout --%>
-
-<portal:LayoutDisplaySettings runat="server"
-	LeftSideNoRightSideCss="left-center"
-	RightSideNoLeftSideCss="right-center"
-	CenterNoLeftSideCss="col-md-9 center-right"
-	CenterNoRightSideCss="col-md-9 center-left"
-	CenterNoLeftOrRightSideCss="col-md-12 nomargins"
-	CenterWithLeftAndRightSideCss="col-md-6 center-left-right"
-/>
 
 <%-- Main Content Layout Panels --%>
 <portal:LayoutPanel runat="server" SkinID="TopPane"
@@ -286,16 +276,13 @@
 	CssClass="form-control"
 />
 <asp:TextBox runat="server" SkinId="SliderInput"
-	CssClass="slider-input"
+	CssClass="range-w-output__range"
 />
 <asp:TextBox runat="server" SkinId="SliderOutput"
-	CssClass="slider-output"
+	CssClass="range-w-output__output"
 />
 <asp:TextBox runat="server" SkinId="regex"
 	CssClass="form-control pwd-regex"
-/>
-<mp:WatermarkTextBox runat="server"
-	CssClass="form-control watermarktextbox"
 />
 <asp:ListBox  runat="server" SkinID="PageTree"
 	CssClass="form-control page-tree"
@@ -598,6 +585,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <portal:mojoButton runat="server" SkinID="LinkButton" CssClass="btn btn-link" />
 <portal:mojoButton runat="server" SkinID="TextButton" CssClass="btn btn-link" />
 <portal:mojoButton runat="server" SkinID="Text" CssClass="btn-text" />
+<portal:mojoButton runat="server" SkinID="CancelButton" CssClass="btn-text" />
 <asp:HyperLink runat="server" SkinID="TextButton" CssClass="btn btn-link"/>
 <asp:HyperLink runat="server" SkinID="TextButtonSmall" CssClass="btn btn-link btn-xs" />
 <asp:HyperLink runat="server" SkinID="CBTextButtonSmall" CssClass="cblink btn btn-link btn-xs" />
@@ -828,9 +816,6 @@ http://foundation.zurb.com/docs/ui.php
 	SuppressCornerDivs="true"
 	MaxDataBindDepth="1"
 	/>
-
-	
-
 
 <portal:mojoTreeView runat="server" SkinID="PageMenu"
 	ContainerElement="nav"
@@ -1184,12 +1169,3 @@ http://foundation.zurb.com/docs/ui.php
 	RepeatDirection="vertical"
 	RepeatLayout="UnorderedList"
 />
-
-
-
-
-<%-- Obsolete --%>
-
-<%-- these are used in other skins to add additional markup for nifty corners --%>
-<mp:CornerRounderTop    runat="server" DoRounding="false" />
-<mp:CornerRounderBottom runat="server" DoRounding="false" />

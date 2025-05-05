@@ -1,3 +1,45 @@
+// Expose compiled vars to plain CSS for easy overrides and use in SuperFlexi Solutions separate from the skin
+:root {
+    --gray-base:       @gray-base;
+    --gray-darker:     @gray-darker;
+    --gray-dark:       @gray-dark;
+    --gray:            @gray;
+    --gray-light:      @gray-light;
+    --gray-midlight:   @gray-midlight;
+    --gray-lighter:    @gray-lighter;
+    --brand-primary:   @brand-primary;
+    --brand-success:   @brand-success;
+    --brand-info:      @brand-info;
+    --brand-warning:   @brand-warning;
+    --brand-danger:    @brand-danger;
+    --text-color:      @text-color;
+
+    --screen-xs:       @screen-xs;
+    --screen-md:       @screen-md;
+    --screen-lg:       @screen-lg; 
+
+	--grid-gutter-width: @grid-gutter-width;
+
+	--font-family-base: 		@font-family-base;
+	--font-family-sans-serif: 	@font-family-sans-serif;
+	--font-family-serif: 		@font-family-serif;
+	--font-family-monospace: 	@font-family-monospace;
+
+	--font-size-base: 		@font-size-base;
+	--font-size-large:		@font-size-large;
+	--font-size-small:		@font-size-small;
+	--font-size-h1:   		@font-size-h1;
+	--font-size-h2:   		@font-size-h2;
+	--font-size-h3:   		@font-size-h3;
+	--font-size-h4:   		@font-size-h4;
+	--font-size-h5:   		@font-size-h5;
+	--font-size-h6:   		@font-size-h6;
+	--headings-font-family: @headings-font-family;
+	--headings-font-weight: @headings-font-weight;
+	--headings-line-height: @headings-line-height;
+	--headings-color:		@headings-color;
+} 
+
 // Server log
 .serverlog dd.logmessage { 
     overflow: auto hidden; 
@@ -19,10 +61,6 @@
     margin-top: 20px; 
 } 
 
-// Basic formwizard styles
-.formwizard .block-label .settinglabel {width: auto;display:block;}
-.formwizard .inline-block-label {width:auto;}
-.formwizard .hide-label .settinglabel {display:none;}
 
 // Misc Fixes / Fixes For SuperFlexi Solutions
 .top-pane .content-slider-module:first-child {
@@ -32,7 +70,8 @@
 // Ensures aspect ratio on default Site Logos
 .navbar-logo {
 	height: auto;
-	max-height: 300px;
+	max-height: 300px; 
+	width: 100%;
 }
 
 .navbar-brand {
@@ -158,7 +197,7 @@ span.cartnav {
 // Remove unnecessary BRs
 .ptreebuttons br,
 .addnewtemplatebottom > br,
-[id$="_divLdapTestPassword"] {
+[id$="_divLdapTestPassword"] br {
 	display: none;
 }
 
@@ -252,13 +291,6 @@ img {
 .row_vieworder input.smalltextbox {
 	display: inline-block;
 	margin-left: -4px;
-}
-
-
-// Alignment fix for ui datepicker
-.date-picker + .ui-datepicker-trigger {
-	height: 41px;
-	vertical-align: middle;
 }
 
 
@@ -394,14 +426,14 @@ body.dialogpage {
 }
 
 // Ensure logolist is visible and the img next to it isn't huge
-.logolist:extend(.settingrow all) { 
+.logolist:extend(.settingrow all) {  
 	select {
 		max-height: auto !important;
 		height: auto !important;
 
-		& + img,
-		& + svg {
-			max-width: 200px;
+		& ~ img,
+		& ~ svg {
+			max-width: 300px;
 			margin-left: 20px;
 		}
 		
@@ -864,6 +896,13 @@ input.list-inline {
 	input[type='checkbox']:active {
 	  outline: none;
 	}
+
+	// highlight focused boxes using focus-visible so that it only appears when you're tabbing
+	input[type='checkbox']:focus-visible:after,
+	input[type='radio']:focus-visible:after {
+		outline: 1px solid @text-color;
+	}
+
 	input[type='radio'] + label,
 	input[type='checkbox'] + label,
 	.aspNetDisabled + .prettyemptylabel {
@@ -873,7 +912,7 @@ input.list-inline {
 	  padding-left: 25px;
 	  margin-right: 10px;
 	  margin-bottom: 10px;
-	  color: @gray-darker;
+	  color: @text-color;
 	}
 	input:not([type='checkbox']) + [type='checkbox'] + label {
 		margin-left: 10px;
@@ -1236,6 +1275,22 @@ del {
 	text-decoration: none;
 }
 
+// Override input widths inside settingrows
+.input-fullwidth {
+	width: 100% !important;
+}
+
+// Make login page inputs line up
+.loginpage .idrow .settinglabel,
+.loginpage .passwordrow .settinglabel {
+	width: 10em;
+}
+
+
+// Minor alignment fix for redirect manager
+.urlmanager .form-inline .form-group {
+	margin-bottom: (@grid-gutter-width / 2);
+}
 
 // Newsletter Picker Styles
 .newsletterpicker-label {
@@ -1246,3 +1301,317 @@ del {
 .newsletterpicker-list {
 	width: 100%;
 } 
+
+// Range With Output
+// =================================
+
+// Default Styles
+.range-w-output {
+	align-items: center;
+	display: inline-flex;
+	max-width: 100%;
+	min-width: 160px;
+	width: 260px;
+}
+
+.range-w-output__range {
+	flex: 1 1 auto;
+}
+
+.range-w-output__output {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	flex: none;
+	line-height: 1.1;
+	margin-left: 10px;
+	padding: 1px 2px 0;
+	text-align: center;
+}
+
+// Custom Style
+.range-w-output__range {
+	-webkit-appearance: none;
+}
+
+.range-w-output__range:focus {
+	outline: none;
+}
+
+.range-w-output__range::-webkit-slider-runnable-track {
+	background: @gray-lighter;
+	cursor: pointer;
+	height: 8px;
+	margin: 12px 0;
+	width: 100%;
+}
+
+.range-w-output__range::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: @brand-primary;
+	border-radius: 2px;
+	cursor: pointer;
+	height: 20px;
+	width: 10px;
+	transform: translate(0, calc(-50% + 4px));
+}
+
+.range-w-output__range:focus::-webkit-slider-runnable-track {
+	background: lighten(@brand-primary, 30%);
+}
+
+.range-w-output__range::-moz-range-track {
+	background: @gray-lighter;
+	cursor: pointer;
+	height: 8px;
+	width: 100%;
+}
+
+.range-w-output__range::-moz-range-thumb {
+	background: @brand-primary;
+	border-radius: 2px;
+	cursor: pointer;
+	height: 20px;
+	width: 10px;
+}
+
+.range-w-output__range::-ms-track {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 solid transparent;
+	box-sizing: border-box;
+	color: transparent;
+	cursor: pointer;
+	height: 8px;
+	margin: 12px 0;
+	width: 100%;
+}
+
+.range-w-output__range::-ms-fill-lower {
+	background: none repeat scroll 0 0 @brand-primary;
+	border-radius: 0px;
+	border: 0px solid #000;
+	box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;
+	box-sizing: border-box;
+}
+
+.range-w-output__range::-ms-fill-upper {
+	background: none repeat scroll 0 0 @brand-primary;
+	border-radius: 0px;
+	border: 0px solid #000;
+	box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;
+	box-sizing: border-box;
+}
+
+.range-w-output__range::-ms-thumb {
+	background: none repeat scroll 0 0 #FFF;
+	border-radius: 2px;
+	border: 1px solid #000;
+	box-sizing: border-box;
+	cursor: pointer;
+	height: 32px;
+	width: 14px;
+}
+
+.range-w-output__range:focus::-ms-fill-lower {
+	background: none repeat scroll 0 0 lighten(@brand-primary, 30%);
+}
+
+.range-w-output__range:focus::-ms-fill-upper {
+	background: none repeat scroll 0 0 lighten(@brand-primary, 30%);
+}
+
+
+// login or register prompts
+.signinorregister {
+	border: 2px solid @gray-lighter;
+	padding: 30px;
+	display: flex;
+	flex-flow: column wrap;
+	gap: 30px 0;
+	text-align: center;
+	justify-content: center;
+
+	@media (min-width: 550px) {
+		flex-flow: row wrap;
+	}
+
+	.signinorregisterinstructions {
+		flex: 0 0 100%;
+	}
+
+	> .floatpanel {
+		font-size: 0;
+		padding: 20px 0;
+
+		> a {
+			font-size: @font-size-base;
+		}
+	}
+
+	.signinorregister-signinprompt > a:extend(.btn all, .btn-success all) {
+		&::before {
+			display: inline-block;
+			font-family: "FontAwesome";
+			font-size: @font-size-base;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			padding-right: 10px;
+			content: "\f090";
+		}
+	}
+	
+	.signinorregister-registerprompt {
+		padding-top: 50px;
+		position: relative;
+
+		&::before {
+			border-top: 2px dashed lighten(@gray-light, 5%);
+			content: "";
+			left: 0px;
+			position: absolute;
+			top: 0;
+			height: auto;
+			width: 100%;
+			display: block;
+		}
+
+		&::after {
+			background-color: #fff;
+			content: "OR";
+			left: 50%;
+			position: absolute;
+			top: 0;
+			display: block;
+			transform: translate(-50%, -50%);
+    		padding: 5px 20px;
+			color: lighten(@gray-light, 5%);
+			text-align: center;
+			font-weight: 700;
+			font-size: 14px;
+		}
+
+		@media (min-width: 550px) {
+			padding-top: 20px;
+			padding-left: 100px;
+
+			&::before {
+				border-top: 0 none;
+				border-left: 2px dashed lighten(@gray-light, 5%);
+				left: 50px;
+				top: 50%;
+				transform: translate(0, -50%);
+				width: auto;
+				height: 100px;
+			}
+
+			&::after {
+				left: 50px;
+				position: absolute;
+				top: 50%;
+				display: block;
+				transform: translate(-50%, -50%);
+				padding: 5px;
+			}
+		}
+	}
+
+	.signinorregister-registerprompt > a:extend(.btn all, .btn-info all) {
+		&::before {
+			display: inline-block;
+			font-family: "FontAwesome";
+			font-size: @font-size-base;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			padding-right: 10px;
+			content: "\f234";
+		}
+	}
+}
+
+/*
+ * Callouts
+ *
+ * Adapted from bootstrap docs styles
+ */
+
+/* Common styles for all types */
+.callout-block {
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid @gray-lighter;
+    border-left-color: #c7be9d;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: #fff;
+  
+    &:first-child {
+      margin-top: 0;
+    }
+  
+    &.with-svg {
+      position: relative;
+      padding-left: (@grid-gutter-width + 64px);
+  
+      img {
+          position: absolute;
+          top: 50%;
+          left: (@grid-gutter-width / 2);
+          width: 64px;
+          transform: translateY(-50%);
+      }
+  
+    }
+  
+  }
+  
+  .moduleanchor + .modulelinks + .callout-block,
+  .moduleanchor+ .callout-block {
+      margin-top: 0;
+  }
+  
+  .callout-block h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .callout-block p:last-child {
+    margin-bottom: 0;
+  }
+  .callout-block code {
+    border-radius: 3px;
+  }
+  
+  /* Tighten up space between multiple callouts */
+  .callout-block + .callout-block {
+    margin-top: -5px;
+  }
+  
+  /* Variations */
+  .callout-block-primary {
+    border-left-color: @brand-primary;
+  }
+  .callout-block-primary h4 {
+    color: @brand-primary;
+  }
+  .callout-block-danger {
+    border-left-color: @brand-danger;
+  }
+  .callout-block-danger h4 {
+    color: @brand-danger;
+  }
+  .callout-block-warning {
+    border-left-color: @brand-warning;
+  }
+  .callout-block-warning h4 {
+    color: @brand-warning;
+  }
+  .callout-block-info {
+    border-left-color: @brand-info;
+  }
+  .callout-block-info h4 {
+    color: @brand-info;
+  }
+  .callout-block-success {
+    border-left-color: @brand-success;
+  }
+  .callout-block-success h4 {
+    color: @brand-success;
+  }

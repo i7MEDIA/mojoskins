@@ -1,4 +1,3 @@
-
 // Overwrite the default admin drawer background, don't put this in administration-drawer.less because then framework updates will overwrite it
 .admin-drawer {
     background-color: lighten(@gray-base, 5%);
@@ -99,4 +98,9 @@ img[src*="/Data/SiteImages/edit.png"] {
 // Fix weird datepicker alignment in some places
 .input-group .form-control.date-picker:not([type=checkbox]) {
     max-height: 31px;
+}
+
+// Misc Fixes / Fixed For SuperFlexi Solutions
+.top-pane > .content-slider:first-child  {
+    margin: -(@grid-gutter-width/2) -(@grid-gutter-width/2) (@grid-gutter-width/2) -(@grid-gutter-width/2); // Fixes banner slider position in top pane
 }

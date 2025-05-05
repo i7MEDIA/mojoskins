@@ -109,9 +109,9 @@ $(document).ready(function() {
 
 
 	// Rearrange elements in icon-enabled forms to allow CSS adjustments to the label based on the focus state of the input
-	if ($('.icon-inputs .formwizard').length) {
+	if ($('.icon-inputs.formwizard').length) {
 		$('.icon-inputs').addClass('js-icon-enabled');
-		$('.icon-inputs .formwizard .settinglabel').each(function() {
+		$('.icon-inputs.formwizard .settinglabel').each(function() {
 			$(this).insertAfter($(this).nextAll('input, textarea'));
 		});
 	}

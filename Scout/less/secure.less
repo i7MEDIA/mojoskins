@@ -43,6 +43,7 @@
 		.idrow,
 		.passwordrow,
 		.rememberrow,
+		.forgotpasswordrow,
 		.buttonrow,
 		.registerrow {
 			font-size: @font-size-base;
@@ -55,7 +56,8 @@
 			align-items: stretch;
 			justify-content: center;
 
-			strong {
+			strong,
+			label {
 				font-size: 0;
 			    border-radius: 4px 0px 0px 4px;
 			    border: 1px solid lighten(@gray-light, 5%);
@@ -65,7 +67,7 @@
 			    padding: 12px;
 			    text-align: center;
 			    vertical-align: middle;
-			    margin: 0;
+			    margin: 0; 
 
 				.fontawesome('\f007', before, lighten(@gray-light, 5%));
 
@@ -76,7 +78,7 @@
 			}
 
 			br {
-				display: none;
+				display: none; 
 				flex: 0 1 0%;
 			}
 
@@ -93,6 +95,7 @@
 			    padding: 9px 14px;
 			    vertical-align: middle;
 			    margin: 0;
+			    max-width: calc(100% - 45px);
 
 			    &:hover,
 			    &:active,
@@ -106,13 +109,14 @@
 
 		.passwordrow {
 
-			strong::before {
+			strong::before,
+			label::before {
 				content: '\f084';
 			}
 
 		}
 
-		.rememberrow label:hover {
+		.rememberrow label:hover  {
 			cursor: pointer;
 		}
 
@@ -120,7 +124,9 @@
 			text-align: right;
 
 			input[type="submit"]:extend(.btn-primary all) {
-
+				background-image: none;
+				margin-left: 0;
+				margin-right: 0;
 			}
 
 			br {
@@ -169,7 +175,7 @@
 		
 		@media (min-width: @screen-md) {
 			max-width: 80%;
-			margin: 0 auto;
+			margin: 100px auto;
 		}
 
 
@@ -342,6 +348,12 @@
 		.modulecontent {
 			margin: 0 auto;
 			max-width: 80%;
+			padding: 40px 10px;
+
+			> h2 {
+				padding-left: 30px;
+				margin-bottom: 0;
+			}
 		}
 
 		legend {
@@ -358,18 +370,6 @@
 			background-color: #fff;
 			padding: 30px;
 			flex: 1 1 40%;
-
-			&::before {
-				content: "Create A New Account";
-				display: block;
-				color: @brand-primary;
-			    font-size: 28px;
-			    border-bottom: 0 none;
-			    padding: 0;
-			    margin-bottom: 15px;
-			    margin-top: 0;
-			}
-
 		}
 
 		[id$="_pnlThirdPartyAuth"] {
@@ -564,8 +564,18 @@
 			}
 
 		}
+
+		label.alert-success {
+		    padding: 30px;
+		    font-size: 18px;
+		    border-radius: 40px;
+		    text-align: center;
+		    line-height: 30px;
+		}
  
-		input[type="submit"]:extend(.btn-primary all) {}
+		input[type="submit"]:extend(.btn-primary all) {
+			background-image: none;
+		}
 
 	}
 
@@ -593,6 +603,7 @@
 		    padding: 0;
 		    margin-bottom: 12px;
 		    margin-top: 0;
+		    display: none;
 		}
 
 		table,

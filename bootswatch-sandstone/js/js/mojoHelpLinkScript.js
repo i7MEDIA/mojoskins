@@ -1,1 +1,0 @@
-$('a.mhelp').colorbox({width:'85%', height:'85%', iframe:true, maxWidth:'95%',maxHeight:'95%'});

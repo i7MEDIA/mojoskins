@@ -88,9 +88,10 @@
 <%--
 	These are for Pro Modules
 	=========================
-	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
+	
 	<%@ Register TagPrefix="sts" Namespace="sts.Web.UI" Assembly="sts.Web.UI" %>
 	<%@ Register Namespace="sts.Events.Web.UI.Controls" Assembly="sts.Events.Web.UI" TagPrefix="ecp" %>
+	<%@ Register Namespace="sts.FormWizard.Web.UI" Assembly="sts.FormWizard.Web.UI" TagPrefix="stsfw" %>
 --%>
 
 <%--
@@ -199,6 +200,7 @@
 	ReorderTemplateCssClass="fwp-reorder-list__template panel panel-default panel-body"
 	ReorderTemplateJavaScript="<script>;function pageLoad(e,t){var o = document.getElementById('reorderPlaceholder');if(o!=undefined){o.parentNode.style.marginBottom=window.getComputedStyle(o).getPropertyValue('margin-bottom')}}</script>"
 />
+--%>
 
 <portal:BasePanel runat="server" SkinID="FWPOptionControls"
 	CssClass="btn-group-vertical"
@@ -241,7 +243,6 @@
 <portal:mojoButton runat="server" SkinID="FWPSubmitBtn"
 	CssClass="btn btn-success"
 />
---%>
 
 <%--
     Fund Raiser Pro
@@ -343,32 +344,18 @@
     />
 --%>
 
-<portal:LayoutDisplaySettings runat="server"
-    LeftSideNoRightSideCss="left-center"
-    RightSideNoLeftSideCss="right-center"
-    leftAndRightNoCenterCss="col-sm-6"
-    CenterNoLeftSideCss="col-sm-9 center-right"
-    CenterNoRightSideCss="col-sm-9 center-left"
-    CenterNoLeftOrRightSideCss="col-sm-12 nomargins"
-    CenterWithLeftAndRightSideCss="col-sm-6 center-left-right"
-    HideEmptyCenterIfOnlySidesHaveContent="true"
-/>
-
 <%-- Input Classes --%>
 <asp:TextBox runat="server"
 	CssClass="form-control"
 />
 <asp:TextBox runat="server" SkinId="SliderInput"
-	CssClass="slider-input"
+	CssClass="range-w-output__range"
 />
 <asp:TextBox runat="server" SkinId="SliderOutput"
-	CssClass="slider-output"
+	CssClass="range-w-output__output"
 />
 <asp:TextBox runat="server" SkinId="regex"
 	CssClass="form-control pwd-regex"
-/>
-<mp:WatermarkTextBox runat="server"
-	CssClass="form-control watermarktextbox"
 />
 <asp:ListBox  runat="server" SkinID="PageTree"
 	CssClass="form-control page-tree"
@@ -404,9 +391,9 @@
 
 <%-- Panel Classes --%>
 <portal:OuterWrapperPanel runat="server"
-    RenderContentsOnly="false"
-    CssClass="outerwrap"
-    RenderId="false"
+	RenderContentsOnly="false"
+	CssClass="outerwrap"
+	RenderId="false"
     Element="section"
 />
 
@@ -435,11 +422,11 @@
 
 <%-- the 2 below would only be used for stlying purposes they do not contain anything so we set them to not render at all --%>
 <portal:EmptyPanel runat="server" SkinID="modulefooter"
-    DontRender="true"
+	DontRender="true"
 />
 
 <portal:EmptyPanel runat="server" SkinID="cleared"
-    DontRender="true"
+	DontRender="true"
 />
 
 
@@ -705,6 +692,7 @@ http://dev.w3.org/html5/spec/single-page.html#the-nav-element
 <portal:mojoButton runat="server" SkinID="LinkButton" CssClass="btn btn-link" />
 <portal:mojoButton runat="server" SkinID="TextButton" CssClass="btn btn-link" />
 <portal:mojoButton runat="server" SkinID="Text" CssClass="btn-text" />
+<portal:mojoButton runat="server" SkinID="CancelButton" CssClass="btn-text" />
 <asp:HyperLink runat="server" SkinID="TextButton" CssClass="btn btn-link"/>
 <asp:HyperLink runat="server" SkinID="TextButtonSmall" CssClass="btn btn-link btn-xs" />
 <asp:HyperLink runat="server" SkinID="CBTextButtonSmall" CssClass="cblink btn btn-link btn-xs" />
@@ -815,35 +803,35 @@ http://foundation.zurb.com/docs/ui.php
 
 <%-- Main Menu --%>
 <portal:FlexMenu runat="server" SkinID="MainMenu"
-    AnchorChildSelectedCssClass=""
-    AnchorCssClass=""
-    AnchorInnerHtmlBottom=""
-    AnchorInnerHtmlTop=""
-    AnchorSelectedCssClass=""
-    ChildContainerCssClass="subnav"
-    ChildContainerElement=""
-    ChildNodesPerUl="-1"
-    ChildUlCssClass="dropdown-menu"
-    ContainerCssClass="site-nav"
-    ContainerElement=""
-    DescriptionCssClass="mp-mm-desc"
-    ExtraBottomMarkup=""
-    ExtraTopMarkup=""
-    IsMobileSkin="false"
-    ItemDepthCssPrefix=""
-    LiChildSelectedCssClass="active"
-    LiCssClass=""
-    LiSelectedCssClass="active"
-    MaxDataRenderDepth="-1"
-    ParentLiCssClass="dropdown-toggle"
-    RenderCustomClassOnAnchor=""
-    RenderCustomClassOnLi=""
-    RenderDescription="true"
-    RootLevelLiCssClass=""
-    RootUlCssClass="nav navbar-nav sm sm-clean"
-    StartingNodeOffset="-1"
-    UlChildSelectedCssClass=""
-    UlSelectedCssClass=""
+	AnchorChildSelectedCssClass=""
+	AnchorCssClass=""
+	AnchorInnerHtmlBottom=""
+	AnchorInnerHtmlTop=""
+	AnchorSelectedCssClass=""
+	ChildContainerCssClass="subnav"
+	ChildContainerElement=""
+	ChildNodesPerUl="-1"
+	ChildUlCssClass="dropdown-menu"
+	ContainerCssClass="site-nav"
+	ContainerElement=""
+	DescriptionCssClass="mp-mm-desc"
+	ExtraBottomMarkup=""
+	ExtraTopMarkup=""
+	IsMobileSkin="false"
+	ItemDepthCssPrefix=""
+	LiChildSelectedCssClass="active"
+	LiCssClass=""
+	LiSelectedCssClass="active"
+	MaxDataRenderDepth="-1"
+	ParentLiCssClass="dropdown-toggle"
+	RenderCustomClassOnAnchor=""
+	RenderCustomClassOnLi=""
+	RenderDescription="true"
+	RootLevelLiCssClass=""
+	RootUlCssClass="nav navbar-nav sm sm-clean"
+	StartingNodeOffset="-1"
+	UlChildSelectedCssClass=""
+	UlSelectedCssClass=""
 />
 
 <portal:FlexMenu runat="server" SkinID="MobileMenu"
@@ -879,35 +867,35 @@ http://foundation.zurb.com/docs/ui.php
 />
 
 <portal:FlexMenu runat="server" SkinID="Footnav"
-    AnchorChildSelectedCssClass=""
-    AnchorCssClass=""
-    AnchorInnerHtmlBottom=""
-    AnchorInnerHtmlTop=""
-    AnchorSelectedCssClass=""
-    ChildContainerCssClass=""
-    ChildContainerElement=""
-    ChildNodesPerUl="-1"
-    ChildUlCssClass=""
-    ContainerCssClass="row"
-    ContainerElement="div"
-    DescriptionCssClass="description"
-    ExtraBottomMarkup=""
-    ExtraTopMarkup=""
-    IsMobileSkin="false"
-    ItemDepthCssPrefix=""
-    LiChildSelectedCssClass="mp-current"
-    LiCssClass=""
-    LiSelectedCssClass="active"
-    MaxDataRenderDepth="1"
-    ParentLiCssClass="li-with-child"
-    RenderCustomClassOnAnchor=""
-    RenderCustomClassOnLi=""
-    RenderDescription="true"
-    RootLevelLiCssClass="root-li"
-    RootUlCssClass="foot-nav"
-    StartingNodeOffset="-1"
-    UlChildSelectedCssClass=""
-    UlSelectedCssClass=""
+	AnchorChildSelectedCssClass=""
+	AnchorCssClass=""
+	AnchorInnerHtmlBottom=""
+	AnchorInnerHtmlTop=""
+	AnchorSelectedCssClass=""
+	ChildContainerCssClass=""
+	ChildContainerElement=""
+	ChildNodesPerUl="-1"
+	ChildUlCssClass=""
+	ContainerCssClass="row"
+	ContainerElement="div"
+	DescriptionCssClass="description"
+	ExtraBottomMarkup=""
+	ExtraTopMarkup=""
+	IsMobileSkin="false"
+	ItemDepthCssPrefix=""
+	LiChildSelectedCssClass="mp-current"
+	LiCssClass=""
+	LiSelectedCssClass="active"
+	MaxDataRenderDepth="1"
+	ParentLiCssClass="li-with-child"
+	RenderCustomClassOnAnchor=""
+	RenderCustomClassOnLi=""
+	RenderDescription="true"
+	RootLevelLiCssClass="root-li"
+	RootUlCssClass="foot-nav"
+	StartingNodeOffset="-1"
+	UlChildSelectedCssClass=""
+	UlSelectedCssClass=""
 />
 
 <%-- Page Menu --%>
@@ -959,148 +947,146 @@ http://foundation.zurb.com/docs/ui.php
 />
 
 <portal:mojoTreeView runat="server" SkinID="SiteMenu"
-    ContainerElement="nav"
-    ContainerCssClass="col-md-4"
-    RootUlCssClass="root-nav"
-    RenderLiCssClasses="true"
-    LiSelectedCssClass="current"
-    LiChildSelectedCssClass=""
-    LiRootExpandableCssClass=""
-    LiRootNonExpandableCssClass=""
-    LiNonRootExpnadableCssClass=""
-    RenderAnchorCss="false"
-    ExpandDepth="-1"
-    ShowExpandCollapse="false"
-    PopulateNodesFromClient="false"
-    SuppressCornerDivs="true"
-    MaxDataBindDepth="1"
-    />
-
-
+	ContainerElement="nav"
+	ContainerCssClass="col-md-4"
+	RootUlCssClass="root-nav"
+	RenderLiCssClasses="true"
+	LiSelectedCssClass="current"
+	LiChildSelectedCssClass=""
+	LiRootExpandableCssClass=""
+	LiRootNonExpandableCssClass=""
+	LiNonRootExpnadableCssClass=""
+	RenderAnchorCss="false"
+	ExpandDepth="-1"
+	ShowExpandCollapse="false"
+	PopulateNodesFromClient="false"
+	SuppressCornerDivs="true"
+	MaxDataBindDepth="1"
+	/>
 
 <portal:mojoTreeView runat="server" SkinID="PageMenu"
-    ContainerElement="nav"
-    ContainerCssClass="pagemenu listoflinks"
-    RootUlCssClass="linkitem"
-    ChildUlCssClass="subs"
-    AppendDepthToChildUlCssClass="false"
-    RenderLiCssClasses="true"
-    LiCssClass="linkitem"
-    LiSelectedCssClass="current"
-    LiChildSelectedCssClass="current"
-    LiRootExpandableCssClass=""
-    LiRootNonExpandableCssClass=""
-    LiNonRootExpnadableCssClass=""
-    RenderAnchorCss="false"
-    ExpandedCssClass="AspNet-TreeView-Collapse"
-    CollapsedCssClass="AspNet-TreeView-Expand"
-    ExpandDepth="-1"
-    ShowExpandCollapse="true"
-    RenderNoBreakSpaceInExpander="false"
-    PopulateNodesFromClient="false"
-    SuppressCornerDivs="true"
+	ContainerElement="nav"
+	ContainerCssClass="pagemenu listoflinks"
+	RootUlCssClass="linkitem"
+	ChildUlCssClass="subs"
+	AppendDepthToChildUlCssClass="false"
+	RenderLiCssClasses="true"
+	LiCssClass="linkitem"
+	LiSelectedCssClass="current"
+	LiChildSelectedCssClass="current"
+	LiRootExpandableCssClass=""
+	LiRootNonExpandableCssClass=""
+	LiNonRootExpnadableCssClass=""
+	RenderAnchorCss="false"
+	ExpandedCssClass="AspNet-TreeView-Collapse"
+	CollapsedCssClass="AspNet-TreeView-Expand"
+	ExpandDepth="-1"
+	ShowExpandCollapse="true"
+	RenderNoBreakSpaceInExpander="false"
+	PopulateNodesFromClient="false"
+	SuppressCornerDivs="true"
 />
 
 <portal:mojoTreeView runat="server" SkinID="SiteMapPage"
-    ContainerElement="nav"
-    ContainerCssClass="sitemap listoflinks"
-    RootUlCssClass="linkitem"
-    ChildUlCssClass="subs"
-    AppendDepthToChildUlCssClass="false"
-    RenderLiCssClasses="true"
-    LiCssClass="linkitem"
-    LiSelectedCssClass="current"
-    LiChildSelectedCssClass="current"
-    LiRootExpandableCssClass=""
-    LiRootNonExpandableCssClass=""
-    LiNonRootExpnadableCssClass=""
-    RenderAnchorCss="false"
-    ExpandedCssClass="AspNet-TreeView-Collapse"
-    CollapsedCssClass="AspNet-TreeView-Expand"
-    ExpandDepth="-1"
-    ShowExpandCollapse="true"
-    RenderNoBreakSpaceInExpander="false"
-    PopulateNodesFromClient="false"
-    SuppressCornerDivs="true"
+	ContainerElement="nav"
+	ContainerCssClass="sitemap listoflinks"
+	RootUlCssClass="linkitem"
+	ChildUlCssClass="subs"
+	AppendDepthToChildUlCssClass="false"
+	RenderLiCssClasses="true"
+	LiCssClass="linkitem"
+	LiSelectedCssClass="current"
+	LiChildSelectedCssClass="current"
+	LiRootExpandableCssClass=""
+	LiRootNonExpandableCssClass=""
+	LiNonRootExpnadableCssClass=""
+	RenderAnchorCss="false"
+	ExpandedCssClass="AspNet-TreeView-Collapse"
+	CollapsedCssClass="AspNet-TreeView-Expand"
+	ExpandDepth="-1"
+	ShowExpandCollapse="true"
+	RenderNoBreakSpaceInExpander="false"
+	PopulateNodesFromClient="false"
+	SuppressCornerDivs="true"
 />
 
 <portal:mojoTreeView runat="server" SkinID="ChildSiteMap"
-    ContainerElement="nav"
-    ContainerCssClass="childsitemap listoflinks"
-    RootUlCssClass="linkitem"
-    ChildUlCssClass="subs"
-    AppendDepthToChildUlCssClass="false"
-    RenderLiCssClasses="true"
-    LiCssClass="linkitem"
-    LiSelectedCssClass="current"
-    LiChildSelectedCssClass="current"
-    LiRootExpandableCssClass=""
-    LiRootNonExpandableCssClass=""
-    LiNonRootExpnadableCssClass=""
-    RenderAnchorCss="false"
-    ExpandedCssClass="AspNet-TreeView-Collapse"
-    CollapsedCssClass="AspNet-TreeView-Expand"
-    ExpandDepth="-1"
-    ShowExpandCollapse="true"
-    RenderNoBreakSpaceInExpander="false"
-    PopulateNodesFromClient="false"
-    SuppressCornerDivs="true"
+	ContainerElement="nav"
+	ContainerCssClass="childsitemap listoflinks"
+	RootUlCssClass="linkitem"
+	ChildUlCssClass="subs"
+	AppendDepthToChildUlCssClass="false"
+	RenderLiCssClasses="true"
+	LiCssClass="linkitem"
+	LiSelectedCssClass="current"
+	LiChildSelectedCssClass="current"
+	LiRootExpandableCssClass=""
+	LiRootNonExpandableCssClass=""
+	LiNonRootExpnadableCssClass=""
+	RenderAnchorCss="false"
+	ExpandedCssClass="AspNet-TreeView-Collapse"
+	CollapsedCssClass="AspNet-TreeView-Expand"
+	ExpandDepth="-1"
+	ShowExpandCollapse="true"
+	RenderNoBreakSpaceInExpander="false"
+	PopulateNodesFromClient="false"
+	SuppressCornerDivs="true"
 />
 
 <%-- Pagers --%>
 
 <portal:mojoCutePager runat="server"
-    ContainerElement=""
-    ContainerElementCssClass=""
-    RenderNavElement="true"
-    RenderAsList="true"
-    LeaveOutSpans="false"
-    WrapPageInfoInAnchor="false"
-    PageInfoCssClass="disabled"
-    CurrentPageCellCssClass="active"
-    CurrentPageCssClass=""
-    OtherPageCellCssClass=""
-    OtherPageCssClass=""
-    FirstClause="&#xf100;"
-    PreviousClause="&#xf104;"
-    NextClause="&#xf105;"
-    LastClause="&#xf101;"
+	ContainerElement=""
+	ContainerElementCssClass=""
+	RenderNavElement="true"
+	RenderAsList="true"
+	LeaveOutSpans="false"
+	WrapPageInfoInAnchor="false"
+	PageInfoCssClass="disabled"
+	CurrentPageCellCssClass="active"
+	CurrentPageCssClass=""
+	OtherPageCellCssClass=""
+	OtherPageCssClass=""
+	FirstClause="&#xf100;"
+	PreviousClause="&#xf104;"
+	NextClause="&#xf105;"
+	LastClause="&#xf101;"
 />
 
 <portal:mojoCutePager runat="server" SkinID="Blog"
-    ContainerElement=""
-    ContainerElementCssClass=""
-    RenderNavElement="true"
-    RenderAsList="true"
-    LeaveOutSpans="false"
-    WrapPageInfoInAnchor="false"
-    PageInfoCssClass="disabled"
-    CurrentPageCellCssClass="active"
-    CurrentPageCssClass=""
-    OtherPageCellCssClass=""
-    OtherPageCssClass=""
-    FirstClause="&#xf100;"
-    PreviousClause="&#xf104;"
-    NextClause="&#xf105;"
-    LastClause="&#xf101;"
+	ContainerElement=""
+	ContainerElementCssClass=""
+	RenderNavElement="true"
+	RenderAsList="true"
+	LeaveOutSpans="false"
+	WrapPageInfoInAnchor="false"
+	PageInfoCssClass="disabled"
+	CurrentPageCellCssClass="active"
+	CurrentPageCssClass=""
+	OtherPageCellCssClass=""
+	OtherPageCssClass=""
+	FirstClause="&#xf100;"
+	PreviousClause="&#xf104;"
+	NextClause="&#xf105;"
+	LastClause="&#xf101;"
 />
 
 <%-- Member List --%>
 
 <portal:MemberListDisplaySettings  runat="server"
-    TableCssClass="table table-condensed table-hover"
-    TableAttributes=""
-    ShowFirstAndLastName="true"
-    ShowEmail="false"
-    ShowJoinDate="true"
-    ShowUserId="false"
-    ShowForumPosts="true"
-    HideWebSiteColumn="true"
-    UseListForAlphaPager="true"
-    AlphaPagerContainerCssClass="member-list"
-    AlphaPagerCurrentPageCssClass="active"
-    AlphaPagerOtherPageCssClass=""
-    AllUsersLinkCssClass=""
+	TableCssClass="table table-condensed table-hover"
+	TableAttributes=""
+	ShowFirstAndLastName="true"
+	ShowEmail="false"
+	ShowJoinDate="true"
+	ShowUserId="false"
+	ShowForumPosts="true"
+	HideWebSiteColumn="true"
+	UseListForAlphaPager="true"
+	AlphaPagerContainerCssClass="member-list"
+	AlphaPagerCurrentPageCssClass="active"
+	AlphaPagerOtherPageCssClass=""
+	AllUsersLinkCssClass=""
 />
 
 <%-- Search --%>
@@ -1133,55 +1119,55 @@ http://foundation.zurb.com/docs/ui.php
 
 <%-- Grid Views --%>
 <mp:mojoGridView runat="server"
-    TableCssClass="table table-striped table-bordered table-condensed"
-    RenderCellSpacing="false"
-    RenderTableId="false"
+	TableCssClass="table table-striped table-bordered table-condensed"
+	RenderCellSpacing="false"
+	RenderTableId="false"
 />
 
 <mp:mojoGridView runat="server" SkinID="SharedFiles"
-    TableCssClass="table table-bordered table-condensed table-striped shared-files-table"
-    RenderCellSpacing="false"
-    RenderTableId="false"
+	TableCssClass="table table-bordered table-condensed table-striped shared-files-table"
+	RenderCellSpacing="false"
+	RenderTableId="false"
 />
 
 <mp:mojoGridView runat="server" SkinID="plain"
-    TableCssClass="table table-striped table-bordered table-condensed"
-    RenderCellSpacing="false"
-    RenderTableId="false"
+	TableCssClass="table table-striped table-bordered table-condensed"
+	RenderCellSpacing="false"
+	RenderTableId="false"
 />
 
 <mp:mojoGridView runat="server" SkinID="FileManager"
-    TableCssClass="table table-striped table-bordered table-condensed table-file-manager"
-    RenderCellSpacing="false"
-    RenderTableId="false"
+	TableCssClass="table table-striped table-bordered table-condensed table-file-manager"
+	RenderCellSpacing="false"
+	RenderTableId="false"
 />
 
 <%-- Shared Files --%>
 <sf:SharedFilesDisplaySettings runat="server"
-    HideDescription="false"
-    HideSize="false"
-    HideDownloadCount="false"
-    HideModified="true"
-    HideUploadedBy="true"
-    HideFirstColumnIfNotEditable="true"
+	HideDescription="false"
+	HideSize="false"
+	HideDownloadCount="false"
+	HideModified="true"
+	HideUploadedBy="true"
+	HideFirstColumnIfNotEditable="true"
 />
 
 <asp:TextBox runat="server" SkinID="SharedFilesNewFolderInput"
-    CssClass="form-control"
+	CssClass="form-control"
 />
 
 <portal:mojoButton runat="server" SkinID="SharedFilesNewFolderButton"
-    CssClass="btn btn-primary"
+	CssClass="btn btn-primary"
 />
 
 
 
 <%-- Create User Wizard --%>
 <asp:CreateUserWizard runat="server"
-    CreateUserButtonStyle-CssClass="btn btn-default"
-    ContinueButtonStyle-CssClass="btn btn-default"
-    FinishCompleteButtonStyle-CssClass="btn btn-success"
-    StartNextButtonStyle-CssClass="btn btn-default"
+	CreateUserButtonStyle-CssClass="btn btn-default"
+	ContinueButtonStyle-CssClass="btn btn-default"
+	FinishCompleteButtonStyle-CssClass="btn btn-success"
+	StartNextButtonStyle-CssClass="btn btn-default"
 />
 
 <%-- Calendars --%>
@@ -1352,6 +1338,8 @@ http://foundation.zurb.com/docs/ui.php
 	RepeatLayout="UnorderedList"
 />
 
-<%-- these are used in other skins to add additional markup for nifty corners --%>
-<mp:CornerRounderTop    runat="server" DoRounding="false" />
-<mp:CornerRounderBottom runat="server" DoRounding="false" />
+<asp:CheckBoxList runat="server" SkinID="ECPFilter"
+	CssClass="box-inline"
+	RepeatDirection="vertical"
+	RepeatLayout="UnorderedList"
+/>
