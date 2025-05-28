@@ -538,7 +538,7 @@ input[type="file"] {
 
 // Access Denied
 .modulecontent.accessdenied:extend(.alert all, .alert-info all) {
-	a:extend(.alert .alert-link, .alert-info .alert-link) {
+	a:not(:empty):extend(.alert .alert-link, .alert-info .alert-link) {
 		.fontawesome('\f100', before);
 		&::before {
 			margin-right: 6px;
